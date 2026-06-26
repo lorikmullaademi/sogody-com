@@ -88,12 +88,12 @@ window.SogodyServiceDetailData = {
     tech: {
       title: ["Innovate. Build. Scale. With the", "technologies that drive success."],
       cards: [
-        { title: "TensorFlow", description: "Machine Learning (ML) Frameworks", mono: "TF" },
-        { title: "Microsoft Azure", description: "Cloud & ML Platform", mono: "Az" },
-        { title: "IBM Watson", description: "AI Solutions for Enterprise", mono: "IBM" },
-        { title: "ChatGPT", description: "Large Language Models", mono: "GPT" },
-        { title: "Google AI", description: "Machine Learning (ML) Frameworks", mono: "G" },
-        { title: "Amazon SageMaker", description: "Model Training & Deployment", mono: "SM" },
+        { title: "TensorFlow", description: "Machine Learning (ML) Frameworks", img: `${SD_SANITY}/1726b9a9167f66e4da9abd7e8b2e0536b0361320-64x67.webp` },
+        { title: "Microsoft Azure", description: "Cloud & ML Platform", img: `${SD_SANITY}/64bde982580f4068ac877bee15d2c822cafb8d68-165x129.webp` },
+        { title: "IBM Watson", description: "AI Solutions for Enterprise", img: `${SD_SANITY}/d9c29f2fb360edf1a2a23e84fd1f89452a68efbb-225x122.webp` },
+        { title: "ChatGPT", description: "Large Language Models", img: `${SD_SANITY}/0a6a0e5580eb80902051f69c0ff7147587a88320-130x132.webp` },
+        { title: "Google AI", description: "Machine Learning (ML) Frameworks", img: `${SD_SANITY}/68bff0d44852bf2d14bb06141ceff9faa63ee3a8-35x38.webp` },
+        { title: "Amazon SageMaker", description: "Model Training & Deployment", img: `${SD_SANITY}/a28e8a3502a8f83bf401cd506760836be5f56a1b-201x212.webp` },
       ],
     },
     platforms: {
@@ -154,12 +154,12 @@ window.SogodyServiceDetailData = {
     tech: {
       title: ["Innovate. Build. Scale. With the", "technologies that drive success."],
       cards: [
-        { title: "Adobe Creative Cloud", description: "Design & Multimedia Suite", mono: "Cc" },
-        { title: "Figma", description: "UI/UX Design & Prototyping", mono: "Fi" },
-        { title: "Optimizely", description: "A/B Testing & Experimentation", mono: "Op" },
-        { title: "CRO/Proof", description: "Conversion Rate Optimization (CRO)", mono: "CP" },
-        { title: "VWO", description: "A/B Testing & CRO Platform", mono: "VW" },
-        { title: "Google Optimize", description: "A/B Testing & Personalization Tool", mono: "GO" },
+        { title: "Adobe Creative Cloud", description: "Design & Multimedia Suite", img: `${SD_SANITY}/dd0ef1e89b656c4414edb44043c5e747ca66ba6a-259x63.webp` },
+        { title: "Figma", description: "UI/UX Design & Prototyping", img: `${SD_SANITY}/23fdbe19fa662f65dcbbdaff0db0901f1e19e2c3-97x137.webp` },
+        { title: "Optimizely", description: "A/B Testing & Experimentation", img: `${SD_SANITY}/e27e9feec54025fa85ce94c358e4b39dd0594d50-417x121.webp` },
+        { title: "CRO/Proof", description: "Conversion Rate Optimization (CRO)", img: `${SD_SANITY}/974009c4c4e7dec0f396729c4a31881afd0106ec-328x52.webp` },
+        { title: "VWO", description: "A/B Testing & CRO Platform", img: `${SD_SANITY}/a5583d3ebe79e903757be38e2527b44ab7ce1e08-272x90.webp` },
+        { title: "Google Optimize", description: "A/B Testing & Personalization Tool", img: `${SD_SANITY}/63551150012ea8c0e89da0467e1c9aacd2d22f87-134x137.webp` },
       ],
     },
     promo: {
