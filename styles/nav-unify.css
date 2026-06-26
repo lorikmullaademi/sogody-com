@@ -1,0 +1,24 @@
+/* nav-unify.css — unify the top navigation across the whole site.
+
+   Every page now renders the homepage header (SrcHeader, components/src-header.jsx).
+   That nav reuses generic class names (.contact-us-link, .nav-link-black, …) which
+   the legacy "shell" page CSS (styles/sogody.css, styles/site.css) also styles for
+   the old lighter navbar. A few of those legacy rules set properties the homepage
+   nav CSS doesn't, so they leak through and break parity (e.g. the green
+   "Contact Us" pill wraps to two lines because sogody.css gives it wide padding).
+
+   These overrides are scoped under .header-wrapper (the SrcHeader root) so they
+   only affect the nav — never the in-body CTAs that share the same class names —
+   and use higher specificity than the flat legacy rules so the homepage's values
+   win regardless of stylesheet load order. Load this file LAST on every page. */
+
+.header-wrapper .contact-us-link {
+  width: 120px;
+  min-width: 120px;
+  height: 45px;
+  min-height: 45px;
+  padding: 4px 6px 1px;                 /* homepage pill padding (not the legacy 24px) */
+  font-size: 18px;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  border-radius: 50px;
+}

@@ -6,183 +6,26 @@ const { useState: useStateShell, useEffect: useEffectShell, useRef: useRefShell 
 const { ContactButton, ARROW_DOWN, LOGO } = window.SogodyKit;
 const { NAV, SERVICES, BOOKING_URL } = window.SogodyData;
 
-/* ---------- Services mega-dropdown (desktop) ---------- */
-function ServicesDropdown({ show }) {
-  return (
-    <div className={`service-nav-dropdown ${show ? "show" : ""}`}>
-      <div className="dropdown-left-side dropdown-inner-styling">
-        <a href="services.html">
-          <p className="header-service-title all-solutions mb-2">
-            All Solutions
-            <span className="mini-arrow-container less-padding"><span className="mini-arrow mini-arrow-right"><img src={ARROW_DOWN} alt="" /></span></span>
-          </p>
-        </a>
-        {SERVICES.map((s) => (
-          <a className={`service-item-navbar ${s.slug}`} href={`service.html?slug=${s.slug}`} key={s.slug}>
-            <div className="service-item-navbar-inner">
-              <div className="nav-service-logo-ctn"><img className="nav-service-logo" src={s.img} alt="" /></div>
-              <div className="header-service-title service-item-row">
-                <span className="inner-service-title">{s.title}</span>
-                <span className="mini-arrow-container less-padding"><span className="mini-arrow mini-arrow-right"><img src={ARROW_DOWN} alt="" /></span></span>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
+/* ---------- Header ----------
+   Unified site nav: every page renders the SAME header as the homepage by
+   delegating to SrcHeader (components/src-header.jsx, the faithful repo mirror).
+   A KoalendarSidebar is also mounted so the nav's "Contact Us" opens the same
+   booking sidebar as the homepage. This replaces the older lighter `sg-navbar`
+   recreation so the top menu is 100% consistent across the whole site.
 
-/* ---------- Header ---------- */
+   Requires components/src-kit.jsx + components/src-header.jsx to be loaded
+   before shell.jsx (added to every page's HTML). */
 function Header({ active = "" }) {
-  const [isMobile, setIsMobile] = useStateShell(false);
-  const [menuShow, setMenuShow] = useStateShell(false);
-  const [showServices, setShowServices] = useStateShell(false);   // mobile accordion
-  const [showDropdown, setShowDropdown] = useStateShell(false);   // desktop dropdown
-  const [hover, setHover] = useStateShell({ left: null, width: null });
-  const [slider, setSlider] = useStateShell({ left: 0, width: 0 });
-  const [atTop, setAtTop] = useStateShell(true);
-  const navRef = useRefShell(null);
-  const itemRefs = useRefShell([]);
-
-  useEffectShell(() => {
-    const mq = window.matchMedia("(max-width: 1023px)");
-    const on = () => setIsMobile(mq.matches);
-    on(); mq.addEventListener("change", on);
-    return () => mq.removeEventListener("change", on);
-  }, []);
-
-  useEffectShell(() => {
-    const on = () => setAtTop(window.scrollY === 0);
-    on(); window.addEventListener("scroll", on);
-    return () => window.removeEventListener("scroll", on);
-  }, []);
-
-  // position the active-pill slider under the current page
-  useEffectShell(() => {
-    const idx = NAV.findIndex((n) => n.key === active);
-    if (idx > 0 && itemRefs.current[idx] && navRef.current) {
-      const ir = itemRefs.current[idx].getBoundingClientRect();
-      const nr = navRef.current.getBoundingClientRect();
-      setSlider({ left: ir.left - nr.left, width: ir.width });
-    }
-  }, [active, isMobile]);
-
-  const onMove = (i) => {
-    if (!navRef.current || !itemRefs.current[i]) return;
-    const ir = itemRefs.current[i].getBoundingClientRect();
-    const nr = navRef.current.getBoundingClientRect();
-    setHover({ left: ir.left - nr.left, width: ir.width });
-  };
-  const onLeaveItems = () => setHover({ left: null, width: null });
-
-  const closeMobile = () => {
-    setMenuShow(false);
-    document.body.style.position = ""; document.body.style.top = "";
-    const y = document.body.dataset.scrollY || 0;
-    if (y) window.scrollTo(0, parseInt(y, 10));
-  };
-  const toggleMobile = () => {
-    const next = !menuShow;
-    setMenuShow(next);
-    if (next) {
-      const y = window.scrollY;
-      document.body.dataset.scrollY = y;
-      document.body.style.top = `-${y}px`;
-      document.body.style.position = "fixed";
-    } else { closeMobile(); }
-  };
-
-  const sliderLeft = hover.left !== null ? hover.left : slider.left;
-  const sliderWidth = hover.width !== null ? hover.width : slider.width;
-
+  const SrcHeader = window.SogodySrcHeader && window.SogodySrcHeader.SrcHeader;
+  const KoalendarSidebar = window.SogodySrcKit && window.SogodySrcKit.KoalendarSidebar;
+  if (!SrcHeader) {
+    console.error("[shell] SrcHeader missing — load components/src-kit.jsx and components/src-header.jsx before components/shell.jsx");
+    return null;
+  }
   return (
     <>
-      {isMobile && menuShow && <div className="mobile-nav-overlay" onClick={closeMobile} />}
-      <div className="header-wrapper fixed-top">
-        <div className={`sg-navbar ${menuShow ? "menu-open" : ""}`}
-          onMouseLeave={() => { if (!isMobile) setShowDropdown(false); }}>
-          <div className={`header-container ${!isMobile && atTop ? "pt-active" : "pt-inactive"}`}>
-            <div className="logo-hamburger-div">
-              <a className="navbar-brand" href="index.html">
-                <img width="130.77" height="40" src={LOGO} alt="Sogody logo" />
-              </a>
-              <button className={`navbar-toggle ${menuShow ? "open" : ""}`} aria-label="Menu" onClick={toggleMobile}>
-                <span></span><span></span><span></span>
-              </button>
-            </div>
-
-            <div className={`navbar-collapse ${menuShow ? "open" : ""}`}>
-              <div className="mobile-nav-content">
-                <div className="drop-main">
-                  <div className="navbar-inner-div" ref={navRef} onMouseLeave={onLeaveItems}>
-                    {(!isMobile) && (
-                      <div className="nav-slider" style={{ left: sliderLeft + "px", width: sliderWidth + "px",
-                        opacity: sliderWidth ? 1 : 0, transition: "left .3s ease, width .3s ease, opacity .3s ease" }} />
-                    )}
-                    <div className="nav-items-row">
-                      {NAV.map((n, i) => {
-                        const isWWD = i === 0;
-                        const hiddenOnAccordion = showServices && !isWWD;
-                        return (
-                          <div key={n.key}
-                            ref={(el) => (itemRefs.current[i] = el)}
-                            onMouseMove={() => !isMobile && onMove(i)}
-                            onMouseEnter={() => { if (!isMobile && isWWD) setShowDropdown(true); }}
-                            className={`nav-item-services ${hiddenOnAccordion ? "hidden-nav-link" : ""} ${showServices && isWWD ? "bg-color-grey" : ""}`}>
-                            <a className={`nav-link nav-link-black ${active === n.key && !isWWD ? "active" : ""}`}
-                              href={isWWD && isMobile ? "#" : n.to}
-                              onClick={(e) => {
-                                if (isWWD && isMobile) { e.preventDefault(); setShowServices((v) => !v); }
-                                else if (isMobile) { closeMobile(); }
-                              }}>
-                              <span className="nav-link-label">
-                                {isWWD ? (showServices ? "Go Back" : n.label) : n.label}
-                              </span>
-                              {isWWD && (
-                                <span className="mini-arrow-container">
-                                  <span className={`mini-arrow ${isMobile && !showServices ? "navbar-arrow-rotation" : ""} ${showServices && isMobile ? "rotated" : ""}`}>
-                                    <img src={ARROW_DOWN} alt="" />
-                                  </span>
-                                </span>
-                              )}
-                            </a>
-                          </div>
-                        );
-                      })}
-
-                      {/* mobile services accordion */}
-                      {showServices && (
-                        <div className="services-nav-items">
-                          {SERVICES.map((s) => (
-                            <a key={s.slug} href={`service.html?slug=${s.slug}`} className="service-nav-link" onClick={closeMobile}>
-                              <img src={s.img} alt="" className="service-nav-image" />
-                              <p className="nav-link nav-link-black my-0">{s.title}</p>
-                              <span className="mini-arrow-container"><span className="mini-arrow navbar-arrow-rotation"><img src={ARROW_DOWN} alt="" /></span></span>
-                            </a>
-                          ))}
-                          <a href="services.html" onClick={closeMobile}>
-                            <p className="nav-link nav-link-black mb-0 all-solutions-mobile">All Solutions
-                              <span className="mini-arrow-container"><span className="mini-arrow navbar-arrow-rotation"><img src={ARROW_DOWN} alt="" /></span></span>
-                            </p>
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {isMobile && (
-                    <div className="mobile-cta"><ContactButton href={BOOKING_URL}>Set up a Meeting</ContactButton></div>
-                  )}
-                  <div className="nav-contact"><ContactButton>Contact Us</ContactButton></div>
-                </div>
-
-                {!isMobile && <ServicesDropdown show={showDropdown} />}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SrcHeader active={active} />
+      {KoalendarSidebar && <KoalendarSidebar />}
     </>
   );
 }
