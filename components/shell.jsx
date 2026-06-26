@@ -31,43 +31,18 @@ function Header({ active = "" }) {
 }
 
 /* ---------- Footer ---------- */
+/* Unified site footer: every page renders the SAME footer as the homepage by
+   delegating to SrcFooter (components/src-shell.jsx, the faithful repo mirror).
+   This replaces the older lighter recreation so the footer is 100% consistent
+   across the whole site. Requires components/src-kit.jsx + components/src-shell.jsx
+   to be loaded before shell.jsx (added to every page's HTML). */
 function Footer() {
-  return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-top">
-          <div className="footer-block">
-            <p className="title-white bolder-font"><a href="#" onClick={(e) => { e.preventDefault(); window.SogodyOpenContact && window.SogodyOpenContact(); }}>General Enquiries</a></p>
-            <p className="title-white bolder-font"><a href="careers.html">Careers</a></p>
-          </div>
-          <div className="footer-block">
-            <p className="title-gray"><a href="privacy.html">Privacy</a></p>
-            <p className="title-gray"><a href="terms.html">Terms</a></p>
-          </div>
-          <div className="footer-block">
-            <p className="title-gray">+383 49 460 555</p>
-            <p className="title-gray"><a href="https://maps.app.goo.gl/ZEHEmCnksmfbmTTe6" target="_blank" rel="noreferrer">Prishtina, Kosovo</a></p>
-          </div>
-          <div className="footer-block">
-            <p className="title-gray">+44 20 8133 3315</p>
-            <p className="title-gray"><a href="https://maps.app.goo.gl/KrzqzpbgdJtJ121C6" target="_blank" rel="noreferrer">London, United Kingdom</a></p>
-          </div>
-          <div className="footer-block">
-            <p className="title-gray"><a href="mailto:info@sogody.com">info@sogody.com</a></p>
-            <div className="social-icons">
-              <a href="https://www.facebook.com/sogodycom/" target="_blank" rel="noreferrer"><img src="assets/icons/social/facebook.svg" alt="Facebook" /></a>
-              <a href="https://www.instagram.com/sogodycom/" target="_blank" rel="noreferrer"><img src="assets/icons/social/instagram.svg" alt="Instagram" /></a>
-              <a href="https://www.linkedin.com/company/sogody" target="_blank" rel="noreferrer"><img src="assets/icons/social/linkedin.svg" alt="LinkedIn" /></a>
-              <a href="https://bsky.app/profile/sogody.bsky.social" target="_blank" rel="noreferrer"><img src="assets/icons/social/bluesky.svg" alt="Bluesky" /></a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p className="title-gray">© 2026 Sogody. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-  );
+  const SrcFooter = window.SogodySrcShell && window.SogodySrcShell.SrcFooter;
+  if (!SrcFooter) {
+    console.error("[shell] SrcFooter missing — load components/src-kit.jsx and components/src-shell.jsx before components/shell.jsx");
+    return null;
+  }
+  return <SrcFooter />;
 }
 
 /* ---------- Contact modal (mirrors ContactUs.js) ---------- */
