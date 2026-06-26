@@ -14,21 +14,10 @@ a { color: inherit; }
 img { display: block; }
 
 /* ============ HEADER / NAVBAR ============ */
-.header-wrapper {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #f8f8f8;
-}
-.header-container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 16px 20px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
+/* Legacy .header-wrapper / .header-container layout rules were removed: every
+   page renders the homepage header (SrcHeader) styled by styles/main-compiled.css.
+   The old rules forced position:sticky and padding:16px 20px 12px, which made the
+   menu sit ~10px higher (extra 12px bottom padding) than on the homepage. */
 .navbar-brand img { width: 130.77px; height: 40px; object-fit: contain; }
 
 .navbar-inner-div {

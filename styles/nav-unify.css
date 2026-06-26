@@ -22,3 +22,8 @@
   font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
   border-radius: 50px;
 }
+
+/* The homepage logo image is display:inline; sogody.css forces `img{display:block}`
+   globally on shell pages, which nudges the logo a few px higher than the homepage.
+   Restore inline display for the nav logo only so the header sits identically. */
+.header-wrapper .navbar-brand img { display: inline; }
