@@ -205,7 +205,7 @@
   font-size: 19px; letter-spacing: -0.01em;
   color: #4d8e62; background: #eef7f1;
 }
-.sd-tech-card h3 { font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 18px; margin: 0; color: #2b2b2b; text-align: center; }
+.sd-tech-card h3 { font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 18px; line-height: 1.1; margin: 0; color: #2b2b2b; text-align: center; }
 .sd-tech-card p { font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif; font-size: 13px; line-height: 17px; color: #8a8a8a; margin: 0; text-align: center; }
 @media (max-width: 767px) { .sd-tech-grid { grid-template-columns: repeat(2, 1fr); } }
 

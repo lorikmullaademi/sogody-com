@@ -91,7 +91,7 @@ window.SogodyServiceDetailData = {
         { title: "TensorFlow", description: "Machine Learning (ML) Frameworks", img: `${SD_SANITY}/1726b9a9167f66e4da9abd7e8b2e0536b0361320-64x67.webp` },
         { title: "Microsoft Azure", description: "Cloud & ML Platform", img: `${SD_SANITY}/64bde982580f4068ac877bee15d2c822cafb8d68-165x129.webp` },
         { title: "IBM Watson", description: "AI Solutions for Enterprise", img: `${SD_SANITY}/d9c29f2fb360edf1a2a23e84fd1f89452a68efbb-225x122.webp` },
-        { title: "ChatGPT", description: "Large Language Models", img: `${SD_SANITY}/0a6a0e5580eb80902051f69c0ff7147587a88320-130x132.webp` },
+        { title: "Anthropic Claude", description: "Large Language Models", img: "assets/images/sd-tech-claude.svg" },
         { title: "Google AI", description: "Machine Learning (ML) Frameworks", img: `${SD_SANITY}/68bff0d44852bf2d14bb06141ceff9faa63ee3a8-35x38.webp` },
         { title: "Amazon SageMaker", description: "Model Training & Deployment", img: `${SD_SANITY}/a28e8a3502a8f83bf401cd506760836be5f56a1b-201x212.webp` },
       ],
