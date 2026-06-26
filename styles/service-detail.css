@@ -198,6 +198,12 @@
    consistent size regardless of the source logo's aspect ratio. Grayscaled to
    match the monochrome treatment of the tech-page icons. */
 .sd-tech-card img { width: 60px; height: 44px; object-fit: contain; filter: grayscale(1); }
+/* AI & CX logos come from tightly-cropped source files, so they fill the box and
+   look bigger than the tech-page icons (whose PNGs have built-in padding, ~24px
+   rendered). Scale them down to match the Ruby/tech icon size, keeping the same
+   60x44 box so the card layout is unchanged. */
+[data-sd-theme="ai"] .sd-tech-card img,
+[data-sd-theme="cx"] .sd-tech-card img { transform: scale(0.55); }
 .sd-tech-card .sd-tech-mono {
   width: 60px; height: 60px; border-radius: 16px;
   display: flex; align-items: center; justify-content: center;
