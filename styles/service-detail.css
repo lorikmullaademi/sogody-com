@@ -193,9 +193,11 @@
   gap: 14px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
 }
-/* Logos: uniform 44px-tall, full card width so wide wordmarks aren't squeezed,
-   and grayscaled to match the monochrome treatment of the tech-page icons. */
-.sd-tech-card img { width: 100%; height: 44px; object-fit: contain; filter: grayscale(1); }
+/* Logos: every icon sits in the SAME fixed 60x44 box (the Domain-Specific
+   footprint) and is centered via object-fit:contain, so all six render at a
+   consistent size regardless of the source logo's aspect ratio. Grayscaled to
+   match the monochrome treatment of the tech-page icons. */
+.sd-tech-card img { width: 60px; height: 44px; object-fit: contain; filter: grayscale(1); }
 .sd-tech-card .sd-tech-mono {
   width: 60px; height: 60px; border-radius: 16px;
   display: flex; align-items: center; justify-content: center;
