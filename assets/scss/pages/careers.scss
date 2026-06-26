@@ -1,0 +1,213 @@
+.positions,
+.update-role-banner,
+.services-page-banner,
+.services-digital-experience-image {
+  .resume-btn {
+    background-color: #fff;
+    color: #67be83 !important;
+    font-size: 20px;
+    padding-left: 25px;
+    display: flex;
+    padding-top: 12px !important;
+    align-items: center;
+    padding-right: 25px;
+    @include mobile {
+      font-size: 18px;
+    }
+    &:hover {
+      background-color: #67be83;
+      color: #fff !important;
+      img {
+        filter: brightness(100);
+      }
+    }
+  }
+
+  .arrow-icon {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    img {
+      width: 14px;
+    }
+  }
+}
+.careers-banner {
+  padding: 75px 0px;
+  padding-bottom: 40px;
+  margin-top: 70px;
+  text-align: center;
+  img {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 32px;
+    @include mobile {
+      height: 180px;
+      transform: scaleX(-1);
+    }
+  }
+  .banner-title {
+    font-family: "Cabinet Grotesk" !important;
+    font-weight: 500 !important;
+    font-size: 32px;
+    line-height: 40px;
+    @include mobile {
+      text-align: center !important;
+      margin-bottom: 10px !important;
+      font-size: 28px;
+      line-height: 32px;
+      margin-top: 10px !important;
+    }
+  }
+  .subtitle {
+    @include mobile {
+      br {
+        display: none;
+      }
+    }
+  }
+}
+
+.positions {
+  margin: auto;
+  margin-bottom: 50px;
+  @include mobile {
+    width: 100%;
+    margin-top: 20px;
+  }
+  @include tablet {
+    width: 100%;
+  }
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+    font-family: 'Cabinet Grotesk' !important;
+    font-weight: 500 !important;
+
+    @include mobile {
+      font-size: 28px;
+      line-height: 32px;
+      margin: 0;
+    }
+  }
+  .career-card {
+    margin-top: 20px;
+    border-radius: 32px;
+    background-color: #fff;
+    transition: border 0.3s ease-in-out;
+    @include mobile {
+      margin-top: 30px;
+    }
+
+    .card-body {
+      padding: 2rem;
+      @include mobile {
+        padding: 30px;
+      }
+    }
+  }
+  .no-career-card {
+    margin-top: 45px;
+    text-align: center;
+    @include mobile {
+      margin-top: 30px;
+    }
+
+    .card-body {
+      padding: 40px;
+      @include mobile {
+        padding: 30px;
+      }
+      .title {
+        font-family: "HelveticaNeueLT Pro 65 Md";
+        font-size: 28px;
+        line-height: 38px;
+      }
+      .subtitle {
+        font-family: "HelveticaNeueLT Pro 55 Roman";
+        margin-top: 28px;
+        margin-bottom: 40px;
+      }
+      .email {
+        font-family: "HelveticaNeueLT Pro 55 Roman";
+        color: $color-dark-green;
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  }
+  .left-col {
+    float: left;
+    text-align: left;
+
+    .position-title {
+      font-family: "HelveticaNeueLT Pro 65 Md";
+      color: $color-black;
+      font-size: 18px;
+      line-height: normal;
+      margin-bottom: 15px;
+      font-weight: normal;
+      @include mobile {
+        margin-bottom: 15px;
+      }
+    }
+    .position-location {
+      font-size: 14px;
+      line-height: normal;
+      font-family: "HelveticaNeueLT Pro 45 Lt";
+      color: $color-dark-gray;
+    }
+  }
+}
+.career-card:hover {
+  border: 1px solid #67be83;
+}
+.rotating-arrow-icon {
+  width: 16px;
+  transition: transform 0.3s ease-in-out;
+
+  .career-card:hover & {
+    transform: rotate(40deg) !important;
+  }
+}
+.role-banner {
+  background-size: cover;
+  border-radius: 32px;
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 100px;
+  @include mobile {
+    margin-bottom: 60px;
+  }
+
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #2b2b2b !important;
+
+    .title {
+      font-size: 32px;
+      margin-bottom: 16px;
+      line-height: 40px;
+      font-family: 'Cabinet Grotesk' !important;
+      font-weight: 600 !important;
+
+      @include mobile {
+        font-size: 28px;
+        line-height: 32px;
+      }
+    }
+
+    .subtitle {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 24px;
+      @include mobile {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}

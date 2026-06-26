@@ -1,0 +1,93 @@
+/* Sogody — Webfonts
+   Two type systems:
+   1. Helvetica Neue LT Pro — primary UI/body (referenced by weight-name, no numeric weights)
+   2. Cabinet Grotesk — display/headlines (numeric weight range 100–700)
+   Self-hosted from assets/fonts. */
+
+/* ---- Helvetica Neue LT Pro ---- */
+@font-face {
+  font-family: "HelveticaNeueLT Pro 45 Lt";
+  src: url("../../assets/fonts/HelveticaNeueLTPro-Lt.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueLT Pro 55 Roman";
+  src: url("../../assets/fonts/HelveticaNeueLTPro-Roman.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueLT Pro 65 Md";
+  src: url("../../assets/fonts/HelveticaNeueLTPro-Md.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueLT Pro 63 MdEx";
+  src: url("../../assets/fonts/HelveticaNeueLTPro-MdEx.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueLT Pro 75 Md";
+  src: url("../../assets/fonts/HelveticaNeueLTPro-Bd.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueLT Pro 53 Extended";
+  src: url("../../assets/fonts/HelveticaNeueLTPro53Extended.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Cabinet Grotesk (display) ---- */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../assets/fonts/CabinetGrotesk-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../assets/fonts/CabinetGrotesk-Extralight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../assets/fonts/CabinetGrotesk-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../assets/fonts/CabinetGrotesk-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../assets/fonts/CabinetGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../assets/fonts/CabinetGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

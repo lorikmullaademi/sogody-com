@@ -1,0 +1,84 @@
+.services-page {
+  margin-top: 80px;
+  
+  .init-circular-div {
+    @include mobile {
+      width: fit-content;
+    }
+  }
+
+  .logo-item img {
+    width: 100px;
+  }
+
+  .services-section {
+    &-head {
+      max-width: 800px;
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 50px;
+
+      @include mobile {
+        margin-bottom: 26px;
+      }
+
+      .services-section-title {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 38px;
+        text-align: center;
+        color: #001433;
+        font-family: "HelveticaNeueLT Pro 63 MdEx";
+
+        @include mobile {
+          font-size: 22px;
+          line-height: 26px;
+        }
+      }
+
+      .services-section-desc {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #94959d;
+        margin-top: 24px;
+        font-family: "HelveticaNeueLT Pro 55 Roman";
+      }
+
+      .btn {
+        font-family: "HelveticaNeueLT Pro 75 Md";
+        background: none;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #67be83;
+        border: none;
+        padding: 0;
+        display: block;
+        margin-top: 16px;
+
+        &:hover {
+          color: $color-black !important;
+          img {
+            transform: translateX(50%);
+          }
+        }
+
+        &.btn-primary:not(:disabled):not(.disabled):active {
+          color: #67be83;
+          background: none !important;
+          border: none !important;
+        }
+
+        img {
+          transition: all 0.3s ease;
+          width: 24px;
+          display: inline-block;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}

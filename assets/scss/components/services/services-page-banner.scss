@@ -1,0 +1,37 @@
+.services-page-banner {
+  .gap {
+    gap: 30px;
+  }
+  .banner-title {
+    text-align: center;
+    .banner-btn {
+      margin-top: 1rem;
+    }
+  }
+  .apply-btn {
+    padding-top: 0 !important;
+  }
+
+  .banner-image {
+    border-radius: 32px;
+    height: 520px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    transition: filter 0.3s ease-in-out;
+    padding-top: 60px !important;
+  }
+}
+
+.desktop-row {
+  flex-direction: row;
+  @include tablet {
+    flex-direction: column;
+    gap: 20px;
+  }
+  @include mobile {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

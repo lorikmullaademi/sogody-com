@@ -1,0 +1,31 @@
+.banner-update {
+  padding: 120px 20px;
+  background-color: $color-black;
+
+  .container {
+    max-width: 920px !important;
+  }
+  @include tablet {
+    padding: 70px 20px;
+  }
+
+  .banner-title {
+    margin: auto;
+    margin-bottom: 30px;
+    .name {
+      font-family: "HelveticaNeueLT Pro 65 Md";
+      line-height: 55px;
+      font-size: 38px;
+      color: $color-white;
+
+      @include mobile {
+        text-align: center;
+        line-height: 44px;
+        font-size: 28px;
+      }
+      @include tablet {
+        text-align: center;
+      }
+    }
+  }
+}

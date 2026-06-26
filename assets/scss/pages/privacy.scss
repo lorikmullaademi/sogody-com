@@ -1,0 +1,75 @@
+.privacy-banner {
+  background-color: $color-dark-gray;
+  padding: 120px 0px;
+  text-align: left;
+  margin-top: 80px;
+
+  @include tablet {
+    margin-top: 50px;
+  }
+  @include mobile {
+    margin-top: 50px;
+    text-align: center;
+    padding: 120px 20px;
+  }
+  .banner-title {
+    font-family: "HelveticaNeueLT Pro 65 Md";
+    font-size: 38px;
+    line-height: 55px;
+    color: $color-white;
+    @include mobile {
+      font-size: 28px;
+      line-height: 44px;
+    }
+  }
+}
+.privacy-cnt {
+  width: 70%;
+  margin: auto;
+  @include mobile {
+    width: 100%;
+  }
+  @include tablet {
+    width: 100%;
+  }
+  @media (min-width: 1400px) {
+    .container {
+      min-width: unset;
+    }
+    .up-container {
+      // padding:unset;
+      // min-width:920px !important;
+      max-width: 920px !important;
+    }
+  }
+}
+.privacy-content {
+  margin: 60px 0px;
+
+  .heading1,
+  .heading2,
+  .heading3,
+  .heading4,
+  .heading5,
+  .heading6 {
+    color: $color-black;
+    font-family: "HelveticaNeueLT Pro 65 Md";
+  }
+  .privacy-paragraph {
+    font-family: "HelveticaNeueLT Pro 45 Lt";
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 0px;
+    // margin-bottom: 20px;
+    color: $color-black;
+  }
+  .privacy-image {
+    width: 100%;
+    margin: 40px 0px;
+  }
+  ul {
+    list-style-image: url(../images/arrow.svg);
+    background-repeat: no-repeat;
+    font-size: 17px;
+  }
+}

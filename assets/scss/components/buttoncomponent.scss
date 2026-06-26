@@ -1,0 +1,36 @@
+@import "../utilities/mixins.scss";
+
+.button-container {
+  display: none;
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.button {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #2b2b2b;
+  font-family: "HelveticaNeueLT Pro 55 Roman";
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #67be83;
+  color: #fff;
+}
+
+.full-row {
+  grid-column: span 2;
+  justify-self: center;
+}

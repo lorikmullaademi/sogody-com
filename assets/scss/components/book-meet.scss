@@ -1,0 +1,172 @@
+@import "../utilities/mixins.scss";
+
+.overall-div {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+
+  @include mobile {
+    gap: 0px;
+  }
+}
+
+.cta-meet {
+  padding-bottom: unset;
+  margin: 100px 0;
+  width: 100%;
+
+  @include mobile {
+    margin: 64px 0;
+  }
+
+  .cta-meet-container {
+    max-width: 1240px;
+    padding: 0 20px;
+    margin:0 auto;
+
+    .cta-meet-content {
+      background-color: #ffff;
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows: 1fr;
+      align-items: center;
+      width: 100%;
+      padding: 64px 40px;
+
+      .init-circular-div {
+        align-items: center;
+
+        .contact-us-link {
+          width: fit-content;
+          margin: 0;
+          font-family: "HelveticaNeueLT Pro 55 Roman";
+          font-size: 20px;
+          min-height: 45px;
+          height: auto;
+          line-height: 1;
+          padding-top: 4px !important;
+
+          &:focus {
+            outline: none !important;
+          }
+        }
+      }
+
+      .cta-meet-content-column {
+        grid-row: 1;
+        display: flex;
+      }
+
+      .cta-meet-content-column:first-child {
+        grid-column: 1 / span 2;
+      }
+
+      .cta-meet-content-column:nth-child(2) {
+        grid-column: 4 / span 3;
+      }
+
+      .cta-meet-content-column:last-child {
+        grid-column: 8 / span 2;
+      }
+
+      @include mobile {
+        grid-template-rows: auto;
+        row-gap: 24px;
+        padding: 56px 14px;
+
+        .cta-meet-content-column {
+          grid-column: 1 / -1 !important;
+          grid-row: auto !important;
+          justify-content: center;
+        }
+      }
+
+      .cta-meet-content--title {
+        font-family: "Cabinet Grotesk" !important;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 40px;
+        color: #2B2B2B;
+        margin-bottom: 0 !important;
+
+        @include mobile {
+          font-size: 28px;
+          line-height: 32px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      .cta-meet-content--description {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #636363;
+        font-family: "HelveticaNeueLT Pro 45 Lt";
+        margin-bottom: 0 !important;
+
+        @include mobile {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.div2 {
+  justify-content: center;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.meet-title {
+  font-size: 32px;
+  font-family: "Cabinet Grotesk"!important;
+  font-weight: 500;
+  margin: 0;
+}
+
+.img-height-mobile {
+  width: 70px;
+  height: 66.63px;
+}
+
+.author {
+  font-size: 18px;
+  line-height: 1.5;
+
+  @include mobile {
+    margin: 0;
+    line-height: 1;
+    font-size: 14px;
+  }
+}
+
+.button-padding {
+  padding: 0px 20px;
+  font-size: 18px !important;
+}
+
+.button-padding:hover {
+  background-color: #4d8e62;
+}
+
+.init-circular-div {
+  margin-left: 20px;
+  gap: 15px;
+
+  @include mobile {
+    gap: 26px;
+    margin-left: 10px;
+  }
+}
+
+.contact-us-link {
+  @include mobile {
+    font-size: 16px !important;
+  }
+}

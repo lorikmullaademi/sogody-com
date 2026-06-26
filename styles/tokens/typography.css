@@ -1,0 +1,40 @@
+/* Sogody — Typography tokens
+   Helvetica Neue LT Pro for UI/body, Cabinet Grotesk for display.
+   Headings carry weight via the FONT FAMILY, not numeric font-weight. */
+
+:root {
+  /* ---- Font family stacks ---- */
+  --font-display: "Cabinet Grotesk", "-apple-system", system-ui, sans-serif;     /* hero / headlines */
+  --font-light:   "HelveticaNeueLT Pro 45 Lt", "-apple-system", sans-serif;       /* light body / large */
+  --font-body:    "HelveticaNeueLT Pro 55 Roman", "-apple-system", sans-serif;    /* most-used body / nav */
+  --font-medium:  "HelveticaNeueLT Pro 65 Md", "-apple-system", sans-serif;       /* default body, buttons, emphasis */
+  --font-mdex:    "HelveticaNeueLT Pro 63 MdEx", "-apple-system", sans-serif;     /* highlight bars, small labels */
+  --font-bold:    "HelveticaNeueLT Pro 75 Md", "-apple-system", sans-serif;       /* strong emphasis */
+  --font-extended:"HelveticaNeueLT Pro 53 Extended", "-apple-system", sans-serif; /* occasional display */
+
+  /* ---- Type scale (px) ---- */
+  --fs-display-xl: 48px;  /* hero banner title (Cabinet) */
+  --fs-display-lg: 40px;
+  --fs-h1: 38px;   --lh-h1: 55px;
+  --fs-h2: 32px;   --lh-h2: 45px;
+  --fs-h3: 28px;   --lh-h3: 38px;
+  --fs-h4: 16px;   /* muted, --text-muted */
+  --fs-body: 16px; --lh-body: 30px;
+  --fs-lead: 18px;
+  --fs-secondary: 14px;
+  --fs-caption: 12px;
+
+  /* ---- Common UI sizes ---- */
+  --fs-20: 20px;
+  --fs-22: 22px;
+  --fs-24: 24px;
+
+  /* ---- Semantic roles ---- */
+  --text-hero-family: var(--font-display);
+  --text-hero-size: var(--fs-display-xl);
+  --text-h1-family: var(--font-display);
+  --text-body-family: var(--font-medium);
+  --text-nav-family: var(--font-medium);
+  --text-button-family: var(--font-medium);
+  --text-label-family: var(--font-mdex);
+}

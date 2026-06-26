@@ -1,0 +1,74 @@
+@import "../utilities/mixins.scss";
+.text-green {
+  color: #67be83 !important;
+}
+.contact-us-link img {
+  width: fit-content;
+  margin-left: 0;
+}
+.font-increase {
+  font-size: 16px;
+}
+.book-banner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  @include mobile {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+}
+
+.secondary-btn {
+  border: 1px solid #67be83;
+  background-color: transparent;
+  color: #67be83 !important;
+}
+
+.secondary-btn:hover {
+  border: 1px solid #f8f8f8;
+  color: #4d8e62 !important;
+  background-color: transparent;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.hover-state:hover {
+  background-color: #4d8e62;
+}
+.hover-state:active {
+  background-color: #67be83 !important;
+}
+
+.padding {
+  @include desktop {
+    padding: 0px 24px;
+  }
+}
+
+.mob-hidden {
+  @include mobile {
+    display: none;
+  }
+}
+.mob-width:focus {
+  outline: none;
+}
+
+@include mobile {
+  .buttons {
+    flex-direction: column;
+    margin: 0;
+  }
+  .mob-width {
+    width: 100% !important;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,44 @@
+/* Sogody — Spacing, radius, shadow & layout tokens
+   From observed SCSS usage across the codebase. */
+
+:root {
+  /* ---- Spacing scale (observed gaps/paddings) ---- */
+  --space-1: 5px;
+  --space-2: 10px;
+  --space-3: 14px;
+  --space-4: 16px;
+  --space-5: 18px;
+  --space-6: 20px;
+  --space-7: 25px;
+  --space-8: 30px;
+  --space-9: 40px;
+  --space-10: 52px;
+
+  /* ---- Layout ---- */
+  --container-max: 1240px;   /* primary container width */
+  --container-text: 920px;   /* narrow text column */
+  --container-pad: 20px;     /* desktop gutter */
+  --container-pad-mobile: 16px;
+
+  /* ---- Border radius (most → least used) ---- */
+  --radius-pill: 50px;       /* full pill — contact button, nav inner bar */
+  --radius-chip: 32px;       /* category chips, nav slider */
+  --radius-card: 20px;       /* footer, content cards */
+  --radius-media: 24px;      /* media / banner video */
+  --radius-nav-item: 15px;   /* nav items, dropdown items */
+  --radius-sm: 12px;         /* small cards */
+  --radius-xs: 10px;         /* small media (nav service logo) */
+  --radius-square: 0;        /* legacy mixin buttons */
+  --radius-round: 50%;       /* avatars, circular buttons */
+
+  /* ---- Shadows ---- */
+  --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);    /* default subtle lift */
+  --shadow-card-hover: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-float: 0 0 15px rgba(0, 0, 0, 0.2);    /* floating element */
+  --shadow-drawer: -6px 0 24px rgba(0, 0, 0, 0.25);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1); /* @kind other */
+  --transition-base: 0.3s ease;     /* @kind other */     /* nav links, icons, hovers */
+  --transition-slow: 0.5s ease;     /* @kind other */     /* mobile collapse */
+}

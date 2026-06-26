@@ -1,0 +1,101 @@
+.tp-banner {
+  font-family: "HelveticaNeueLT Pro 65 Md";
+  background-color: rgba(0, 0, 0, 1);
+  bottom: 0;
+  position: fixed;
+  min-width: 100%;
+  height: auto;
+  z-index: 100000;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 20px;
+  left: 0;
+  text-align: center;
+  font-weight: 400;
+    width: 100%;
+    z-index: 9999;
+    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+  
+  @keyframes tpFadeIn {
+    from {
+      opacity: 0;
+      visibility: hidden;
+    }
+    to {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .tp-banner-container {
+    padding: 15px 30px;
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+    color: $color-white;
+    display: block;
+    @include mobile {
+      padding: 20px;
+    }
+  }
+  .tp-banner-text-1 {
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 30px;
+    color: $color-white;
+    font-family: "HelveticaNeueLT Pro 45 Lt";
+    @include mobile {
+      font-size: 12px;
+      line-height: 19px;
+      margin: 0 5px 5px 5px;
+    }
+  }
+  .tp-banner-text {
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+    color: #94959d;
+    font-family: "HelveticaNeueLT Pro 45 Lt";
+    @include mobile {
+      font-size: 10px;
+    }
+    a {
+      color: $color-dark-gray;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: $color-dark-green;
+      }
+    }
+  }
+  .tp-close-icon {
+    top: 0;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    &:hover {
+      color: $color-dark-green;
+    }
+
+    img {
+      width: 10px;
+      height: 10px;
+    }
+
+    @include mobile {
+      padding: 15px;
+    }
+  }
+  .tp-banner-buttons {
+    // color: $color-white;
+    // background: $color-dark-green;
+    margin: 0px 10px;
+    @include primary-btn;
+    // text-decoration: none;
+    // padding: 8.5px 10px;
+    // line-height: 1;
+  }
+}

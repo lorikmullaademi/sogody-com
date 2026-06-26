@@ -1,0 +1,250 @@
+.contact-us-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+  @include mobile {
+    flex-direction: column;
+  }
+  .additional {
+    @include mobile {
+      margin-top: 10px;
+    }
+  }
+  .forms-layout-mobile {
+    display: flex;
+    flex-direction: column;
+    @include mobile {
+      flex-direction: column-reverse;
+    }
+  }
+  .contact-us-form {
+    @include mobile {
+      background-color: white;
+      border-radius: 20px;
+      padding: 12px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+      @include mobile {
+        margin-bottom: 20px;
+      }
+    }
+    .form-control {
+      background-color: transparent !important;
+      border: none !important;
+      border-radius: 0;
+      border-bottom: 0.0625rem solid #02021e33 !important;
+      font-family: "HelveticaNeueLT Pro 55 Roman";
+    }
+    .submit {
+      display: flex;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px !important;
+      .arrow-icon {
+        margin-bottom: 8px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .image-video-container {
+    border-radius: 20px;
+    padding: 5px;
+    background-color: white;
+    flex: 1;
+    @include mobile {
+      margin-right: 0px;
+    }
+    video {
+      border-radius: 20px;
+      height: 520px !important;
+      @include mobile {
+        height: 300px !important;
+      }
+    }
+    .book-a-call {
+      font-size: 17px;
+      font-family: "HelveticaNeueLT Pro 55 Roman";
+      border: none;
+      background: none !important;
+      margin-top: 15px;
+      &:focus {
+        border: none !important;
+        outline: none !important;
+      }
+      .dark-green-hover {
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+    }
+  }
+  .checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .checkbox-container label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+  }
+  input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-family: "HelveticaNeueLT Pro 55 Roman";
+    font-size: 15px;
+    padding-top: 5px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ececec;
+      background: #ececec;
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background-color: transparent;
+      border-radius: 2px;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease;
+    }
+
+    &:hover::before {
+      border-color: #67be83;
+    }
+  }
+
+  input[type="checkbox"]:checked + label::after {
+    background-color: #67be83;
+  }
+
+  .form-label-styling {
+    font-family: "HelveticaNeueLT Pro 55 Roman";
+    color: grey !important;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  .custom-checkbox .form-check-label {
+    color: grey;
+    transition: color 0.3s ease;
+  }
+
+  .custom-checkbox .form-check-input:checked + .form-check-label {
+    color: #2b2b2b;
+  }
+
+  .custom-checkbox .form-check-input:focus + .form-check-label {
+    color: #2b2b2b;
+  }
+  .terms-privacy {
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    color: $color-dark-gray;
+    font-family: "HelveticaNeueLT Pro 55 Roman";
+
+    @include mobile {
+      line-height: 150%;
+    }
+
+    a {
+      color: $color-dark-gray;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .contact-us-link {
+    @include mobile {
+      font-size: 18px !important;
+    }
+  }
+  .custom-upload-btn {
+    @include mobile {
+      margin-left: 5px;
+      width: 100% !important;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.contact-page-attributes {
+  @include mobile {
+    flex-direction: column !important;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 0px;
+    width: 85%;
+  }
+  .subtitle {
+    @include mobile {
+      margin: 10px 0px;
+      justify-content: start;
+    }
+  }
+}
+.justify-left-mobile {
+  @include mobile {
+    justify-content: start !important;
+  }
+}
+.contact-page-attributes-layout {
+  @include mobile {
+    width: 100%;
+    justify-content: center !important;
+    display: flex;
+  }
+}
+.career-result {
+  font-size: 16px;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  color: $color-dark-green;
+  font-family: "HelveticaNeueLT Pro 45 Lt";
+  @include tablet {
+    width: 90%;
+  }
+  @include mobile {
+    width: 100%;
+  }
+}
+.career-error {
+  font-size: 16px;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+  color: $color-red;
+  font-family: "HelveticaNeueLT Pro 45 Lt";
+  @include tablet {
+    width: 90%;
+  }
+  @include mobile {
+    width: 100%;
+  }
+}

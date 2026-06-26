@@ -1,0 +1,52 @@
+.meet {
+  margin-top: 80px;
+  @include tablet {
+    margin-top: 50px;
+  }
+  @include mobile {
+    margin-top: 50px;
+  }
+  .clients {
+    background-color: $color-cta-meet;
+  }
+  .clients-second {
+    background-color: #f0f2f3;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 500px 0.8fr;
+    grid-template-rows: 1fr;
+    gap: 0px 60px;
+    grid-template-areas: "meet-part video-part";
+    justify-content: space-between;
+    // justify-items: stretch;
+  }
+
+  @include tablet {
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 0px 20px;
+      grid-template-areas: "meet-part video-part";
+    }
+  }
+  @include mobile {
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.6fr 0.6fr;
+      gap: 0px 0px;
+      grid-template-areas:
+        "video-part"
+        "meet-part";
+    }
+  }
+  .video-part {
+    grid-area: video-part;
+    justify-self: end;
+  }
+  .meet-part {
+    grid-area: meet-part;
+  }
+}

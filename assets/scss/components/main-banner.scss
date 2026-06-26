@@ -1,0 +1,283 @@
+@import "../utilities/mixins.scss";
+
+.banner-carousel-div {
+  max-width: 1240px;
+  width: 100%;
+  padding: 0 20px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+
+  @include mobile {
+    padding: 0;
+  }
+}
+
+.banner-styling {
+  max-width: calc(1200px * 0.75);
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  p.subtitle {
+    width: 90%;
+    margin:0 auto;
+  }
+
+  @include mobile {
+    max-width: 100%;
+    padding: 0;
+
+    p.subtitle {
+      font-family: 'HelveticaNeueLT Pro 55 Roman';
+      width: 100%;
+    }
+  }
+}
+
+.words-wrapper {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  transform: translateY(15px);
+
+  @include mobile {
+    height: 32px;
+    transform: translateY(2px);
+  }
+
+  overflow: hidden;
+}
+
+.word-slider {
+  display: flex;
+  flex-direction: column;
+  transition: transform 1s ease-in-out;
+}
+
+.lift-text {
+  display: inline-block;
+  line-height: 45px;
+  margin-bottom: 32px;
+
+  @include mobile {
+    line-height: 15px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+}
+
+.banner-styling {
+  p {
+    margin-bottom: 0;
+    line-height: 24px !important;
+
+    @include mobile {
+      margin: 0 !important;
+      width: 100%;
+      font-size: 14px;
+      line-height: 24px;
+      padding: 0 10px;
+    }
+  }
+}
+
+.banner-padding {
+  margin-top: 165px;
+  color: #2b2b2b;
+  background-color: #f8f8f8;
+
+  @include mobile {
+    margin-top: 120px;
+    padding: 0 16px;
+  }
+
+  @media (max-width: 1439px) {
+    .subtitle {
+      margin-bottom: 20px;
+    }
+  }
+
+  .book-meeting {
+    margin: 32px 0 54px;
+
+    @include mobile {
+      margin: 32px 0 26px;
+    }
+
+    .buttons {
+      display: flex;
+      column-gap: 18px;
+
+      @include mobile {
+        flex-direction: column;
+      }
+
+      .contact-us-link {
+        width: fit-content;
+        padding-top: 4px !important;
+      }
+
+      @include mobile {
+        row-gap: 24px;
+        align-items: center;
+
+        .explore-link {
+          .explore-link-text {
+            font-size: 14px;
+          }
+
+          .arrow-icon {
+            margin-left: 0;
+
+            img {
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body {
+  font-family: "HelveticaNeueLT Pro 65 Md" !important;
+  color: #2b2b2b;
+}
+
+.banner-carousel-div .banner-title {
+  font-size: 48px;
+  max-width: 1100px;
+  margin: 0 auto 30px;
+  padding: 0 90px;
+  line-height: 1;
+
+  @include mobile {
+    font-size: 32px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  font-family: "Cabinet Grotesk";
+  font-weight: 400;
+  display: inline-block;
+}
+
+.banner-title {
+  font-size: 48px;
+  margin: 0 auto 30px;
+  line-height: 1;
+
+  @include mobile {
+    font-size: 32px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  font-family: "Cabinet Grotesk";
+  font-weight: 400;
+  display: inline-block;
+}
+
+.subtitle {
+  margin-top: 0px;
+  line-height: 20px;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
+.banner-carousel-div .subtitle {
+  font-size: 18px;
+  @include desktop {
+    padding: 0vw 60px;
+  }
+}
+
+.review {
+  gap: 10px;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+.font-review {
+  font-size: 18px !important;
+
+  @include mobile {
+    font-size: 16px !important;
+  }
+
+  font-family: "HelveticaNeueLT Pro 55 Roman";
+}
+
+.span-styling {
+  font-family: "HelveticaNeueLT Pro 45 Lt";
+  font-size: 16px;
+  padding: 0px 5px;
+}
+
+.clickable {
+  transition: color 0.3s ease;
+  cursor: pointer;
+
+  @include mobile {
+    margin-top: 15px;
+  }
+}
+
+.clickable:hover {
+  color: #67be83;
+}
+
+.border-radius {
+  border-radius: 24px 24px 0px 0px;
+  width: 100%;
+
+  @include mobile {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+.button-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    display: flex;
+  }
+
+  @include mobile {
+    display: flex;
+  }
+}
+
+.banner-carousel-div {
+  // width: 90%;
+  @include mobile {
+    width: 100%;
+  }
+  .clients-carousel {
+    @include mobile {
+      padding: 20px 25px !important;
+    }
+  }
+}

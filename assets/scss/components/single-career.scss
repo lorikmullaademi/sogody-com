@@ -1,0 +1,287 @@
+.single-career-banner {
+  background-color: $color-black;
+  padding: 120px 0px;
+  text-align: left;
+  margin-top: 80px;
+
+  @include tablet {
+    margin-top: 50px;
+  }
+  @include mobile {
+    margin-top: 50px;
+    padding: 100px 20px;
+  }
+  .position-title {
+    font-family: "HelveticaNeueLT Pro 65 Md";
+    font-size: 38px;
+    line-height: 55px;
+    color: $color-white;
+    margin-bottom: unset;
+    font-weight: normal;
+    @include mobile {
+      font-size: 28px;
+      line-height: 44px;
+      text-align: center;
+    }
+  }
+  .position-location {
+    font-family: "HelveticaNeueLT Pro 55 Roman";
+    font-size: 20px;
+    line-height: 30px;
+    color: #dee2e6;
+    @include mobile {
+      text-align: center;
+    }
+  }
+}
+.single-career-content,
+.single-career-banner {
+  @media (min-width: 1400px) {
+    .container {
+      min-width: unset;
+    }
+    .up-container {
+      // padding:unset;
+      // min-width:920px !important;
+      max-width: 920px !important;
+    }
+  }
+}
+.single-career {
+  svg {
+    // margin:auto;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    float: right;
+    color: green;
+  }
+  ul {
+    list-style-image: url(../images/arrow.svg);
+    background-repeat: no-repeat;
+    font-size: 17px;
+    padding: 10px;
+  }
+  width: 80%;
+  margin: auto;
+  margin-bottom: unset;
+  @include mobile {
+    width: 100%;
+    margin-top: 50px;
+  }
+  @include tablet {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .career-image {
+    max-width: 100%;
+    margin: 20px 0px;
+  }
+  .project-details {
+    border-radius: unset;
+    border: unset; //Delete this for adding borders
+		margin-top: 20px !important;
+    .card-header {
+      background-color: transparent;
+      border: unset;
+      color: $color-black;
+      margin-bottom: 0px;
+      font-family: "HelveticaNeueLT Pro 65 Md";
+      font-size: 20px;
+      line-height: 36px;
+
+      .q-icon {
+        position: absolute;
+        right: 0;
+        transform: translate(0px, 2px);
+      }
+    }
+    .card-body {
+      border: unset;
+      padding-top: unset;
+      padding: 0px 1.25rem;
+    }
+    .cr-paragraph {
+      margin-bottom: unset;
+      font-family: "HelveticaNeueLT Pro 45 Lt";
+      color: $color-black;
+      font-size: 16px;
+      line-height: 30px;
+      text-align: left;
+
+			&:has(strong):not(:first-child) {
+				margin-top: 10px !important;
+			}
+
+			& > strong {
+				font-family: "HelveticaNeueLT Pro 65 Md";
+			}
+			& > a {
+				color: #67be83;
+			}
+    }
+    .accordion {
+      margin-bottom: 20px;
+    }
+    .accordion-title {
+      color: $color-black;
+      margin-bottom: 0px;
+      font-family: "HelveticaNeueLT Pro 65 Md";
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .career-result {
+      font-size: 16px;
+      width: 80%;
+      text-align: center;
+      margin: auto;
+      color: $color-dark-green;
+      font-family: "HelveticaNeueLT Pro 45 Lt";
+      @include tablet {
+        width: 90%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+
+    .career-error {
+      font-size: 16px;
+      width: 80%;
+      text-align: center;
+      margin: auto;
+      color: $color-red;
+      font-family: "HelveticaNeueLT Pro 45 Lt";
+      @include tablet {
+        width: 90%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+  .primary-btn-s.btn.btn-primary {
+    float: right;
+    min-width: 195px;
+    @include primary-btn;
+    padding: 10px 0px;
+    @include mobile {
+      width: 100%;
+    }
+  }
+  .cr-paragraph a {
+    color: $color-black;
+    cursor: pointer;
+  }
+  form {
+    margin-top: 1.5rem;
+    .form-control-file {
+      font-size: 14px;
+    }
+    .form-control {
+      font-size: 14px;
+      border: none !important;
+      border-radius: 0;
+      border-bottom: 1px solid #ced4da !important;
+      font-family: "HelveticaNeueLT Pro 55 Roman";
+      .input-group {
+        input {
+          font-size: 14px;
+        }
+        input::placeholder {
+          color: red;
+        }
+        input::placeholder {
+          color: red;
+          opacity: 1; /* Firefox */
+        }
+
+        input:-ms-input-placeholder {
+          /* Internet Explorer 10-11 */
+          color: red;
+        }
+
+        input::-ms-input-placeholder {
+          /* Microsoft Edge */
+          color: red;
+        }
+      }
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  }
+  .file-btn {
+    min-width: 195px;
+    padding: 10px 0px;
+  }
+  .networks {
+    padding-top: unset;
+  }
+  .invalid-feedback {
+    p {
+      font-family: "HelveticaNeueLT Pro 45 Lt";
+      font-size: 12px;
+      line-height: 20px;
+      padding-left: 10px;
+    }
+  }
+
+  .career-introduction {
+    font-family: "HelveticaNeueLT Pro 45 Lt";
+  }
+}
+.single-career-content {
+  background-color: #fff;
+  .details-card .job-details-flex {
+    gap: 20px !important;
+		margin-top: 30px;
+    .detail-item-title {
+      font-size: 14px;
+    }
+  }
+  .networks {
+    margin-bottom: 2rem;
+  }
+}
+.jobimage-banner {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0 !important;
+  border-top-left-radius: 32px !important;
+  border-top-right-radius: 32px !important;
+}
+.custom-upload-btn {
+  color: #000;
+  font-family: "HelveticaNeueLT Pro 55 Roman";
+  background-color: #eee;
+  border: none;
+  padding: 10px 16px;
+  padding-top: 13px;
+  font-size: 14px;
+  border-radius: 32px;
+  display: inline-flex;
+  gap: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  .upload-icon {
+    color: #000;
+    margin-bottom: 4px !important;
+  }
+}
+.cv-file-name {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+  word-wrap: break-word;
+}
+.custom-upload-btn:hover {
+  background-color: #dfdfdf;
+  color: #000;
+}
+.custom-upload-btn:active {
+  background-color: #dfdfdf !important;
+  color: #000 !important;
+}

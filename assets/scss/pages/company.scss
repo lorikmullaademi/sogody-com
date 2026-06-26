@@ -1,0 +1,141 @@
+.company {
+  margin-top: 80px;
+  @include mobile {
+    margin-top: 100px;
+  }
+  .init-circular-div {
+    @include mobile {
+      margin-top: 1rem;
+    }
+  }
+  .content-wrapper {
+    margin-bottom: 64px !important;
+
+    .carousel-title {
+      font-size: 32px;
+      line-height: 40px;
+      font-family: 'Cabinet Grotesk' !important;
+      font-weight: 500;
+
+      @include mobile {
+        font-size: 28px;
+        line-height: 32px;
+
+        .desktop-br {
+          display: none;
+        }
+      }
+    }
+
+    @include mobile {
+      margin-top: 0rem;
+    }
+  }
+  .carousel-slider-wrapper {
+    margin-top: 1.5rem;
+  }
+  .mshs-services {
+    margin-top: 0 !important;
+  }
+  .clients-second {
+    background-color: $color-cta-meet;
+    margin-top: 30px;
+  }
+  .desktop {
+    display: none;
+    @include desktop {
+      display: flex;
+    }
+  }
+  .career-carousel {
+    margin: 70px 0px;
+  }
+  // .banner-video{
+  //     width: 100%;
+  //     // background-image: url(../images/sogody-video.gif);
+  //     // // background-color: red;
+  //     // background-repeat: no-repeat;
+  //     // background-size: contain;
+  //     // height:100%;
+  //     // min-height: 250px;
+
+  //     video{
+  //         width:100%;
+  //         min-height: 500px;
+  //         max-height: 500px;
+  //         @include mobile{
+  //             min-height: 350px;
+  //         }
+  //         @include tablet{
+  //             min-height: 500px;
+  //         }
+  //     }
+  //     img{
+  //         object-fit: cover;
+  //         width: 100%;
+  //         max-height: 747px;
+  //         @include mobile{
+  //             height:400px;
+  //         }
+  //     }
+  // }
+
+  .react-player__preview {
+    display: flex;
+    height: 100%;
+    min-height: 340px;
+    background-size: cover;
+
+    @include tablet {
+      min-height: 540px;
+    }
+
+    @include desktop {
+      min-height: 540px;
+    }
+    // max-height: 800px;
+  }
+
+  .react-player {
+    // min-height: 550px;
+    //  height:100%;
+    margin-top: -80px;
+    // max-height: 100%;
+
+    @include mobile {
+      height: 60%;
+      margin-top: -100px;
+      // margin-top: unset;
+    }
+
+    video {
+      max-height: 340px;
+
+      @include tablet {
+        max-height: 540px;
+      }
+
+      @include desktop {
+        max-height: 540px;
+      }
+      // max-height: 800px;
+    }
+  }
+  .work-page {
+    .cta-meet {
+      @include desktop {
+        margin-top: 3rem !important;
+      }
+    }
+  }
+}
+
+.container-company {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include mobile {
+    padding: 0 16px;
+  }
+}

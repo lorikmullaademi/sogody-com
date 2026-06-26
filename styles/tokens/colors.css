@@ -1,0 +1,72 @@
+/* Sogody — Color tokens
+   Exact hex values from src/assets/scss/utilities/colors.scss
+   Base palette + semantic aliases for new work. */
+
+:root {
+  /* ---- Core / Neutrals ---- */
+  --color-white: #ffffff;
+  --color-medium-white: #fbfbfb;
+  --color-dark-white: #ececec;
+  --color-black: #10101e;        /* near-black, blue-tinted — primary text & dark CTA */
+  --color-medium-black: #2b2b2b; /* footer / dark surfaces (2c2c2c interchangeable) */
+  --color-dark-gray: #94959d;    /* muted/secondary text */
+  --color-medium-gray: #c6c7ce;  /* borders, disabled */
+  --color-light-gray: #d6d6d6;   /* hairlines */
+  --color-gray: #f8f8f8;         /* light surface fill */
+
+  /* ---- Greens (brand accent) ---- */
+  --color-dark-green: #67be83;   /* PRIMARY brand green */
+  --color-primary-bg: #8ed3a4;   /* primary button hover (lighter) */
+  --color-green-press: #4d8e62;  /* pill button hover (darker, from navbar) */
+  --color-medium-green: #b9d549; /* lime accent */
+  --color-light-green: #d4eb20;  /* bright lime accent */
+
+  /* ---- Pastel section backgrounds (jumbotrons / CTAs) ---- */
+  --color-light-blue: #f2f1f6;
+  --color-blue: #dbe5f2;
+  --color-beige: #fcf6f6;
+  --color-azure: #f1f6f5;
+  --color-cta-meet: #f0f2f3;
+  --color-medium-blue: #f8fafa;
+  --color-medium-blue-2: #fdfafa;
+  --color-medium-blue-3: #edf2f8;
+  --color-medium-blue-4: #f8f8fa;
+  --color-video: #e1f2e6;        /* pale green video block */
+
+  /* ---- Accent / status ---- */
+  --color-red: #f47e7e;          /* "Careers" link, alerts */
+
+  /* ---- Signature gradient: green → periwinkle → coral ---- */
+  --gradient-mshs: linear-gradient(90.89deg, #47ae68 0.91%, #8282ce 54.37%, #f98966 105.3%); /* @kind color */
+
+  /* ================= SEMANTIC ALIASES ================= */
+  /* Text */
+  --text-strong: var(--color-medium-black);  /* body copy default (#2b2b2b) */
+  --text-heading: var(--color-black);        /* headings (#10101e) */
+  --text-muted: var(--color-dark-gray);      /* secondary / h4 */
+  --text-on-dark: var(--color-gray);         /* text on dark surfaces */
+  --text-link: var(--color-dark-green);      /* rich-text links */
+
+  /* Surfaces */
+  --surface-page: var(--color-white);
+  --surface-subtle: var(--color-gray);       /* light section fill */
+  --surface-card: var(--color-white);
+  --surface-dark: var(--color-medium-black); /* footer / dark CTA */
+  --surface-inkdark: var(--color-black);     /* darkest CTA */
+
+  /* Actions */
+  --action-primary: var(--color-dark-green);
+  --action-primary-hover: var(--color-primary-bg);
+  --action-primary-press: var(--color-green-press);
+  --action-on-primary: var(--color-white);
+  --action-secondary-bg: var(--color-dark-white);
+  --action-secondary-fg: var(--color-dark-gray);
+  --action-secondary-hover-bg: var(--color-black);
+  --action-secondary-hover-fg: var(--color-white);
+  --action-dark-bg: var(--color-black);
+
+  /* Lines */
+  --border-subtle: #e8e8e8;                  /* nav chips / inputs */
+  --border-default: var(--color-medium-gray);
+  --hairline: var(--color-light-gray);
+}

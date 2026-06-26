@@ -1,0 +1,36 @@
+.banner-meet {
+  padding: 100px 20px;
+  background-color: rgba(178, 222, 193, 100%);
+
+  @include tablet {
+    padding: 70px 20px;
+  }
+
+  .banner-title {
+    margin: auto;
+    .name {
+      font-family: "HelveticaNeueLT Pro 65 Md";
+      line-height: 55px;
+      font-size: 38px;
+      margin-bottom: 14px;
+
+      @include mobile {
+        text-align: center;
+        line-height: 44px;
+        font-size: 28px;
+        margin-bottom: 14px;
+      }
+      @include tablet {
+        text-align: left;
+      }
+    }
+    .subtitle {
+      font-family: "HelveticaNeueLT Pro 55 Roman";
+      line-height: 30px;
+      font-size: 20px;
+      @include mobile {
+        text-align: center;
+      }
+    }
+  }
+}

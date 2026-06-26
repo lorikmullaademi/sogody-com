@@ -1,0 +1,111 @@
+@import "../../utilities/mixins.scss";
+
+.banner-company {
+  margin: 110px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1240px;
+  padding: 0 20px;
+
+  @include mobile {
+    padding: 0 16px;
+  }
+
+  &.video-wrapper {
+    position: relative;
+
+    video {
+      width: 100%;
+    }
+
+    .mute-toggle {
+      position: absolute;
+      bottom: 15px;
+      right: 35px;
+      cursor: pointer;
+      color: white;
+      z-index: 2;
+      transition: transform 0.2s ease, color 0.2s ease;
+
+      @include mobile {
+        right: 31px;
+      }
+
+      &:hover {
+        color: #ddd;
+      }
+
+      svg {
+        width: 25px;
+        height: 25px;
+
+        @include mobile {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+}
+
+.youtube-section-container {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include mobile {
+    padding: 0 16px;
+  }
+}
+
+.youtube-section {
+  background: #FFF;
+  border-radius: 0 0 24px 24px;
+  padding: 40px;
+  width: 100%;
+
+  @include mobile {
+    padding: 25px;
+  }
+
+  .youtube-container {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    @include mobile {
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 20px;
+      line-height: 22px;
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      font-family: "Cabinet Grotesk";
+      display: inline;
+
+      @include mobile {
+        width: 100%;
+        text-align: center;
+      }
+
+      .quote {
+        font-weight: 700;
+        font-family: "HelveticaNeueLT Pro 65 Md";
+        margin-bottom: 5px;
+        display: inline;
+        white-space: nowrap;
+      }
+    }
+  }
+}

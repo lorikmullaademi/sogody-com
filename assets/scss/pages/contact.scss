@@ -1,0 +1,105 @@
+@import "../utilities/mixins.scss";
+.contact-page {
+  margin-top: 130px;
+  @include desktop {
+    margin-top: 160px;
+  }
+  .title-wrapper {
+    .carousel-title {
+      margin-bottom: 20px;
+    }
+  }
+  .form-info h1 {
+    text-align: center;
+    line-height: 40px;
+    font-size: 32px;
+    @include mobile {
+      text-align: left;
+      display: flex;
+    }
+  }
+  .testimonials-carousel {
+    margin-top: 40px;
+    margin-bottom: 3rem !important;
+    @include mobile {
+      margin-top: 10px;
+    }
+  }
+
+  .contact-linkedin {
+    border-radius: 32px;
+    border: 5px solid white;
+    padding: 20px;
+    text-align: center;
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+
+  .contact-linkedin p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .contact-linkedin a {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .faq-container {
+    gap: 20px;
+  }
+  .secondary-book-a-call {
+    color: white !important;
+    font-size: 17px;
+    font-family: "HelveticaNeueLT Pro 55 Roman";
+    background-color: #67be83;
+    border: none;
+    border-radius: 20px;
+    .dark-green-hover {
+      text-decoration: underline;
+      cursor: pointer;
+      text-underline-offset: 2px;
+    }
+  }
+  .location-cards {
+    margin-bottom: 20px;
+    @include tablet {
+      min-height: 400px;
+    }
+    @include mobile {
+      padding-bottom: 15px;
+    }
+  }
+  .init-circular-div {
+    @include mobile {
+      width: 100%;
+    }
+  }
+  .card-component {
+    .card-component-row {
+      margin-top: 30px;
+      @include mobile {
+        margin-top: 15px;
+      }
+    }
+    .title,
+    .subtitle {
+      @include mobile {
+        text-align: left !important;
+      }
+    }
+    .title {
+      @include mobile {
+        margin-bottom: 20px;
+      }
+    }
+    .subtitle {
+      font-size: 14px !important;
+    }
+  }
+  .location-card-img {
+    @include mobile {
+      max-width: 300px !important;
+    }
+  }
+}

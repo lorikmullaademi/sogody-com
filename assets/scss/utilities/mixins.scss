@@ -1,0 +1,174 @@
+@mixin flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+//Buttons mixins
+
+@mixin primary-btn {
+  background-color: $color-dark-green;
+  color: $color-white;
+  border: none;
+  outline: none;
+  border-radius: 0rem;
+  padding: 16px 18px;
+  font-size: 16px;
+  font-family: "HelveticaNeueLT Pro 65 Md";
+  min-width: 150px;
+  line-height: 20px;
+  &:hover {
+    background-color: $color-primary-bg !important;
+  }
+}
+@mixin secondary-btn {
+  background-color: $color-dark-white;
+  color: $color-dark-gray;
+  border: none;
+  padding: 16px 18px;
+  border-radius: 0rem;
+  font-size: 16px;
+  font-family: "HelveticaNeueLT Pro 65 Md";
+  line-height: 20px;
+  min-width: 150px;
+  &:visited {
+    background-color: $color-dark-white;
+    color: $color-dark-gray;
+    border: none;
+    border-radius: 0rem;
+    font-size: 16px;
+  }
+  &:hover {
+    background-color: $color-secondary-bg;
+    color: $color-white;
+
+    img {
+      transform: translateX(50%);
+      transition-duration: 0.3s;
+    }
+  }
+}
+@mixin loadmore-btn {
+  background-color: $color-dark-white;
+  font-family: "HelveticaNeueLT Pro 65 Md";
+  color: $color-dark-gray;
+  border: none;
+  padding: 16px 40px 14px;
+  margin: 0 auto;
+  border-radius: 0rem;
+  font-size: 16px;
+  line-height: unset;
+
+  img {
+    transform: none;
+    transition: all 0.3s ease;
+  }
+  &:visited {
+    background-color: $color-dark-white;
+    color: $color-dark-gray;
+    border: none;
+    border-radius: 0rem;
+    font-size: 16px;
+  }
+  &:hover {
+    background-color: $color-secondary-bg;
+    color: $color-white;
+    img {
+      transform: translateY(20%);
+    }
+  }
+}
+
+@mixin tertiary-btn {
+  color: $color-dark-gray;
+  border: none;
+  background-color: unset;
+  border-radius: 0rem;
+  font-size: 16px;
+  line-height: 27px;
+  padding: 0px;
+  font-family: "HelveticaNeueLT Pro 65 Md";
+
+  &:hover {
+    color: $color-black;
+    img {
+      transform: translateX(50%);
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+@mixin category-btn {
+  color: #2b2b2b;
+  background-color: #ffff;
+  border: none;
+  border-radius: 32px;
+  font-size: 16px;
+  // line-height: 27px;
+  height: 47px;
+  padding: 10px 20px;
+  font-family: "HelveticaNeueLT Pro 55 Roman";
+  margin-bottom: 16px;
+  &:hover {
+    background-color: $color-dark-green;
+    color: $color-white;
+  }
+  &:active {
+    background-color: $color-dark-green;
+    color: $color-white;
+  }
+  @include mobile {
+    // padding:unset;
+    min-height: 55px;
+    max-height: 55px;
+  }
+  // &:active , &:visited {
+  //     border:1px solid $color-dark-green !important;
+  //     background-color:$color-dark-green !important;
+  //     color:$color-white !important;
+  // }
+}
+
+@mixin dark-btn {
+  background-color: $color-black;
+  color: $color-white;
+  border: none;
+  border-radius: 0rem;
+  padding: 16px 18px;
+  font-size: 16px;
+  font-family: "HelveticaNeueLT Pro 65 Md";
+  min-width: 150px;
+  line-height: 20px;
+  &:hover {
+    background-color: rgba(16, 16, 30, 0.7) !important;
+  }
+}
+
+//Devices Mixins
+
+$mobile-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+.useless {
+  @include mobile {
+    display: none;
+  }
+}

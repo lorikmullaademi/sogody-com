@@ -1,0 +1,102 @@
+.koalendar-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: #2B2B2B52;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  z-index: 1400;
+}
+
+.koalendar-sidebar {
+  width: min(570px, 90vw);
+  max-width: 570px;
+  background: #fff;
+  color: #fff;
+  height: 100vh;
+  box-shadow: -6px 0 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slide-in-right 280ms ease forwards;
+
+  @include mobile {
+    width: calc(100% - 24px);
+  }
+
+  .koalendar-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px 20px;
+
+    @include mobile {
+      padding: 20px 16px 20px;
+    }
+
+    p {
+      margin: 0;
+      font-family: 'HelveticaNeueLT Pro 65 Md';
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: #000000;
+    }
+  }
+}
+
+.koalendar-close-btn {
+  background: #67BE8333;
+  border: none;
+  border-radius: 100%;
+  display: flex;
+  height: fit-content;
+  cursor: pointer;
+  padding: 10px;
+  transition: all .2s linear;
+
+  &:hover {
+    background: #67BE8380;
+    transition: all .2s linear;
+
+    img {
+      transform: scale(150%);
+      transition: all .2s linear;
+    }
+  }
+
+  img {
+    width: 8px;
+    height: 8px;
+    transition: all .2s linear;
+  }
+}
+
+.koalendar-sidebar-content {
+  flex: 1;
+  overflow: auto;
+  background: #fff;
+  padding-top: 10px;
+  border-top: 1px solid #E5E5E5;
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.cal-wrap {
+  margin: 0 auto;
+  background: #fff;
+  padding:0 20px;
+}
+
+.cal-embed {
+  width: 100%;
+}

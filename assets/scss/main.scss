@@ -1,0 +1,62 @@
+//Utilities
+@import "utilities/colors.scss";
+@import "utilities/mixins.scss";
+@import "utilities/typography.scss";
+@import "utilities/fonts.scss";
+
+//Components
+@import "components/footer.scss";
+@import "components/navbar.scss";
+@import "components/updates.scss";
+@import "components/services.scss";
+
+//Components
+@import "components/networks.scss";
+@import "components/case-studies.scss";
+@import "components/company-staff.scss";
+@import "components/projects-carousel.scss";
+@import "components/sogody-text.scss";
+@import "components/contact-us-modal.scss";
+@import "components/testimonials.scss";
+
+//What We Offer
+@import "components/wwo-te.scss";
+
+//Carousels
+@import "components/platforms.scss";
+
+//Single Pages
+@import "components/single-update.scss";
+@import "components/single-career.scss";
+@import "components/updates-single.scss";
+
+//Pages
+@import "pages/careers.scss";
+@import "pages/terms.scss";
+@import "pages/privacy.scss";
+@import "pages/company.scss";
+@import "pages/work.scss";
+@import "pages/meet.scss";
+@import "pages/services-pages.scss";
+@import "pages/404.scss";
+
+//Services Boxes
+@import "components/mshs-services.scss";
+
+//Banners
+@import "components/banners/banner-update.scss";
+@import "components/banners/banner-work.scss";
+@import "components/banners/banner-meet.scss";
+@import "components/banners/banner-terms.scss";
+@import "components/banners/banner-company.scss";
+@import "components/banners/single-service-banner.scss";
+@import "components/where-we-come-in.scss";
+@import "components/koalendar-sidebar.scss";
+
+// Services Page
+@import "components/services/services-banner.scss";
+@import "components/services/services-page-banner.scss";
+@import "components/services/services-technologies-list.scss";
+
+//Extra
+@import "components/circular-btn.scss";

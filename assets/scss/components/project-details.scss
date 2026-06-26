@@ -1,0 +1,42 @@
+@import "../utilities/mixins.scss";
+
+.project-details {
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  margin: 100px 0 0 !important;
+  .project-logo {
+    width: 120px;
+    height: auto;
+  }
+  .gap {
+    @include mobile {
+      gap: 20px;
+    }
+  }
+
+  .main-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  .intro-description {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  .social-icon {
+    transition: all 0.3s ease;
+    transform: none;
+    width: 25px;
+    margin-bottom: 3px;
+
+    &:hover {
+      transform: translateY(-5%);
+      transition-duration: 0.3s;
+    }
+  }
+  .invested-description {
+    @include mobile {
+      margin-top: 24px !important;
+    }
+  }
+}

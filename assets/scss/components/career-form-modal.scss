@@ -1,0 +1,40 @@
+@import "../utilities/mixins.scss";
+
+.form-group {
+  button {
+    margin-bottom: 0 !important;
+  }
+}
+
+.cv-file-name {
+  margin-top: 10px;
+  p {
+    font-size: 14px;
+    color: #4988c3;
+  }
+}
+
+input,
+textarea,
+button {
+  margin-bottom: 1rem;
+}
+input,
+textarea {
+  border: none !important;
+  border-bottom: 1px solid #b6b6b6 !important;
+  border-radius: 0 !important;
+  min-height: unset !important;
+  height: unset !important;
+}
+
+input,
+textarea {
+  padding: 10px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}

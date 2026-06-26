@@ -1,0 +1,229 @@
+@import "../utilities/mixins.scss";
+.service-category-card {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #e8e8e8;
+  overflow: hidden;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .init-circular-div {
+    width: fit-content;
+  }
+
+  .card-content {
+    flex-direction: column;
+
+    @media (min-width: 1031px) {
+      flex-direction: row;
+    }
+    @media (max-width: 1190px) {
+      // padding: 2rem !important;
+      .small-desktop-width-55 {
+        width: 55% !important;
+      }
+    }
+
+    @include mobile {
+      padding: 32px 20px;
+
+      .small-desktop-width-55 {
+        width: 100% !important;
+      }
+    }
+  }
+  .explore-link {
+    @include mobile {
+      margin: unset !important;
+    }
+  }
+  .init-circular-div {
+    @include tablet {
+      margin-left: 0px !important;
+      gap: 35px !important;
+    }
+    @include mobile {
+      margin-left: 0px !important;
+      gap: 35px !important;
+    }
+  }
+
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .category-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #67be83;
+  }
+
+  .category-title {
+    width: 80%;
+    @include mobile {
+      width: 100%;
+    }
+    h2 {
+      font-family: 'Cabinet Grotesk' !important;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 40px;
+
+      @include mobile {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .category-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul {
+    list-style-image: url(../../images/arrow.svg);
+    background-repeat: no-repeat;
+    font-size: 17px;
+    padding: 10px;
+  }
+
+  .subtitle {
+    font-family: "HelveticaNeueLT Pro 55 Roman" !important;
+    padding-left: 5px !important;
+    @include mobile {
+      font-size: 16px !important;
+    }
+  }
+
+  .keypoints-grid {
+    display: grid;
+    column-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .keypoints-grid li {
+    list-style-image: url(../../images/arrow.svg);
+    font-size: 18px;
+  }
+  .max-width-50 {
+    @media (min-width: 1150px) {
+      max-width: 50%;
+    }
+    @media (max-width: 1024px) {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .keypoints-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .keypoints-grid.three-items {
+    grid-template-columns: 1fr;
+  }
+
+  .card-videos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    video {
+      border-radius: 10px;
+    }
+    .video-wide {
+      width: 100% !important;
+      max-width: 250px;
+      max-width: 100%;
+      @media (min-width: 1031px) {
+        max-width: 300px;
+      }
+      @media (min-width: 1031px) and (max-width: 1190px) {
+        max-width: 200px;
+      }
+    }
+
+    .video-column {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      gap: 10px;
+
+      .video-default {
+        color: white;
+        background-color: #2b2b2b;
+        border-radius: 10px;
+        max-height: 250px !important;
+        height: 200px;
+      }
+    }
+    .init-circular-div {
+      margin-left: 0px;
+      gap: 35px;
+    }
+  }
+  .tech-slider-box {
+    background-color: #2b2b2b;
+    justify-content: space-evenly;
+    color: #f8f8f8;
+    max-width: 100%;
+		width: 100%;
+    min-height: 250px;
+    border-radius: 10px;
+
+		.tech-item-wrapper {
+      height: auto;
+      min-height: 100px;
+      transition: height 0.3s ease-in-out;
+    }
+
+    .tech-item {
+      transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+      opacity: 1;
+      align-items: center;
+      transform: translateY(0);
+    }
+
+    .fade-transition {
+      animation: fadeInUp 0.6s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tech-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .tech-name {
+      font-size: 13px;
+      color: #f8f8f8;
+    }
+
+    .tech-description {
+      font-size: 11px;
+      line-height: 1.3 !important;
+    }
+  }
+}

@@ -1,0 +1,240 @@
+/* Sogody — service detail page styles, matched to the live
+   sogody.com/services/<slug>/ layout (full-page reference screenshot).
+   Tokens: Cabinet Grotesk headings, 1240px container, #67be83 accent. */
+
+.service-detail-page { padding-top: 100px; overflow: visible; }
+.sd-container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+/* ---- Hero: dark rounded banner with copy left, video right,
+        divider + trusted-by INSIDE the card ---- */
+.sd-banner {
+  background: linear-gradient(150deg, #242329 0%, #2b2733 55%, #3a2f4a 100%);
+  border-radius: 24px;
+  padding: 48px 48px 28px;
+  color: #f8f8f8;
+}
+.sd-banner-top { display: flex; gap: 40px; align-items: center; justify-content: space-between; }
+.sd-banner-copy { max-width: 480px; }
+.sd-banner-copy h1 {
+  font-family: "Cabinet Grotesk";
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 42px;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.sd-banner-copy h1 .green { color: #67be83; }
+.sd-banner-copy .subtitle { color: #d6d6d6 !important; font-size: 16px; line-height: 24px; margin-bottom: 28px; }
+/* CTA in dark cards: the circular button carries a built-in -20px overlap, so
+   we add a matching +20px left margin to land the circle exactly on the text
+   column's left edge (margin-left:0 made the circle protrude ~20px left). */
+.sd-banner .init-circular-div,
+.sd-cta-cell .init-circular-div {
+  width: fit-content !important;
+  justify-content: flex-start !important;
+  margin-left: 20px !important;
+}
+/* in the CTO cell, line the circle up with the card's inner content (30px pad) */
+.sd-cta-cell .init-circular-div { margin-left: 50px !important; }
+.sd-banner-media {
+  flex: 0 0 44%;
+  max-width: 470px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.sd-banner-media video { width: 100%; height: 320px; object-fit: cover; display: block; }
+.sd-banner-divider { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.22); margin: 36px 0 10px; }
+/* trusted-by sits INSIDE the dark banner — strip its own dark box so the
+   banner gradient shows straight through */
+.sd-banner .clients-carousel {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  margin-top: 0 !important;
+}
+/* align "Trusted by:" + logos to the hero text column (strip the carousel's
+   own left padding + centering) */
+.sd-banner .clients-carousel .carousel-container {
+  padding-left: 0 !important;
+  justify-content: flex-start !important;
+}
+/* trusted-by inside the dark banner: lift logos to white */
+.sd-banner .updates-carousel-section img,
+.sd-banner .clients-carousel img,
+.sd-banner .carousel-img { filter: brightness(0) invert(1) opacity(0.82); }
+.sd-banner .carousel-container p, .sd-banner .trusted-by { color: #d6d6d6 !important; }
+@media (max-width: 991px) {
+  .sd-banner { padding: 32px 24px 18px; }
+  .sd-banner-top { flex-direction: column; align-items: flex-start; }
+  .sd-banner-media { max-width: 100%; flex-basis: auto; width: 100%; }
+  .sd-banner-copy h1 { font-size: 28px; line-height: 36px; }
+}
+
+/* ---- Capabilities ("Building something great?") ---- */
+.sd-caps { max-width: 1240px; margin: 110px auto 0; padding: 0 20px; }
+.sd-caps-heading {
+  font-family: "Cabinet Grotesk" !important;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 auto 55px;
+  max-width: 460px;
+}
+.sd-caps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sd-cap-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.sd-cap-card-img { width: 100%; height: 215px; background-size: cover; background-position: center top; background-repeat: no-repeat; background-color: #fafafa; }
+.sd-cap-card-img.has-illo { background-color: #fff; height: 250px; display: flex; align-items: center; justify-content: center; padding: 10px 4px 0; }
+.sd-cap-card-img.has-illo svg { width: 100%; height: 100%; display: block; }
+.sd-cap-card-body { padding: 18px 22px 26px; }
+.sd-cap-card-body h3 {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0 0 10px;
+  color: #2b2b2b;
+}
+.sd-cap-card-body p {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4a4a4a;
+  margin: 0;
+}
+/* CTO cell: green swoosh card on top, "Set up a Meeting" CTA below it */
+.sd-cta-cell { display: flex; flex-direction: column; gap: 26px; }
+.sd-cta-card {
+  background: linear-gradient(150deg, #2a2630 0%, #3a2f4a 100%);
+  border-radius: 20px 20px 110px 20px;
+  color: #fff;
+  padding: 30px 30px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  flex: 1;
+}
+.sd-cta-card-avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255, 255, 255, 0.2); }
+.sd-cta-card-name { font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif; font-size: 14px; color: rgba(255, 255, 255, 0.65); margin: 0 0 8px; }
+.sd-cta-card-line { font-family: "Cabinet Grotesk"; font-weight: 500; font-size: 24px; line-height: 30px; margin: 0; color: #fff; }
+@media (max-width: 991px) { .sd-caps-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .sd-caps-grid { grid-template-columns: 1fr; } }
+
+/* ---- Process (faithful WWOTE port): title left + subtitle right, 5 columns
+        divided by hairlines, pills staggered in PAIRS, styled hover bubble.
+        Most styling comes from compiled .wwo-te; these are page-local tweaks. */
+.service-detail-page .wwo-te { max-width: 1240px; margin: 120px auto; padding: 0 20px; }
+.service-detail-page .wwo-te .cards-container { width: 100%; }
+.service-detail-page .wwo-te .solution-card { padding: 0 18px; }
+.service-detail-page .wwo-te .solution-card .block-subtitle { font-size: 13px; margin: 0 0 8px; }
+.service-detail-page .wwo-te .solution-card .img-set-height { object-fit: contain; object-position: left center; }
+.service-detail-page .wwo-te .sd-pill-wrap { position: relative; width: 100%; }
+@media (max-width: 900px) {
+  .service-detail-page .wwo-te { margin: 80px auto; }
+  .service-detail-page .wwo-te .row.flex-nowrap { flex-wrap: wrap !important; }
+  .service-detail-page .wwo-te .col { flex: 0 0 100%; max-width: 100%; }
+  .service-detail-page .wwo-te .solution-card { border-left: 0 !important; margin-bottom: 28px !important; }
+  .service-detail-page .wwo-te .solution-card img { margin-top: 14px !important; }
+}
+
+/* ---- Technologies: PAGE-WIDE wave background (what-we-build-bg-image),
+        section breaks out of the 1240 container to span the viewport ---- */
+.section-technologies-used {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 40px 0 120px;
+}
+/* pull technologies up tight under the process section */
+.service-detail-page .wwo-te { margin-bottom: 56px; }
+.section-technologies-used::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('../assets/images/what-we-build-bg-image.png') center / 100% 95% no-repeat;
+}
+.sd-tech {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: none;
+}
+.sd-tech-heading {
+  font-family: "Cabinet Grotesk" !important;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 auto 48px;
+  max-width: 570px;
+}
+@media (max-width: 1000px) {
+  .sd-tech-heading br { display: none; }
+}
+/* all six tech cards on a single row, bigger icons */
+.sd-tech-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; max-width: 1240px; margin: 0 auto; }
+.sd-tech-card {
+  background: #fff;
+  border-radius: 14px;
+  min-height: 178px;
+  padding: 26px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
+}
+.sd-tech-card img { width: 60px; height: 60px; object-fit: contain; }
+.sd-tech-card .sd-tech-mono {
+  width: 60px; height: 60px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Cabinet Grotesk", Arial, sans-serif; font-weight: 600;
+  font-size: 19px; letter-spacing: -0.01em;
+  color: #4d8e62; background: #eef7f1;
+}
+.sd-tech-card h3 { font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 18px; margin: 0; color: #2b2b2b; text-align: center; }
+.sd-tech-card p { font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif; font-size: 13px; line-height: 17px; color: #8a8a8a; margin: 0; text-align: center; }
+@media (max-width: 767px) { .sd-tech-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---- Lightweight platforms slider (replaces react-slick) ---- */
+.sd-slider-wrapper { overflow: hidden; }
+.sd-slider-track { display: flex; gap: 20px; transition: transform 0.8s ease; }
+.sd-slide { flex: 0 0 60%; min-width: 0; }
+.sd-slide .content-box { height: 100%; }
+@media (max-width: 991px) { .sd-slide { flex-basis: 100%; } }
+.sd-slider-controls { display: flex; align-items: center; gap: 16px; margin-top: 20px; justify-content: center; }
+.sd-slider-controls .autoplay-btn { background: transparent; border: 0; }
+.sd-dots { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.sd-dots li button {
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 0; padding: 0; background: #c6c7ce; text-indent: -9999px; overflow: hidden; cursor: pointer;
+}
+.sd-dots li.active button { background: #67be83; }
+
+/* ============================================================
+   PER-SERVICE COLOR IDENTITY
+   The brand keeps a single green accent; differentiation comes
+   from the dark hero/CTO gradient tilt and the technologies
+   section's pastel band (drawn from the DS pastel set).
+   ============================================================ */
+/* --- AI & Data Systems: brand green (#267A5C) --- */
+[data-sd-theme="ai"] .sd-banner { background: linear-gradient(150deg, #1c4a38 0%, #21664c 52%, #267A5C 100%); }
+[data-sd-theme="ai"] .sd-banner-copy h1 .green { color: #bde8d1 !important; }
+[data-sd-theme="ai"] .sd-cta-card { background: linear-gradient(160deg, #18241e 0%, #1f5440 50%, #2e7d5d 100%); }
+[data-sd-theme="ai"] .section-technologies-used::before { background: #e3f1e9; }
+[data-sd-theme="ai"] .sd-tech-card .sd-tech-mono { color: #267A5C; background: #e6f2ec; }
+
+/* --- Customer Experience: warm rose/plum --- */
+[data-sd-theme="cx"] .sd-banner { background: linear-gradient(150deg, #2a2230 0%, #38262f 55%, #4c2f3f 100%); }
+[data-sd-theme="cx"] .sd-cta-card { background: linear-gradient(150deg, #38262f 0%, #4c2f3f 100%); }
+[data-sd-theme="cx"] .section-technologies-used::before { background: #fcf3f4; }
+[data-sd-theme="cx"] .sd-tech-card .sd-tech-mono { color: #9a5167; background: #fbecef; }

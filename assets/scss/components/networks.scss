@@ -1,0 +1,87 @@
+.networks {
+  gap: 10px;
+  .our-networks {
+    display: block;
+    text-align: center;
+    padding: 20px 0px;
+    justify-content: center;
+    @include mobile {
+      padding: 20px 0px;
+    }
+  }
+
+  .network-col {
+    display: inline-flex;
+    .network-img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      @include mobile {
+        width: 28px;
+        height: auto;
+      }
+    }
+    .network-title {
+      margin-left: 15px;
+      font-weight: bold;
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  .share-network-img {
+    width: 30px;
+  }
+  .share-icon {
+    width: 15px;
+  }
+}
+
+.share-network {
+  width: fit-content;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+
+  img {
+    margin-right: 10px;
+    width: 20px;
+    @include mobile {
+      margin-right: unset;
+    }
+  }
+  .share-link-img {
+    @include mobile {
+      margin-right: unset;
+    }
+  }
+  .subtitle {
+    margin-top: 1px;
+    font-size: 14px;
+    color: #4d4d4d;
+  }
+
+  :active {
+    outline: none !important;
+  }
+}
+.share-network:focus {
+  outline: none !important;
+}
+
+.share-networks-row {
+  @include mobile {
+    gap: 20px !important;
+  }
+}
+
+.share-article {
+  gap: 20px !important;
+  @include mobile {
+    flex-direction: column;
+  }
+  @include desktop {
+    align-items: center;
+  }
+}

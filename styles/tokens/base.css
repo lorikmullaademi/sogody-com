@@ -1,0 +1,33 @@
+/* Sogody — base element defaults
+   Mirrors the codebase's typography.scss baseline.
+   Scoped lightly so consuming pages inherit sensible Sogody defaults. */
+
+body {
+  font-family: var(--font-medium);
+  color: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; /* weight carried by the font family */
+  color: var(--text-heading);
+  margin: 0;
+}
+
+h1 { font-family: var(--font-display); font-size: var(--fs-h1); line-height: var(--lh-h1); }
+h2 { font-family: var(--font-display); font-size: var(--fs-h2); line-height: var(--lh-h2); }
+h3 { font-family: var(--font-display); font-size: var(--fs-h3); line-height: var(--lh-h3); }
+h4 { font-family: var(--font-medium);  font-size: var(--fs-h4); color: var(--text-muted); }
+
+p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  margin: 0 0 1em;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Rich-text links use the brand green */
+.up-paragraph a,
+.rich-text a { color: var(--text-link); }

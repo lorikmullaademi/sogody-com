@@ -1,0 +1,65 @@
+.sogody-text {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  row-gap: 24px;
+
+  @include mobile {
+    margin-top: 64px;
+    margin-bottom: 64px;
+    flex-direction: column;
+  }
+
+  .font-review {
+    @include mobile {
+      font-size: 18px !important;
+    }
+  }
+  .title {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: left;
+    font-family: "HelveticaNeueLT Pro 45 Lt";
+    color: #2b2b2b;
+    padding-top: 0;
+
+    @include mobile {
+      font-size: 14px;
+      text-align: center;
+      padding:0 10px;
+    }
+  }
+  .title-container {
+    margin-bottom: 20px;
+    @include mobile {
+      margin-bottom: 0;
+    }
+  }
+  .story-title {
+    font-size: 24px;
+    line-height: 24px;
+    text-align: left;
+    font-family: "Cabinet Grotesk" !important;
+    font-weight: 500;
+    color: #2b2b2b;
+    margin-bottom: 0;
+
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 520px;
+    width: 100%;
+
+    @include mobile {
+      margin:0 auto;
+      align-items: center;
+    }
+  }
+}

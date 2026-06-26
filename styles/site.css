@@ -1,0 +1,294 @@
+/* Sogody — shell & shared UI styles (nav system, mega-dropdown, mobile menu,
+   contact modal, generic page scaffolding). Loaded after sogody.css. */
+
+/* ============ NAV SYSTEM (overrides/extends sogody.css header) ============ */
+.header-wrapper.fixed-top { position: sticky; top: 0; z-index: 1000; }
+.sg-navbar { position: relative; background: #f8f8f8; }
+.header-container { transition: padding 0.3s ease; }
+.header-container.pt-inactive { padding-top: 12px; padding-bottom: 12px; }
+
+.navbar-collapse { display: flex; align-items: center; }
+.mobile-nav-content { display: flex; align-items: center; gap: 20px; }
+.drop-main { display: flex; align-items: center; gap: 16px; }
+
+.navbar-inner-div { position: relative; }
+.nav-items-row { position: relative; display: flex; align-items: center; gap: 0; }
+.nav-item-services { position: relative; z-index: 2; }
+
+/* sliding active pill */
+.nav-slider {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+  background: #fff;
+  border-radius: 32px;
+  z-index: 1;
+  pointer-events: none;
+}
+.nav-link-black.active { color: #2b2b2b; }
+/* "What we do" dropdown caret — the shared asset is a right-chevron, so rotate
+   it to point DOWN on desktop (hover flips it up via the inherited span rotate). */
+.nav-items-row .mini-arrow:not(.navbar-arrow-rotation) img { transform: rotate(90deg); transition: transform 0.3s ease; }
+
+/* hamburger toggle (mobile only) */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.navbar-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #2b2b2b;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: 0 auto;
+}
+.navbar-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar-toggle.open span:nth-child(2) { opacity: 0; }
+.navbar-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.logo-hamburger-div { display: flex; align-items: center; gap: 16px; }
+
+/* ============ SERVICES MEGA-DROPDOWN (desktop) ============ */
+.service-nav-dropdown {
+  position: absolute;
+  top: calc(100% - 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 380px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.12);
+  padding: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: top center;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  z-index: 1200;
+}
+.service-nav-dropdown.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-left-side { display: flex; flex-direction: column; }
+.dropdown-left-side > a { text-decoration: none; }
+.header-service-title {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 16px;
+  color: #2b2b2b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+.header-service-title.all-solutions { padding: 10px 12px; color: #67be83; }
+.service-item-navbar {
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 8px;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+.service-item-navbar:hover { background: #f2f1f6; }
+.service-item-navbar-inner { display: flex; align-items: center; gap: 12px; width: 100%; }
+.nav-service-logo-ctn {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 0 0 52px;
+  background: #f8f8f8;
+}
+.nav-service-logo { width: 100%; height: 100%; object-fit: cover; }
+.service-item-row { flex: 1; }
+.inner-service-title { font-size: 15px; }
+.mini-arrow-right img { transform: rotate(-90deg); width: 9px; }
+.mini-arrow-container.less-padding { display: inline-flex; }
+.service-item-navbar:hover .mini-arrow-right { transform: translateX(3px); }
+
+/* ============ MOBILE MENU ============ */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 30, 0.35);
+  z-index: 900;
+}
+.services-nav-items { display: flex; flex-direction: column; width: 100%; }
+.service-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-decoration: none;
+  padding: 8px 0;
+}
+.service-nav-image { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; }
+.mini-arrow.rotated { transform: rotate(180deg); }
+.mini-arrow.navbar-arrow-rotation img { transform: rotate(-90deg); }
+
+@media (max-width: 1023px) {
+  .navbar-toggle { display: flex; }
+  .logo-hamburger-div { width: 100%; justify-content: space-between; }
+  .header-container { flex-wrap: wrap; }
+  .navbar-collapse {
+    position: fixed;
+    top: 0; right: 0;
+    height: 100vh;
+    width: min(420px, 86vw);
+    background: rgba(248, 248, 248, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: -6px 0 24px rgba(0, 0, 0, 0.25);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 1000;
+    padding: 90px 28px 28px;
+    align-items: stretch;
+    overflow-y: auto;
+  }
+  .navbar-collapse.open { transform: translateX(0); }
+  .mobile-nav-content { flex-direction: column; align-items: stretch; gap: 8px; width: 100%; }
+  .drop-main { flex-direction: column; align-items: stretch; gap: 8px; width: 100%; }
+  .navbar-inner-div { background: transparent; padding: 0; border-radius: 0; }
+  .nav-items-row { flex-direction: column; align-items: stretch; gap: 2px; }
+  .nav-link-black { font-size: 22px; padding: 12px 8px; border-radius: 12px; justify-content: space-between; }
+  .nav-item-services.hidden-nav-link { display: none; }
+  .nav-item-services.bg-color-grey .nav-link-black { background: #e8e8e8; }
+  .nav-contact, .mobile-cta { width: 100%; margin-top: 8px; }
+  .nav-contact .contact-us-link, .mobile-cta .contact-us-link { width: 100%; }
+  .where-we-come-in-text { font-size: 24px; line-height: 34px; }
+}
+
+/* ============ CONTACT MODAL ============ */
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 24px;
+  animation: sg-fade 0.2s ease;
+}
+@keyframes sg-fade { from { opacity: 0; } to { opacity: 1; } }
+.contact-modal {
+  background: #fff;
+  border-radius: 24px;
+  width: min(960px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.contact-modal-close {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3;
+  transition: background-color 0.2s ease;
+}
+.contact-modal-close:hover { background: #f2f1f6; }
+.contact-modal-close img { width: 14px; height: 14px; }
+.contact-modal-grid { display: grid; grid-template-columns: 1fr 1.1fr; }
+.contact-modal-left {
+  background: #2b2b2b;
+  color: #f8f8f8;
+  padding: 56px 44px;
+  border-radius: 24px 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-modal-left h2 {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+.contact-modal-left p {
+  font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
+  font-size: 16px; line-height: 1.6; color: #c6c7ce; margin: 0 0 28px;
+}
+.contact-modal-meta { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.contact-modal-meta a { color: #67be83; text-decoration: none; }
+.contact-modal-meta span { color: #9a9aa3; }
+.contact-modal-right { padding: 48px 44px; }
+.contact-form { display: flex; flex-direction: column; gap: 18px; }
+.contact-form label {
+  display: flex; flex-direction: column; gap: 7px;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 14px; color: #2b2b2b;
+}
+.contact-form input, .contact-form textarea {
+  font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
+  font-size: 15px;
+  padding: 12px 14px;
+  border: 1px solid #c6c7ce;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  resize: vertical;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #67be83;
+  box-shadow: 0 0 0 3px rgba(103, 190, 131, 0.18);
+}
+.budget-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.budget-chip {
+  font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
+  font-size: 13px;
+  padding: 8px 14px;
+  border: 1px solid #c6c7ce;
+  border-radius: 32px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.budget-chip:hover { border-color: #67be83; }
+.budget-chip.active { background: #67be83; border-color: #67be83; color: #fff; }
+.contact-submit { border: none; margin-top: 6px; align-self: flex-start; }
+.contact-sent { display: flex; flex-direction: column; gap: 14px; justify-content: center; height: 100%; }
+.contact-sent h3 { font-family: "Cabinet Grotesk", sans-serif; font-weight: 400; font-size: 28px; margin: 0; }
+.contact-sent p { font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif; color: #636363; margin: 0; }
+
+@media (max-width: 767px) {
+  .contact-modal-grid { grid-template-columns: 1fr; }
+  .contact-modal-left { border-radius: 24px 24px 0 0; padding: 40px 28px; }
+  .contact-modal-right { padding: 32px 28px; }
+}
+
+/* ============ GENERIC PAGE SCAFFOLDING ============ */
+.layout-container { display: flex; flex-direction: column; min-height: 100vh; }
+.layout-container > main { flex: 1; }
+.page-hero { max-width: 1240px; margin: 0 auto; padding: 80px 20px 40px; }
+.page-eyebrow {
+  font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
+  font-size: 14px; color: #67be83; margin: 0 0 16px; letter-spacing: 0.02em;
+}
+.page-title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.04;
+  color: #2b2b2b;
+  margin: 0 0 24px;
+  max-width: 900px;
+}
+.page-lead {
+  font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
+  font-size: 20px; line-height: 1.5; color: #636363; max-width: 720px; margin: 0;
+}
