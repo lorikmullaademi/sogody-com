@@ -27,3 +27,8 @@
    globally on shell pages, which nudges the logo a few px higher than the homepage.
    Restore inline display for the nav logo only so the header sits identically. */
 .header-wrapper .navbar-brand img { display: inline; }
+
+/* The homepage nav links have no flex gap — the space between "What we do" and its
+   caret comes solely from .mini-arrow-container's 10px left margin. sogody.css adds
+   `.nav-link-black { gap: 7px }`, widening that distance to 17px. Match the homepage. */
+.header-wrapper .nav-link-black { gap: normal; }
