@@ -6971,6 +6971,7 @@ h3 {
   height: fit-content;
   cursor: pointer;
   padding: 10px;
+  margin: 0;
   transition: all .2s linear;
 }
 .koalendar-close-btn:hover {

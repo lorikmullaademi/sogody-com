@@ -1,7 +1,7 @@
 /* BOLD */
 @font-face {
   font-family: "HelveticaNeue-Bold";
-  src: url("../fonts/HelveticaNeueBold.ttf") format("truetype");
+  src: url("fonts/HelveticaNeueBold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -11,9 +11,9 @@
 @font-face {
   font-family: "HelveticaNeueLT Pro 45 Lt";
   src:
-    url("../fonts/HelveticaNeueLTPro-Lt.woff") format("woff"),
-    url("../fonts/HelveticaNeueLTPro-Lt_1.ttf") format("truetype"),
-    url("../fonts/HelveticaNeueLTPro-Lt.eot");
+    url("fonts/HelveticaNeueLTPro-Lt.woff") format("woff"),
+    url("fonts/HelveticaNeueLTPro-Lt_1.ttf") format("truetype"),
+    url("fonts/HelveticaNeueLTPro-Lt.eot");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -23,9 +23,9 @@
 @font-face {
   font-family: "HelveticaNeueLT Pro 55 Roman";
   src:
-    url("../fonts/HelveticaNeueLTPro-Roman.woff") format("woff"),
-    url("../fonts/HelveticaNeueLTPro-Roman_1.ttf") format("truetype"),
-    url("../fonts/HelveticaNeueLTPro-Roman.eot");
+    url("fonts/HelveticaNeueLTPro-Roman.woff") format("woff"),
+    url("fonts/HelveticaNeueLTPro-Roman_1.ttf") format("truetype"),
+    url("fonts/HelveticaNeueLTPro-Roman.eot");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -35,12 +35,12 @@
 /* Cabinet Grotesk Thin */
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Thin.eot");
+  src: url("fonts/CabinetGrotesk-Thin.eot");
   src:
-    url("../fonts/CabinetGrotesk-Thin.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/CabinetGrotesk-Thin.woff2") format("woff2"),
-    url("../fonts/CabinetGrotesk-Thin.woff") format("woff"),
-    url("../fonts/CabinetGrotesk-Thin.ttf") format("truetype");
+    url("fonts/CabinetGrotesk-Thin.eot?#iefix") format("embedded-opentype"),
+    url("fonts/CabinetGrotesk-Thin.woff2") format("woff2"),
+    url("fonts/CabinetGrotesk-Thin.woff") format("woff"),
+    url("fonts/CabinetGrotesk-Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -50,12 +50,12 @@
 /* Cabinet Grotesk ExtraLight */
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Extralight.eot");
+  src: url("fonts/CabinetGrotesk-Extralight.eot");
   src:
-    url("../fonts/CabinetGrotesk-Extralight.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/CabinetGrotesk-Extralight.woff2") format("woff2"),
-    url("../fonts/CabinetGrotesk-Extralight.woff") format("woff"),
-    url("../fonts/CabinetGrotesk-Extralight.ttf") format("truetype");
+    url("fonts/CabinetGrotesk-Extralight.eot?#iefix") format("embedded-opentype"),
+    url("fonts/CabinetGrotesk-Extralight.woff2") format("woff2"),
+    url("fonts/CabinetGrotesk-Extralight.woff") format("woff"),
+    url("fonts/CabinetGrotesk-Extralight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -65,12 +65,12 @@
 /* Cabinet Grotesk Light */
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Light.eot");
+  src: url("fonts/CabinetGrotesk-Light.eot");
   src:
-    url("../fonts/CabinetGrotesk-Light.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/CabinetGrotesk-Light.woff2") format("woff2"),
-    url("../fonts/CabinetGrotesk-Light.woff") format("woff"),
-    url("../fonts/CabinetGrotesk-Light.ttf") format("truetype");
+    url("fonts/CabinetGrotesk-Light.eot?#iefix") format("embedded-opentype"),
+    url("fonts/CabinetGrotesk-Light.woff2") format("woff2"),
+    url("fonts/CabinetGrotesk-Light.woff") format("woff"),
+    url("fonts/CabinetGrotesk-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -80,12 +80,12 @@
 /* Cabinet Grotesk Regular */
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Regular.eot");
+  src: url("fonts/CabinetGrotesk-Regular.eot");
   src:
-    url("../fonts/CabinetGrotesk-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/CabinetGrotesk-Regular.woff2") format("woff2"),
-    url("../fonts/CabinetGrotesk-Regular.woff") format("woff"),
-    url("../fonts/CabinetGrotesk-Regular.ttf") format("truetype");
+    url("fonts/CabinetGrotesk-Regular.eot?#iefix") format("embedded-opentype"),
+    url("fonts/CabinetGrotesk-Regular.woff2") format("woff2"),
+    url("fonts/CabinetGrotesk-Regular.woff") format("woff"),
+    url("fonts/CabinetGrotesk-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -95,12 +95,12 @@
 /* Cabinet Grotesk Medium */
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Medium.eot");
+  src: url("fonts/CabinetGrotesk-Medium.eot");
   src:
-    url("../fonts/CabinetGrotesk-Medium.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/CabinetGrotesk-Medium.woff2") format("woff2"),
-    url("../fonts/CabinetGrotesk-Medium.woff") format("woff"),
-    url("../fonts/CabinetGrotesk-Medium.ttf") format("truetype");
+    url("fonts/CabinetGrotesk-Medium.eot?#iefix") format("embedded-opentype"),
+    url("fonts/CabinetGrotesk-Medium.woff2") format("woff2"),
+    url("fonts/CabinetGrotesk-Medium.woff") format("woff"),
+    url("fonts/CabinetGrotesk-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -110,12 +110,12 @@
 /* Cabinet Grotesk Bold */
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Bold.eot");
+  src: url("fonts/CabinetGrotesk-Bold.eot");
   src:
-    url("../fonts/CabinetGrotesk-Bold.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/CabinetGrotesk-Bold.woff2") format("woff2"),
-    url("../fonts/CabinetGrotesk-Bold.woff") format("woff"),
-    url("../fonts/CabinetGrotesk-Bold.ttf") format("truetype");
+    url("fonts/CabinetGrotesk-Bold.eot?#iefix") format("embedded-opentype"),
+    url("fonts/CabinetGrotesk-Bold.woff2") format("woff2"),
+    url("fonts/CabinetGrotesk-Bold.woff") format("woff"),
+    url("fonts/CabinetGrotesk-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -127,9 +127,9 @@
 @font-face {
   font-family: "HelveticaNeueLT Pro 65 Md";
   src:
-    url("../fonts/HelveticaNeueLTPro-Md.woff") format("woff"),
-    url("../fonts/HelveticaNeueLTPro-Md_1.ttf") format("truetype"),
-    url("../fonts/HelveticaNeueLTPro-Md.eot");
+    url("fonts/HelveticaNeueLTPro-Md.woff") format("woff"),
+    url("fonts/HelveticaNeueLTPro-Md_1.ttf") format("truetype"),
+    url("fonts/HelveticaNeueLTPro-Md.eot");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -140,9 +140,9 @@
 @font-face {
   font-family: "HelveticaNeueLT Pro 63 MdEx";
   src:
-    url("../fonts/HelveticaNeueLTPro-MdEx.woff") format("woff"),
-    url("../fonts/HelveticaNeueLTPro-MdEx_1.ttf") format("truetype"),
-    url("../fonts/HelveticaNeueLTPro-MdEx.eot");
+    url("fonts/HelveticaNeueLTPro-MdEx.woff") format("woff"),
+    url("fonts/HelveticaNeueLTPro-MdEx_1.ttf") format("truetype"),
+    url("fonts/HelveticaNeueLTPro-MdEx.eot");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -153,9 +153,9 @@
 @font-face {
   font-family: "HelveticaNeueLT Pro 75 Md";
   src:
-    url("../fonts/HelveticaNeueLTPro-Bd.woff") format("woff"),
-    url("../fonts/HelveticaNeueLTPro-Bd_1.ttf") format("truetype"),
-    url("../fonts/HelveticaNeueLTPro-Bd.eot");
+    url("fonts/HelveticaNeueLTPro-Bd.woff") format("woff"),
+    url("fonts/HelveticaNeueLTPro-Bd_1.ttf") format("truetype"),
+    url("fonts/HelveticaNeueLTPro-Bd.eot");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -165,9 +165,9 @@
 @font-face {
   font-family: "HelveticaNeueLT Pro 53 Extended";
   src:
-    url("../fonts/HelveticaNeueLTPro53Extended.woff") format("woff"),
-    url("../fonts/HelveticaNeueLTPro53Extended.ttf") format("truetype"),
-    url("../fonts/HelveticaNeueLTPro53Extended.eot");
+    url("fonts/HelveticaNeueLTPro53Extended.woff") format("woff"),
+    url("fonts/HelveticaNeueLTPro53Extended.ttf") format("truetype"),
+    url("fonts/HelveticaNeueLTPro53Extended.eot");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

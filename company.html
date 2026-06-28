@@ -6,29 +6,104 @@
 <title>About us / Who we are | Company | Sogody</title>
 <meta name="description" content="Sogody is a digital engineering company focused on building high-performing platforms for global brands.">
 <link rel="icon" href="assets/logos/icon-green.png">
-<link rel="stylesheet" href="styles/ds.css">
-<link rel="stylesheet" href="styles/sogody.css">
-<link rel="stylesheet" href="styles/site.css">
-<link rel="stylesheet" href="styles/pages.css">
 <link rel="stylesheet" href="assets/bootstrap.min.css">
 <link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/style.css">
 <link rel="stylesheet" href="styles/main-compiled.css">
 <link rel="stylesheet" href="styles/components-compiled.css">
-<link rel="stylesheet" href="styles/nav-unify.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+/* Video hero wrapper */
+.banner-company.video-wrapper { position: relative; margin-top: 110px; }
+.banner-company.video-wrapper video { display: block; }
+.youtube-section-container { margin-top: 20px; }
+.youtube-section .youtube-container { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.youtube-section .youtube-container .title { font-size: 18px; color: #2b2b2b; margin: 0; }
+
+/* MSHS gallery — wide centered horizontal scroll of rounded banner cards */
+.co-gallery-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 9%; scrollbar-width: none; }
+.co-gallery-track::-webkit-scrollbar { display: none; }
+.co-gallery-track .slide-container { flex: 0 0 82%; scroll-snap-align: center; padding: 0; }
+.co-gallery-track .content-box { height: 430px; border-radius: 20px; }
+.mshs-services .slider-wrapper { position: relative; padding-bottom: 44px; }
+/* floating control pill straddling the image bottom edge and the white space below */
+.co-gallery-controls { position: absolute; left: 50%; transform: translateX(-50%); bottom: 36px; display: flex; align-items: center; gap: 14px; z-index: 5; }
+.co-gallery-controls .co-pause { width: 48px; height: 48px; margin: 0; border: none; background: #fff; border-radius: 50%; box-shadow: 0 4px 14px rgba(0,0,0,0.10); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.co-gallery-controls .co-pause-ico { display: inline-flex; align-items: center; gap: 5px; }
+.co-gallery-controls .co-pause-ico i { width: 5px; height: 17px; border-radius: 3px; background: #67be83; display: block; }
+.co-gallery-controls .co-play-ico { width: 0; height: 0; border-left: 18px solid #67be83; border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 4px; }
+.co-gallery-controls .co-dots-pill { display: flex; align-items: center; gap: 18px; background: #fff; border-radius: 40px; box-shadow: 0 4px 14px rgba(0,0,0,0.10); padding: 18.5px 28px; }
+.co-gallery-controls .co-dot { width: 11px; height: 11px; border-radius: 50%; background: #84cb9a; border: none; padding: 0; margin: 0; cursor: pointer; transition: all 0.3s ease; flex: 0 0 auto; }
+.co-gallery-controls .co-dot.active { width: 40px; border-radius: 7px; background: #67be83; }
+
+/* Projects timeline card — white rounded card, text left + image right */
+@keyframes co-card-in { from { opacity: 0; transform: translateX(48px); } to { opacity: 1; transform: translateX(0); } }
+@media (prefers-reduced-motion: no-preference) { .projects .carousel-container .carousel-card { animation: co-card-in 0.45s cubic-bezier(0.22, 1, 0.36, 1); } }
+.projects .carousel-container h2 { display: block !important; text-align: center; }
+.projects .year-svgs { padding: 24px 0 10px !important; }
+.projects .carousel-container .carousel-card { background: #fff; border-radius: 28px; box-shadow: 0 12px 44px rgba(0,0,0,0.06); padding: 30px 48px; gap: 48px; align-items: center; }
+@media (min-width: 768px) { .projects .carousel-container .carousel-card { flex-direction: row !important; row-gap: 0 !important; } }
+.projects .carousel-card .card-header { flex: 1 1 50%; padding: 0 !important; }
+.projects .carousel-card .cardheader-1 .year-label { background: #67be83; color: #fff; padding: 9px 22px; border-radius: 32px; display: inline-block; font-size: 16px; line-height: 1; }
+.projects .carousel-card .cardheader-2 { margin-top: 22px; }
+.projects .carousel-card .cardheader-2 h3 { margin-bottom: 12px; }
+.projects .carousel-card .stats-row { display: flex; margin-top: 20px; }
+.projects .carousel-card .stats-card { background: #f8f8f8 !important; border: none; border-radius: 32px; width: auto !important; max-width: none !important; flex: 0 0 auto !important; padding: 11px 24px; }
+.projects .carousel-card .stats-card p { margin: 0; color: #2b2b2b; }
+.projects .carousel-card .carousel-img { flex: 0 0 48%; width: 48% !important; max-width: 48% !important; border-radius: 20px; object-fit: cover; }
+/* nav arrows above the card, right-aligned */
+.projects .swiper-nav-container { display: flex; align-items: flex-end; width: 100%; justify-content: flex-end; gap: 0; margin: 58px 0 -28px; position: relative; z-index: 2; }
+.projects .carousel-container .carousel-card { margin-top: 3px; }
+.projects .swiper-button-prev, .projects .swiper-button-next { position: static; width: 36px; height: 36px; min-height: 36px; padding: 0 !important; margin: 0; transform: none !important; border-radius: 0 !important; background-color: transparent; background-repeat: no-repeat; background-position: center; background-size: 34px 34px; border: none; cursor: pointer; }
+.projects .swiper-button-prev::before, .projects .swiper-button-next::before, .projects .swiper-button-prev::after, .projects .swiper-button-next::after { content: none !important; display: none !important; }
+.projects .swiper-button-next { margin-left: 8px; }
+.projects .swiper-button-prev { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='15%2018%209%2012%2015%206'/%3E%3C/svg%3E") !important; }
+.projects .swiper-button-next { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='9%2018%2015%2012%209%206'/%3E%3C/svg%3E") !important; }
+.projects .swiper-button-prev { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='15%2018%209%2012%2015%206'/%3E%3C/svg%3E"); }
+.projects .swiper-button-next { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='9%2018%2015%2012%209%206'/%3E%3C/svg%3E"); }
+@media (max-width: 767px) {
+  .projects .carousel-container .carousel-card { padding: 28px; }
+  .projects .carousel-card .carousel-img { width: 100% !important; max-width: 100% !important; }
+}
+
+
+/* Staff — horizontal scroll row of employee cards */
+.co-staff-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 8px; }
+.co-staff-track::-webkit-scrollbar { display: none; }
+.co-staff-track .employee-card { flex: 0 0 calc((100% - 80px) / 5); scroll-snap-align: start; }
+.co-staff-track .employee-card .employee-img { border-radius: 20px; filter: grayscale(100%); object-fit: cover; aspect-ratio: 3 / 4; }
+.sogody-staff .swiper-nav-container { margin-left: auto; display: flex; gap: 12px; }
+.sogody-staff h2 .staff-line { display: block; }
+.sogody-staff h2 { display: block; }
+/* Book-a-meeting CTA — keep button on one line, aligned right */
+.cta-meet .cta-meet-content-column:last-child { justify-content: flex-end; }
+.cta-meet .cta-meet-content .contact-us-link { white-space: nowrap; }
+/* Slider/progress line under the staff cards */
+.co-staff-progress { position: relative; height: 2px; margin: 12px auto 0; width: 55%; background: #e8e8e8; border-radius: 2px; overflow: hidden; }
+.co-staff-progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 100%; background: #67be83; border-radius: 2px; transform-origin: left center; transition: transform 0.2s ease; }
+
+/* Testimonials — 2-up horizontal scroll */
+.co-tst-track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.co-tst-track::-webkit-scrollbar { display: none; }
+.co-tst-track .carousel-card { flex: 0 0 calc((100% - 14px) / 2); scroll-snap-align: start; }
+@media (max-width: 767px) {
+  .co-gallery-track .slide-container { flex: 0 0 90%; }
+  .co-gallery-track .content-box { height: 300px; }
+  .co-gallery-controls { gap: 10px; }
+  .co-gallery-controls .co-pause { width: 44px; height: 44px; border-radius: 50%; }
+  .co-gallery-controls .co-dots-pill { gap: 10px; padding: 16px 18px; height: auto; }
+  .co-staff-track .employee-card { flex: 0 0 60%; }
+  .co-tst-track .carousel-card { flex: 0 0 88%; }
+}
+</style>
 </head>
 <body>
   <div id="root"></div>
-  <script type="text/babel" src="components/kit.jsx"></script>
   <script type="text/babel" src="components/data.jsx"></script>
   <script type="text/babel" src="components/src-kit.jsx"></script>
   <script type="text/babel" src="components/src-header.jsx"></script>
   <script type="text/babel" src="components/src-shell.jsx"></script>
-  <script type="text/babel" src="components/shell.jsx"></script>
-  <script type="text/babel" src="components/pagekit.jsx"></script>
-  <script type="text/babel" src="pages/company.jsx"></script>
+  <script type="text/babel" src="pages/company-main.jsx"></script>
 </body>
 </html>

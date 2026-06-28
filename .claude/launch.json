@@ -5,7 +5,8 @@
       "name": "sogody-static",
       "runtimeExecutable": "node",
       "runtimeArgs": [".claude/static-server.js"],
-      "port": 8001
+      "port": 8001,
+      "autoPort": true
     }
   ]
 }

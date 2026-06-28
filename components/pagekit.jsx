@@ -22,7 +22,9 @@ function BannerWork({ title, subtitle, bgImage, buttonText = "Schedule an Audit 
           <div className="banner-work-title">
             <h1 className="name h2-styling">{title}</h1>
             <p className="subtitle margin-addition">{subtitle}</p>
-            <PKBtn href={PK_BOOKING} className="banner-work-cta">{buttonText}</PKBtn>
+            <InitKoalendar href={PK_BOOKING} variant="green-white" className="contact-us-link padding mob-width hover-state button-padding" showButton={true}>
+              {buttonText}
+            </InitKoalendar>
           </div>
         </div>
         <hr className="banner-work-divider" />

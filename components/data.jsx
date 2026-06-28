@@ -222,7 +222,7 @@ const CASE_STUDIES = [
     title: "Building a Comprehensive Life Sciences Intelligence Platform",
     shortTitle: "Life Sciences Intelligence Platform",
     category: CATEGORIES.ai,
-    csBtn: "AI Platform",
+    csBtn: "Biopharma",
     img: "assets/images/cs-life-sciences.png",
     visitSiteUrl: "",
     body: [
@@ -234,7 +234,7 @@ const CASE_STUDIES = [
     title: "Management tool for an agricultural NGO",
     shortTitle: "Agricultural Management Tool",
     category: CATEGORIES.software,
-    csBtn: "Platform",
+    csBtn: "Agriplatform",
     img: "assets/images/cs-agri-ngo.png",
     visitSiteUrl: "",
     body: [
@@ -246,7 +246,7 @@ const CASE_STUDIES = [
     title: "Document management efficiency app",
     shortTitle: "Document Management App",
     category: CATEGORIES.software,
-    csBtn: "Platform",
+    csBtn: "Kosovo Government",
     img: "assets/images/cs-doc-management.png",
     visitSiteUrl: "",
     body: [

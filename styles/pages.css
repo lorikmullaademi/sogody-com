@@ -12,20 +12,28 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  padding: 64px 56px 0;
+  padding: 40px 56px 36px;
   margin-top: 24px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
 }
-.banner-work::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,24,0.35), rgba(20,20,24,0.55)); z-index: 0; }
+/* Match the header-to-hero gap used on the What We Do (services) page: main
+   has padding-top:80px globally, so 30px here lands the hero at the same 110px. */
+.work .banner-work, .up-final .banner-work { margin-top: 30px; }
+.banner-work::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,24,0.12), rgba(20,20,24,0.30)); z-index: 0; }
 .banner-work-row, .banner-work-divider, .banner-work .clients-carousel { position: relative; z-index: 1; }
-.banner-work-title { max-width: 760px; }
+.banner-work-row { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; }
+.banner-work-title { max-width: 760px; text-align: center; }
 .banner-work-title h1 {
   font-size: 48px;
   line-height: 1.05;
   margin: 0 0 16px;
   font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
+  color: #fff;
 }
 .banner-work-title .subtitle {
   font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
@@ -33,10 +41,9 @@
   line-height: 1.5;
   color: #e8e8e8;
   max-width: 560px;
-  margin: 0 0 28px;
+  margin: 0 auto 28px;
 }
-.banner-work-cta { display: inline-flex; margin-bottom: 8px; }
-.banner-work-divider { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 48px 40px 0; }
+.banner-work-divider { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 32px 40px 0; }
 .banner-work .clients-carousel { background: transparent; border-radius: 0; margin-top: 0; }
 .banner-work .clients-carousel .logo-item img { filter: brightness(0) invert(1); opacity: 0.7; }
 .banner-work .clients-carousel .title-styling { color: #fff; }
