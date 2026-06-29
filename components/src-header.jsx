@@ -147,11 +147,13 @@ function SrcHeader({ active = "" }) {
                         onMouseMove={() => handleMouseMove(index)}
                         onMouseLeave={handleMouseLeave}
                         onMouseEnter={() => { if (!isMobile && index === 0) setShowDropdown(true); }}
-                        className="nav-item-services nav-item"
+                        className={`nav-item-services nav-item${index === 0 && isMobile && showDropdown ? " mobile-services-open" : ""}`}
                       >
                         <a
                           className={`nav-link nav-link-black ${active === link && index !== 0 ? "active" : ""}`}
                           href={index === 0 ? "services.html" : hMap(`/${link}/`)}
+                          onClick={index === 0 && isMobile ? (e) => { e.preventDefault(); setShowDropdown((v) => !v); } : undefined}
+                          aria-expanded={index === 0 ? showDropdown : undefined}
                         >
                           <span className="d-flex align-items-center">
                             {index === 0 ? "What we do" : link.charAt(0).toUpperCase() + link.slice(1)}
@@ -162,6 +164,19 @@ function SrcHeader({ active = "" }) {
                             </div>
                           )}
                         </a>
+                        {index === 0 && isMobile && showDropdown && (
+                          <div className="mobile-services-list">
+                            {services.map((service) => (
+                              <a
+                                key={service.slug}
+                                className={`mobile-service-link ${service.slug}`}
+                                href={hMap(`/services/${service.slug}/`)}
+                              >
+                                {service.title}
+                              </a>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>

@@ -141,28 +141,40 @@ function SdTechnologies({ tech }) {
   );
 }
 
-/* ---- Platforms carousel (managedSharedServices → .mshs-services) ---- */
+/* ---- Platforms carousel — full-width scroll-snap gallery (mirrors the
+        Company page CoGallery: big centered card, loop, floating controls) ---- */
 function SdPlatforms({ platforms }) {
-  const [index, setIndex] = useStateSd(0);
-  const [autoplay, setAutoplay] = useStateSd(true);
+  const ref = useRefSd(null);
+  const [playing, setPlaying] = useStateSd(true);
+  const [idx, setIdx] = useStateSd(0);
   const PAUSE = "https://cdn.sanity.io/images/3hfxs7a8/production/570e76234b5cb899a27aeccb1811a9919afea8a6-85x84.webp";
   const REPLAY = "https://cdn.sanity.io/images/3hfxs7a8/production/601e4edd77931890b2f01d507f5edb2cbc41d2d4-88x88.webp";
-  const n = platforms.cards.length;
+
+  const stepOf = (el) => { const c = el.querySelector(".slide-container"); return c ? c.getBoundingClientRect().width + 24 : 400; };
+  const onScroll = () => { const el = ref.current; if (!el) return; setIdx(Math.round(el.scrollLeft / stepOf(el))); };
+  const goTo = (i) => { const el = ref.current; if (!el) return; el.scrollTo({ left: i * stepOf(el), behavior: "smooth" }); };
 
   useEffectSd(() => {
-    if (!autoplay) return;
-    const t = setInterval(() => setIndex((p) => (p + 1) % n), 2000);
-    return () => clearInterval(t);
-  }, [autoplay, n]);
+    if (!playing) return;
+    const id = setInterval(() => {
+      const el = ref.current; if (!el) return;
+      const next = el.scrollLeft + el.clientWidth >= el.scrollWidth - 5 ? 0 : Math.round(el.scrollLeft / stepOf(el)) + 1;
+      el.scrollTo({ left: next * stepOf(el), behavior: "smooth" });
+    }, 2600);
+    return () => clearInterval(id);
+  }, [playing]);
 
   return (
     <div className="mshs-services d-flex flex-column scroll-show">
       <h2 className="title mb-5 container">{platforms.title}</h2>
       <div className="slider-wrapper sd-slider-wrapper">
-        <div className="sd-slider-track" style={{ transform: `translateX(calc(${index} * (-60% - 20px)))` }}>
+        <div className="custom-slider sd-gallery-track" ref={ref} onScroll={onScroll}>
           {platforms.cards.map((item, i) => (
             <div key={i} className="slide-container sd-slide">
-              <div className="content-box d-flex flex-column p-4">
+              <div
+                className={`content-box d-flex flex-column p-4${item.textWhite ? " text-white" : ""}`}
+                style={item.bg ? { backgroundImage: `url(${item.bg})`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundColor: "#f0f0f0" } : undefined}
+              >
                 <div className="d-flex align-items-center">
                   <img src={item.logo} alt="Logo" className="btn-logo-img mr-1" />
                   <p className="font-extended m-0">{item.name}</p>
@@ -175,12 +187,12 @@ function SdPlatforms({ platforms }) {
           ))}
         </div>
         <div className="sd-slider-controls">
-          <button type="button" className="autoplay-btn p-0 d-flex" onClick={() => setAutoplay(!autoplay)}>
-            <img src={autoplay ? PAUSE : REPLAY} alt={autoplay ? "Pause" : "Replay"} width="25" height="25" />
+          <button type="button" className="autoplay-btn p-0 d-flex" onClick={() => setPlaying((p) => !p)}>
+            <img src={playing ? PAUSE : REPLAY} alt={playing ? "Pause" : "Replay"} width="25" height="25" />
           </button>
           <ul className="sd-dots">
             {platforms.cards.map((_, i) => (
-              <li key={i} className={i === index ? "active" : ""}><button type="button" onClick={() => setIndex(i)}></button></li>
+              <li key={i} className={i === idx ? "active" : ""}><button type="button" onClick={() => goTo(i)}></button></li>
             ))}
           </ul>
         </div>

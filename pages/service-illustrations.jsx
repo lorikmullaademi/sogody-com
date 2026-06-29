@@ -111,10 +111,28 @@ function illoRag() {
   );
 }
 
+/* 6 — Cloud AI: line-art cloud over service nodes (Azure / AWS / GCP) */
+function illoCloud() {
+  return (
+    <svg viewBox="0 0 372 215" preserveAspectRatio="xMidYMid meet">
+      <path d="M152 136 V172 M186 136 V180 M220 136 V172" fill="none" stroke={SI_FAINT} strokeWidth="1.4" />
+      <circle cx="152" cy="176" r="3.4" fill={SI_STROKE} />
+      <circle cx="186" cy="184" r="3.4" fill={SI_STROKE} />
+      <circle cx="220" cy="176" r="3.4" fill={SI_STROKE} />
+      <g transform="translate(120 22) scale(5.5)">
+        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"
+              fill="#fff" stroke={SI_STROKE} strokeWidth="0.42" strokeLinejoin="round" />
+      </g>
+      <SiKnot x={174} y={72} s={1.05} color={SI_GREEN} />
+    </svg>
+  );
+}
+
 window.SogodyServiceIllustrations = {
   llm: illoLLM,
   data: illoData,
   reco: illoReco,
   workflow: illoWorkflow,
   rag: illoRag,
+  cloud: illoCloud,
 };

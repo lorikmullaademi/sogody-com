@@ -57,9 +57,17 @@
   padding-left: 0 !important;
   justify-content: flex-start !important;
 }
-/* trusted-by inside the dark banner: lift logos to white */
+/* match the landing-page "Trusted by" density: sogody.css spreads each logo
+   with 0 28px padding, which shows fewer logos and reads sparser than home.
+   Drop it so the logos sit tight like the homepage band. */
+.sd-banner .clients-carousel .logo-item {
+  padding: 0 !important;
+}
+/* trusted-by logos render as-authored (like the homepage band): the source
+   SVGs are already white-on-transparent, so the brightness/invert "lift" was
+   redundant — and it corrupted two-tone logos like brainlabs by turning their
+   meant-to-be-hidden dark parts white. So the clients-carousel is excluded here. */
 .sd-banner .updates-carousel-section img,
-.sd-banner .clients-carousel img,
 .sd-banner .carousel-img { filter: brightness(0) invert(1) opacity(0.82); }
 .sd-banner .carousel-container p, .sd-banner .trusted-by { color: #d6d6d6 !important; }
 @media (max-width: 991px) {
@@ -202,8 +210,8 @@
    look bigger than the tech-page icons (whose PNGs have built-in padding, ~24px
    rendered). Scale them down to match the Ruby/tech icon size, keeping the same
    60x44 box so the card layout is unchanged. */
-[data-sd-theme="ai"] .sd-tech-card img,
-[data-sd-theme="cx"] .sd-tech-card img { transform: scale(0.55); }
+[data-sd-theme="ai"] .sd-tech-card img { transform: scale(0.55); }
+[data-sd-theme="cx"] .sd-tech-card img { transform: scale(0.72); }
 .sd-tech-card .sd-tech-mono {
   width: 60px; height: 60px; border-radius: 16px;
   display: flex; align-items: center; justify-content: center;
@@ -215,20 +223,44 @@
 .sd-tech-card p { font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif; font-size: 13px; line-height: 17px; color: #8a8a8a; margin: 0; text-align: center; }
 @media (max-width: 767px) { .sd-tech-grid { grid-template-columns: repeat(2, 1fr); } }
 
-/* ---- Lightweight platforms slider (replaces react-slick) ---- */
-.sd-slider-wrapper { overflow: hidden; }
-.sd-slider-track { display: flex; gap: 20px; transition: transform 0.8s ease; }
-.sd-slide { flex: 0 0 60%; min-width: 0; }
-.sd-slide .content-box { height: 100%; }
-@media (max-width: 991px) { .sd-slide { flex-basis: 100%; } }
-.sd-slider-controls { display: flex; align-items: center; gap: 16px; margin-top: 20px; justify-content: center; }
-.sd-slider-controls .autoplay-btn { background: transparent; border: 0; }
-.sd-dots { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+/* ---- Platforms gallery — full-width scroll-snap track, big centered card,
+        floating control pill (mirrors the Company page CoGallery) ---- */
+/* Break the gallery out of the page's 1240px container to span the full viewport */
+.service-detail-page .mshs-services { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+.sd-slider-wrapper { position: relative; padding-bottom: 44px; }
+.sd-gallery-track {
+  display: flex; gap: 24px; overflow-x: auto;
+  scroll-snap-type: x mandatory; padding: 10px 9%; scrollbar-width: none;
+}
+.sd-gallery-track::-webkit-scrollbar { display: none; }
+.sd-gallery-track .slide-container { flex: 0 0 82%; min-width: 0; scroll-snap-align: center; padding: 0; }
+.sd-gallery-track .slide-container .content-box { height: 100%; min-height: 460px; }
+@media (max-width: 991px) {
+  .sd-gallery-track { padding: 10px 5%; }
+  .sd-gallery-track .slide-container { flex-basis: 90%; }
+}
+
+/* floating control pill straddling the card bottom edge */
+.sd-slider-controls {
+  position: absolute; left: 50%; transform: translateX(-50%); bottom: 22px;
+  display: flex; align-items: center; gap: 14px; z-index: 5;
+}
+.sd-slider-controls .autoplay-btn {
+  width: 48px; height: 48px; margin: 0; border: 0; background: #fff; border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.10); display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.sd-dots {
+  display: flex; align-items: center; gap: 12px; list-style: none; margin: 0;
+  height: 48px; padding: 0 20px;
+  background: #fff; border-radius: 40px; box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+}
+.sd-dots li { display: flex; align-items: center; line-height: 0; }
 .sd-dots li button {
   width: 10px; height: 10px; border-radius: 50%;
-  border: 0; padding: 0; background: #c6c7ce; text-indent: -9999px; overflow: hidden; cursor: pointer;
+  border: 0; padding: 0; margin: 0; background: #84cb9a; text-indent: -9999px; overflow: hidden; cursor: pointer;
+  transition: all 0.3s ease;
 }
-.sd-dots li.active button { background: #67be83; }
+.sd-dots li.active button { width: 32px; border-radius: 6px; background: #67be83; }
 
 /* ============================================================
    PER-SERVICE COLOR IDENTITY
@@ -242,7 +274,7 @@
 [data-sd-theme="ai"] .sd-cta-card { background: linear-gradient(160deg, #18241e 0%, #1f5440 50%, #2e7d5d 100%); }
 [data-sd-theme="ai"] .sd-tech-card .sd-tech-mono { color: #267A5C; background: #e6f2ec; }
 
-/* --- Customer Experience: warm rose/plum --- */
-[data-sd-theme="cx"] .sd-banner { background: linear-gradient(150deg, #2a2230 0%, #38262f 55%, #4c2f3f 100%); }
-[data-sd-theme="cx"] .sd-cta-card { background: linear-gradient(150deg, #38262f 0%, #4c2f3f 100%); }
-[data-sd-theme="cx"] .sd-tech-card .sd-tech-mono { color: #9a5167; background: #fbecef; }
+/* --- Customer Experience: warm olive (#61592D) --- */
+[data-sd-theme="cx"] .sd-banner { background: linear-gradient(150deg, #28250f 0%, #423c1c 55%, #61592D 100%); }
+[data-sd-theme="cx"] .sd-cta-card { background: linear-gradient(150deg, #423c1c 0%, #61592D 100%); }
+[data-sd-theme="cx"] .sd-tech-card .sd-tech-mono { color: #61592D; background: #f1efe1; }
