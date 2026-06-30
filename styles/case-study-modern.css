@@ -1,0 +1,307 @@
+/* ============================================================
+   MODERN CASE STUDY TEMPLATE — sogody.com styled
+   Section-banded, sticky-free, narrative layout inspired by the
+   sogody.ai case-study format. Scoped under .cs-modern.
+   ============================================================ */
+
+.cs-modern {
+  --cs-ink: #2b2b2b;
+  --cs-muted: #6b6b73;
+  --cs-green: #67be83;
+  --cs-line: #e8e8e8;
+  font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
+  color: var(--cs-ink);
+}
+
+.cs-modern .cs-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.cs-modern .cs-wrap--narrow { max-width: 880px; }
+
+/* shared section rhythm */
+.cs-modern .cs-band { padding: 96px 0; }
+.cs-modern .cs-band--pad-sm { padding: 72px 0; }
+.cs-modern .cs-band--lilac { background: #f2f1f6; }
+.cs-modern .cs-band--mint { background: #f1f6f5; }
+.cs-modern .cs-band--green { background: #e1f2e6; }
+.cs-modern .cs-band--blue { background: #dbe5f2; }
+
+/* eyebrow label */
+.cs-modern .cs-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--cs-green); margin: 0 0 18px;
+}
+.cs-modern .cs-eyebrow::before {
+  content: ""; width: 22px; height: 1px; background: var(--cs-green);
+}
+
+.cs-modern h2.cs-h {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -0.01em;
+  margin: 0 0 22px; text-wrap: balance;
+}
+.cs-modern .cs-lead {
+  font-size: 19px; line-height: 1.65; color: var(--cs-muted);
+  max-width: 720px; margin: 0;
+}
+
+/* ---------- breadcrumb ---------- */
+.cs-modern .cs-crumb {
+  padding: 110px 0 0;
+}
+.cs-modern .cs-crumb a {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 14px; color: var(--cs-muted); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px; transition: color .3s ease;
+}
+.cs-modern .cs-crumb a:hover { color: var(--cs-ink); }
+.cs-modern .cs-crumb a .cs-arrow-back { transform: rotate(180deg); width: 13px; opacity: .6; }
+
+/* breadcrumb chevron + inline up-right arrow (currentColor) */
+.cs-modern .cs-chev { width: 14px; height: 14px; opacity: .65; }
+.cs-modern .cs-ur { flex: 0 0 auto; transition: transform .3s ease; }
+
+/* ---------- hero ---------- */
+.cs-modern .cs-hero { padding: 34px 0 60px; }
+.cs-modern .cs-hero .cs-eyebrow { margin-bottom: 22px; }
+.cs-modern .cs-hero h1 {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  font-size: clamp(38px, 6vw, 68px); line-height: 1.04; letter-spacing: -0.02em;
+  margin: 0 0 26px; max-width: 16ch; text-wrap: balance;
+}
+.cs-modern .cs-hero .cs-hero-sub {
+  font-size: 21px; line-height: 1.55; color: var(--cs-muted);
+  max-width: 640px; margin: 0 0 40px;
+}
+
+/* partner + links row */
+.cs-modern .cs-hero-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 28px 40px;
+  padding-top: 32px; border-top: 1px solid var(--cs-line);
+}
+.cs-modern .cs-partner { display: flex; align-items: center; gap: 16px; max-width: 460px; }
+.cs-modern .cs-partner-badge {
+  flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--cs-ink); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Cabinet Grotesk", sans-serif; font-size: 18px; letter-spacing: 0.02em;
+}
+.cs-modern .cs-partner-txt .cs-partner-k {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--cs-muted);
+  margin: 0 0 3px;
+}
+.cs-modern .cs-partner-txt .cs-partner-n {
+  font-family: "Cabinet Grotesk", sans-serif; font-size: 17px; color: var(--cs-ink);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 7px;
+}
+.cs-modern .cs-partner-txt .cs-partner-n:hover { color: var(--cs-green); }
+.cs-modern .cs-partner-txt .cs-partner-n:hover .cs-ur { transform: translateX(30%) translateY(-30%); }
+.cs-modern .cs-partner-txt .cs-partner-d { font-size: 14px; color: var(--cs-muted); margin: 2px 0 0; line-height: 1.45; }
+
+.cs-modern .cs-store-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.cs-modern .cs-store-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 14px;
+  color: var(--cs-ink); text-decoration: none;
+  border: 1px solid #d6d6d6; border-radius: 50px; padding: 11px 20px;
+  transition: border-color .3s ease, color .3s ease;
+}
+.cs-modern .cs-store-pill .cs-arrow-ext { width: 13px; transition: transform .3s ease; }
+.cs-modern .cs-store-pill:hover { border-color: var(--cs-green); color: var(--cs-green); }
+.cs-modern .cs-store-pill:hover .cs-arrow-ext { transform: translateX(40%) translateY(-40%); }
+.cs-modern .cs-store-pill:hover .cs-ur { transform: translateX(30%) translateY(-30%); }
+
+/* ---------- hero figure ---------- */
+.cs-modern .cs-figure { margin: 0; }
+.cs-modern .cs-figure img {
+  width: 100%; display: block; border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.10);
+}
+.cs-modern .cs-figure--hero img { aspect-ratio: 16/9; object-fit: cover; }
+.cs-modern .cs-figure--inline { margin: 44px 0 4px; }
+.cs-modern .cs-figure--inline img { aspect-ratio: 256/100; object-fit: cover; }
+.cs-modern .cs-figcaption {
+  font-size: 14px; color: var(--cs-muted); margin: 16px 2px 0; line-height: 1.5;
+}
+
+/* ---------- problem / stat chips ---------- */
+.cs-modern .cs-stats {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 48px;
+}
+.cs-modern .cs-stat {
+  background: #fff; border-radius: 18px; padding: 24px 22px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.06);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.cs-modern .cs-stat:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(0,0,0,.10); }
+.cs-modern .cs-stat-big {
+  font-family: "Cabinet Grotesk", sans-serif; font-size: 22px; line-height: 1.1;
+  color: var(--cs-ink); margin: 0 0 8px; letter-spacing: -0.01em;
+}
+.cs-modern .cs-stat-small { font-size: 13px; line-height: 1.4; color: var(--cs-muted); }
+
+/* ---------- solution / steps ---------- */
+.cs-modern .cs-steps { margin-top: 56px; display: flex; flex-direction: column; gap: 22px; }
+.cs-modern .cs-step {
+  background: #fff; border-radius: 22px; padding: 40px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.08);
+  display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start;
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.cs-modern .cs-step:hover { box-shadow: 0 14px 30px rgba(0,0,0,.10); transform: translateY(-3px); }
+.cs-modern .cs-step-aside { position: relative; padding-left: 16px; }
+.cs-modern .cs-step-aside::before {
+  content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px;
+  border-radius: 3px; background: var(--cs-green);
+}
+.cs-modern .cs-step-label {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--cs-green); margin: 0 0 14px;
+}
+.cs-modern .cs-step-title {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400; font-size: 26px;
+  line-height: 1.12; color: var(--cs-ink); margin: 0;
+}
+.cs-modern .cs-step-tag {
+  display: inline-block; margin-top: 16px;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 12px;
+  color: var(--cs-muted); background: #f2f1f6; border-radius: 32px; padding: 6px 14px;
+}
+.cs-modern .cs-step-body p {
+  font-size: 17px; line-height: 1.7; color: #3a3a40; margin: 0 0 16px;
+}
+.cs-modern .cs-step-body p:last-child { margin-bottom: 0; }
+
+/* ---------- output / numbered list ---------- */
+.cs-modern .cs-outlist { margin-top: 52px; display: flex; flex-direction: column; }
+.cs-modern .cs-out {
+  display: grid; grid-template-columns: 96px 1fr; gap: 28px;
+  padding: 34px 0; border-top: 1px solid rgba(43,43,43,.12);
+}
+.cs-modern .cs-out:last-child { border-bottom: 1px solid rgba(43,43,43,.12); }
+.cs-modern .cs-out-n {
+  font-family: "Cabinet Grotesk", sans-serif; font-size: 40px; line-height: 1;
+  color: var(--cs-green); letter-spacing: -0.02em;
+}
+.cs-modern .cs-out-title {
+  font-family: "Cabinet Grotesk", sans-serif; font-size: 24px; color: var(--cs-ink);
+  margin: 0 0 10px; line-height: 1.1;
+}
+.cs-modern .cs-out-desc { font-size: 17px; line-height: 1.6; color: var(--cs-muted); margin: 0; max-width: 640px; }
+
+/* ---------- what comes next / checklist ---------- */
+.cs-modern .cs-checks { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 40px; }
+.cs-modern .cs-check { display: flex; align-items: flex-start; gap: 14px; }
+.cs-modern .cs-check-mark {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--cs-green); display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.cs-modern .cs-check-mark img { width: 12px; filter: brightness(0) invert(1); }
+.cs-modern .cs-check span { font-size: 17px; line-height: 1.5; color: var(--cs-ink); }
+.cs-modern .cs-next-closing {
+  margin-top: 56px; padding-top: 36px; border-top: 1px solid rgba(43,43,43,.12);
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; color: var(--cs-ink);
+  max-width: 880px; text-wrap: balance;
+}
+
+/* ---------- next project — prominent card ---------- */
+.cs-modern .cs-nextband { background: #f8f8f8; }
+.cs-modern .cs-nextcard {
+  display: grid; grid-template-columns: 300px 1fr auto; align-items: center; gap: 36px;
+  background: #fff; border-radius: 24px; padding: 24px; text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,.08); transition: box-shadow .3s ease, transform .3s ease;
+}
+.cs-modern .cs-nextcard:hover { box-shadow: 0 18px 40px rgba(0,0,0,.12); transform: translateY(-4px); }
+.cs-modern .cs-nextcard-img {
+  width: 300px; height: 180px; border-radius: 16px; background-size: cover;
+  background-position: center; background-color: #ececec;
+}
+.cs-modern .cs-nextcard-k {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 12px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--cs-green); margin: 0 0 10px;
+}
+.cs-modern .cs-nextcard-title {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400; font-size: 30px;
+  line-height: 1.1; color: var(--cs-ink); margin: 0 0 14px; letter-spacing: -0.01em;
+}
+.cs-modern .cs-nextcard-tag {
+  display: inline-block; font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 12px; color: var(--cs-muted); background: #f2f1f6; border-radius: 32px; padding: 6px 14px;
+}
+.cs-modern .cs-nextcard-go {
+  flex: 0 0 auto; width: 56px; height: 56px; border-radius: 50%; margin-right: 16px;
+  background: var(--cs-green); color: #fff;
+  display: flex; align-items: center; justify-content: center; transition: background .3s ease;
+}
+.cs-modern .cs-nextcard-go .cs-ur { width: 20px; height: 20px; transition: transform .3s ease; }
+.cs-modern .cs-nextcard:hover .cs-nextcard-go { background: #4d8e62; }
+.cs-modern .cs-nextcard:hover .cs-nextcard-go .cs-ur { transform: translateX(25%) translateY(-25%); }
+
+/* ---------- share — prominent ---------- */
+.cs-modern .cs-shareband { padding: 56px 0; border-top: 1px solid var(--cs-line); }
+.cs-modern .cs-share-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.cs-modern .cs-share-title {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400; font-size: 24px;
+  color: var(--cs-ink); margin: 0;
+}
+.cs-modern .cs-share-inner .share-links { gap: 16px; }
+.cs-modern .cs-share-inner .share-label { font-size: 15px; }
+.cs-modern .cs-share-inner .share-icons { gap: 12px; }
+.cs-modern .cs-share-inner .share-icons a,
+.cs-modern .cs-share-inner .share-copy {
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid #d6d6d6;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .3s ease, background .3s ease, color .3s ease;
+}
+.cs-modern .cs-share-inner .share-icons a:hover,
+.cs-modern .cs-share-inner .share-copy:hover { border-color: var(--cs-green); background: rgba(103,190,131,.1); transform: none; }
+.cs-modern .cs-share-inner .share-copy.copied { border-color: var(--cs-green); background: rgba(103,190,131,.1); }
+.cs-modern .cs-share-inner .share-icons img { width: 20px; }
+
+/* ---------- closing CTA ---------- */
+.cs-modern .cs-cta-band { padding: 100px 0 110px; }
+.cs-modern .cs-cta {
+  background: #2b2b2b; color: #fff; border-radius: 28px;
+  padding: 84px 64px; display: grid; grid-template-columns: 1.3fr auto; gap: 48px; align-items: center;
+}
+.cs-modern .cs-cta-eyebrow {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 13px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--cs-green); margin: 0 0 16px;
+}
+.cs-modern .cs-cta h2 {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400; color: #fff;
+  font-size: clamp(32px, 4vw, 48px); line-height: 1.05; margin: 0 0 18px;
+}
+.cs-modern .cs-cta .cs-cta-sub { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,.72); margin: 0; max-width: 520px; }
+.cs-modern .cs-cta-actions { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.cs-modern .cs-cta-actions .contact-us-link { background: var(--cs-green); font-size: 17px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1023px) {
+  .cs-modern .cs-band { padding: 72px 0; }
+  .cs-modern .cs-stats { grid-template-columns: repeat(2, 1fr); }
+  .cs-modern .cs-step { grid-template-columns: 1fr; gap: 22px; padding: 32px; }
+  .cs-modern .cs-cta { grid-template-columns: 1fr; padding: 52px 40px; }
+  .cs-modern .cs-nextcard { grid-template-columns: 220px 1fr auto; gap: 24px; }
+  .cs-modern .cs-nextcard-img { width: 220px; height: 150px; }
+}
+@media (max-width: 600px) {
+  .cs-modern .cs-crumb { padding-top: 92px; }
+  .cs-modern .cs-hero h1 { font-size: 36px; }
+  .cs-modern .cs-hero .cs-hero-sub { font-size: 18px; }
+  .cs-modern .cs-stats { grid-template-columns: 1fr; }
+  .cs-modern .cs-checks { grid-template-columns: 1fr; }
+  .cs-modern .cs-out { grid-template-columns: 60px 1fr; gap: 16px; }
+  .cs-modern .cs-out-n { font-size: 30px; }
+  .cs-modern .cs-cta { padding: 40px 28px; }
+  .cs-modern .cs-nextcard { grid-template-columns: 1fr; }
+  .cs-modern .cs-nextcard-img { width: 100%; }
+  .cs-modern .cs-nextcard-go { margin: 0; }
+  .cs-modern .cs-share-inner { justify-content: flex-start; }
+}

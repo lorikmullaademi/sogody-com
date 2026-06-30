@@ -139,12 +139,40 @@ function FAQ({ faqs }) {
 function ShareLinks({ text = "Share this article", url }) {
   const link = url || (typeof window !== "undefined" ? window.location.href : "");
   const enc = encodeURIComponent(link);
+  const [copied, setCopied] = usePK(false);
+  const copy = async () => {
+    const fallback = () => {
+      const t = document.createElement("textarea");
+      t.value = link; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.focus(); t.select();
+      try { document.execCommand("copy"); } catch (e) { /* no-op */ }
+      document.body.removeChild(t);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(link);
+      } else {
+        fallback();
+      }
+    } catch (e) {
+      fallback();
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1800);
+  };
   return (
     <div className="share-links">
       <span className="share-label">{text}</span>
       <div className="share-icons">
         <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc}`} target="_blank" rel="noreferrer" aria-label="Share on LinkedIn"><img src="assets/icons/social/linkedin.svg" alt="LinkedIn" /></a>
         <a href={`https://www.facebook.com/sharer/sharer.php?u=${enc}`} target="_blank" rel="noreferrer" aria-label="Share on Facebook"><img src="assets/icons/social/facebook.svg" alt="Facebook" /></a>
+        <button type="button" className={`share-copy ${copied ? "copied" : ""}`} onClick={copy} aria-label="Copy link" title={copied ? "Link copied" : "Copy link"}>
+          {copied ? (
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          ) : (
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6.5 9.5L9.5 6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><path d="M8.2 5.1L9.6 3.7a2.4 2.4 0 0 1 3.4 3.4l-1.4 1.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M7.8 10.9L6.4 12.3a2.4 2.4 0 0 1-3.4-3.4l1.4-1.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          )}
+        </button>
       </div>
     </div>
   );
