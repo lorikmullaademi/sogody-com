@@ -14,7 +14,9 @@ const { useState: useStateSd, useEffect: useEffectSd, useRef: useRefSd } = React
 /* Section headings come either as a single string or a 2-part [line1, line2]
    array (the live CMS varies per page) — render both cleanly. */
 function sdTitle(t) {
-  return Array.isArray(t) ? <React.Fragment>{t[0]}<br />{t[1]}</React.Fragment> : t;
+  /* keep a real space between the two halves so the title still reads correctly
+     when the <br> is hidden on smaller viewports (e.g. .sd-tech-heading br) */
+  return Array.isArray(t) ? <React.Fragment>{t[0]}{" "}<br />{t[1]}</React.Fragment> : t;
 }
 
 /* ---- Hero (servicesBannerTech): dark banner card, copy left, video right,
@@ -41,6 +43,16 @@ function SdHero({ hero }) {
 }
 function ClientsRow() {
   return <SdCarousel data={{ title: "Trusted by:", clientsLogos: SD_LOGOS }} />;
+}
+
+/* ---- Optional intro: single centered paragraph below the hero (only rendered
+        when a slug supplies `intro`) ---- */
+function SdIntro({ intro }) {
+  return (
+    <div className="sd-intro scroll-show">
+      <p>{intro}</p>
+    </div>
+  );
 }
 
 /* ---- Capabilities: centered heading, 3x2 grid, dark CTO card last ---- */
@@ -81,8 +93,8 @@ function SdCapabilities({ caps }) {
         divided by hairlines, pills staggered in pairs, styled hover bubble ---- */
 function SdProcess({ process }) {
   const [hovered, setHovered] = useStateSd(null);
-  const imgMt = [8, 8, 24, 48, 48];   // mt-2 / mt-2 / mt-4 / mt-5 / mt-5
-  const cardMb = [0, 32, 32, 32, 88]; // 0 / 2rem / 2rem / 2rem / 5.5rem
+  const imgMt = [8, 8, 24, 48, 48, 24];   // mt-2 / mt-2 / mt-4 / mt-5 / mt-5 / mt-4 (6th step)
+  const cardMb = [0, 32, 32, 32, 88, 88]; // 0 / 2rem / 2rem / 2rem / 5.5rem / 5.5rem
   return (
     <div className="wwo-te scroll-show">
       <div className="d-flex desktop-row w-100 gap mb-4">
@@ -303,6 +315,7 @@ function ServiceDetailApp() {
     <SdLayout>
       <div className="service-detail-page container-mainbanner" data-sd-theme={sd.theme || "tech"}>
         <SdHero hero={sd.hero} />
+        {sd.intro && <SdIntro intro={sd.intro} />}
         <SdCapabilities caps={sd.caps} />
         <SdProcess process={sd.process} />
         <SdTechnologies tech={sd.tech} />

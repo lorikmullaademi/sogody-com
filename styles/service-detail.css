@@ -77,6 +77,20 @@
   .sd-banner-copy h1 { font-size: 28px; line-height: 36px; }
 }
 
+/* ---- Optional intro paragraph (sits between hero and capabilities) ---- */
+.sd-intro { max-width: 880px; margin: 64px auto 0; padding: 0 20px; text-align: center; }
+.sd-intro p {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 30px;
+  color: #4a4a4a;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .sd-intro { margin-top: 48px; }
+  .sd-intro p { font-size: 17px; line-height: 27px; }
+}
+
 /* ---- Capabilities ("Building something great?") ---- */
 .sd-caps { max-width: 1240px; margin: 110px auto 0; padding: 0 20px; }
 .sd-caps-heading {
