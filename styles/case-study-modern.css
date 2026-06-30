@@ -114,12 +114,17 @@
 
 /* ---------- hero figure ---------- */
 .cs-modern .cs-figure { margin: 0; }
-.cs-modern .cs-figure img {
+.cs-modern .cs-figure img,
+.cs-modern .cs-figure video {
   width: 100%; display: block; border-radius: 24px;
   box-shadow: 0 30px 60px rgba(0,0,0,.10);
 }
+/* video keeps its natural aspect ratio (no crop), on a dark backdrop */
+.cs-modern .cs-figure video { height: auto; background: #000; }
 .cs-modern .cs-figure--hero img { aspect-ratio: 16/9; object-fit: cover; }
-.cs-modern .cs-figure--inline { margin: 44px 0 4px; }
+/* margin-top is !important to beat the global `figure { margin-top: unset !important }`
+   reset in style.css, which would otherwise leave band figures flush to the text above. */
+.cs-modern .cs-figure--inline { margin: 0 0 4px; margin-top: 44px !important; }
 .cs-modern .cs-figure--inline img { aspect-ratio: 256/100; object-fit: cover; }
 .cs-modern .cs-figcaption {
   font-size: 14px; color: var(--cs-muted); margin: 16px 2px 0; line-height: 1.5;

@@ -27,9 +27,37 @@ function CSChevL() {
   );
 }
 
+/* Renders a modern figure as a <video> (with poster) when the figure carries a
+   `video` source, otherwise as an <img>. Used for the hero and inline band media
+   so video-led case studies (e.g. Knorr) show their R2 clips, not just images. */
+function CSFigure({ figure, alt, variant = "inline" }) {
+  if (!figure) return null;
+  return (
+    <figure className={`cs-figure cs-figure--${variant}`}>
+      {figure.video ? (
+        <video
+          src={figure.video}
+          poster={figure.poster || undefined}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        />
+      ) : (
+        <img src={figure.src} alt={alt} loading="lazy" />
+      )}
+      {figure.caption ? <figcaption className="cs-figcaption">{figure.caption}</figcaption> : null}
+    </figure>
+  );
+}
+
 /* ---------------- Modern banded layout ---------------- */
 function ModernCaseStudy({ cs, next }) {
   const m = cs.modern;
+  const heroFig = m.heroVideo
+    ? { video: m.heroVideo, poster: m.heroPoster, caption: m.heroCaption }
+    : (!m.noHero ? { src: m.heroImage || cs.img, caption: m.heroCaption } : null);
   return (
     <div className="cs-modern">
       <div className="cs-wrap cs-crumb">
@@ -68,13 +96,10 @@ function ModernCaseStudy({ cs, next }) {
         ) : null}
       </header>
 
-      {/* hero image (skipped for logo-only / video-led stories via noHero) */}
-      {!m.noHero ? (
+      {/* hero — video (with poster) or image; skipped for logo-only stories via noHero */}
+      {heroFig ? (
         <div className="cs-wrap" style={{ paddingBottom: "20px" }}>
-          <figure className="cs-figure cs-figure--hero">
-            <img src={m.heroImage || cs.img} alt={cs.title} />
-            {m.heroCaption ? <figcaption className="cs-figcaption">{m.heroCaption}</figcaption> : null}
-          </figure>
+          <CSFigure figure={heroFig} alt={cs.title} variant="hero" />
         </div>
       ) : null}
 
@@ -95,6 +120,7 @@ function ModernCaseStudy({ cs, next }) {
                 ))}
               </div>
             ) : null}
+            {m.problem.figure ? <CSFigure figure={m.problem.figure} alt={m.problem.heading} /> : null}
           </div>
         </section>
       ) : null}
@@ -106,12 +132,7 @@ function ModernCaseStudy({ cs, next }) {
             <p className="cs-eyebrow">{m.solution.eyebrow}</p>
             <h2 className="cs-h">{m.solution.heading}</h2>
             <p className="cs-lead">{m.solution.body}</p>
-            {m.solution.figure ? (
-              <figure className="cs-figure cs-figure--inline">
-                <img src={m.solution.figure.src} alt={m.solution.heading} loading="lazy" />
-                {m.solution.figure.caption ? <figcaption className="cs-figcaption">{m.solution.figure.caption}</figcaption> : null}
-              </figure>
-            ) : null}
+            {m.solution.figure ? <CSFigure figure={m.solution.figure} alt={m.solution.heading} /> : null}
             <div className="cs-steps">
               {m.solution.steps.map((st, i) => (
                 <article className="cs-step" key={i}>
@@ -148,12 +169,7 @@ function ModernCaseStudy({ cs, next }) {
                 </div>
               ))}
             </div>
-            {m.output.figure ? (
-              <figure className="cs-figure cs-figure--inline">
-                <img src={m.output.figure.src} alt={m.output.heading} loading="lazy" />
-                {m.output.figure.caption ? <figcaption className="cs-figcaption">{m.output.figure.caption}</figcaption> : null}
-              </figure>
-            ) : null}
+            {m.output.figure ? <CSFigure figure={m.output.figure} alt={m.output.heading} /> : null}
           </div>
         </section>
       ) : null}
@@ -173,6 +189,7 @@ function ModernCaseStudy({ cs, next }) {
               ))}
             </div>
             {m.next.closing ? <p className="cs-next-closing">{m.next.closing}</p> : null}
+            {m.next.figure ? <CSFigure figure={m.next.figure} alt={m.next.heading} /> : null}
           </div>
         </section>
       ) : null}
