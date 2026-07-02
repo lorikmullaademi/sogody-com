@@ -72,7 +72,7 @@ function ContactModal() {
     <div className="contact-modal-overlay" onClick={() => setOpen(false)}>
       <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
         <button className="contact-modal-close" aria-label="Close" onClick={() => setOpen(false)}>
-          <img src="assets/icons/close.svg" alt="" />
+          <img src="/assets/icons/close.svg" alt="" />
         </button>
         <div className="contact-modal-grid">
           <div className="contact-modal-left">

@@ -7,8 +7,11 @@ const { useState: usePK, useEffect: useEffectPK } = React;
 const { ExploreLink: PKExplore, CircularButton: PKCircle, ContactButton: PKBtn, ClientsCarousel: PKCarousel } = window.SogodyKit;
 const { BOOKING_URL: PK_BOOKING, CLIENT_LOGOS: PK_LOGOS } = window.SogodyData;
 
-/* slug param helper for templates */
+/* slug param helper for templates — prefers a slug baked into the page
+   (window.SD_UPDATE_SLUG, set by /updates/<slug>/index.html) over the legacy
+   ?slug= query string, so real per-article URLs work without a query param. */
 function getSlug() {
+  if (typeof window !== "undefined" && window.SD_UPDATE_SLUG) return window.SD_UPDATE_SLUG;
   const p = new URLSearchParams(window.location.search);
   return p.get("slug") || "";
 }
@@ -87,7 +90,7 @@ function ContentGrid({ items, type = "cs", linkBase, initial = 8, step = 4 }) {
                 {item.csBtn && (
                   <div className="cs-card-tag">
                     <span>{item.csBtn}</span>
-                    <span className="cs-card-tag-arrow"><img src="assets/icons/white-arrow.svg" alt="" /></span>
+                    <span className="cs-card-tag-arrow"><img src="/assets/icons/white-arrow.svg" alt="" /></span>
                   </div>
                 )}
                 <div className={`cs-card-hover ${hover === item.slug ? "show" : ""}`}>
@@ -126,7 +129,7 @@ function FAQ({ faqs }) {
         <div className={`faq-item ${open === i ? "open" : ""}`} key={i}>
           <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
             <span>{f.q}</span>
-            <span className="faq-icon"><img src="assets/icons/close.svg" alt="" /></span>
+            <span className="faq-icon"><img src="/assets/icons/close.svg" alt="" /></span>
           </button>
           <div className="faq-a-wrap"><div className="faq-a"><p>{f.a}</p></div></div>
         </div>
@@ -164,8 +167,8 @@ function ShareLinks({ text = "Share this article", url }) {
     <div className="share-links">
       <span className="share-label">{text}</span>
       <div className="share-icons">
-        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc}`} target="_blank" rel="noreferrer" aria-label="Share on LinkedIn"><img src="assets/icons/social/linkedin.svg" alt="LinkedIn" /></a>
-        <a href={`https://www.facebook.com/sharer/sharer.php?u=${enc}`} target="_blank" rel="noreferrer" aria-label="Share on Facebook"><img src="assets/icons/social/facebook.svg" alt="Facebook" /></a>
+        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc}`} target="_blank" rel="noreferrer" aria-label="Share on LinkedIn"><img src="/assets/icons/social/linkedin.svg" alt="LinkedIn" /></a>
+        <a href={`https://www.facebook.com/sharer/sharer.php?u=${enc}`} target="_blank" rel="noreferrer" aria-label="Share on Facebook"><img src="/assets/icons/social/facebook.svg" alt="Facebook" /></a>
         <button type="button" className={`share-copy ${copied ? "copied" : ""}`} onClick={copy} aria-label="Copy link" title={copied ? "Link copied" : "Copy link"}>
           {copied ? (
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>

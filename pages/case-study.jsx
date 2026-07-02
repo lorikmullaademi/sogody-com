@@ -183,7 +183,7 @@ function ModernCaseStudy({ cs, next }) {
             <div className="cs-checks">
               {m.next.checks.map((c, i) => (
                 <div className="cs-check" key={i}>
-                  <span className="cs-check-mark"><img src="assets/icons/check.svg" alt="" /></span>
+                  <span className="cs-check-mark"><img src="/assets/icons/check.svg" alt="" /></span>
                   <span>{c}</span>
                 </div>
               ))}

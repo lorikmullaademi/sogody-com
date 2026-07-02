@@ -1,15 +1,15 @@
 /* Sogody — shared presentational primitives, mirrored 1:1 from the live repo
    (src/components/*). Attached to window.SogodyKit so every page can use them.
-   Asset paths are root-relative ("assets/...") so they resolve from any page
+   Asset paths are root-relative ("/assets/...") so they resolve from any page
    HTML file sitting at the project root. */
 
 const { useState, useEffect, useRef } = React;
 
-const ARROW_BLACK = "assets/icons/black-arrow.svg";
-const ARROW_WHITE = "assets/icons/white-arrow.svg";
-const ARROW_GREEN = "assets/icons/arrow.svg";
-const ARROW_DOWN = "assets/icons/down-arrow.svg";
-const LOGO = "assets/logos/logo_sogody.png";
+const ARROW_BLACK = "/assets/icons/black-arrow.svg";
+const ARROW_WHITE = "/assets/icons/white-arrow.svg";
+const ARROW_GREEN = "/assets/icons/arrow.svg";
+const ARROW_DOWN = "/assets/icons/down-arrow.svg";
+const LOGO = "/assets/logos/logo_sogody.png";
 
 /* ExploreLink — mirrors src/components/ExploreLink.js */
 function ExploreLink({ to = "#", text = "Explore Our Work", underlined = true, className = "", tone = "black" }) {

@@ -38,9 +38,9 @@ function ContactApp() {
         <div className="contact-page">
           <h1 className="h2-styling">Let’s Connect and Create Together</h1>
           <div className="contact-assurances">
-            <div className="contact-assurance"><img src="assets/icons/check.svg" alt="" /><p>We’ll respond within 24 hours.</p></div>
-            <div className="contact-assurance"><img src="assets/icons/check.svg" alt="" /><p>We’ll sign an NDA if requested.</p></div>
-            <div className="contact-assurance"><img src="assets/icons/check.svg" alt="" /><p>Assign you to product specialists.</p></div>
+            <div className="contact-assurance"><img src="/assets/icons/check.svg" alt="" /><p>We’ll respond within 24 hours.</p></div>
+            <div className="contact-assurance"><img src="/assets/icons/check.svg" alt="" /><p>We’ll sign an NDA if requested.</p></div>
+            <div className="contact-assurance"><img src="/assets/icons/check.svg" alt="" /><p>Assign you to product specialists.</p></div>
           </div>
 
           <div className="contact-form-card"><ContactForm /></div>
@@ -57,7 +57,7 @@ function ContactApp() {
               <p className="quote">“Have more questions or just curious about future possibilities? Feel free to connect with me on LinkedIn.”</p>
               <a className="linkedin-btn" href="https://www.linkedin.com/in/lorikmullaademi/" target="_blank" rel="noreferrer"
                 onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                Connect on LinkedIn <img src="assets/icons/social/linkedin.svg" alt="" />
+                Connect on LinkedIn <img src="/assets/icons/social/linkedin.svg" alt="" />
               </a>
             </div>
             <CTFaq faqs={CT_FAQS} />

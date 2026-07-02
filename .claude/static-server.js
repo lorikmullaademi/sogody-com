@@ -29,19 +29,31 @@ http
   .createServer((req, res) => {
     let urlPath = decodeURIComponent(req.url.split("?")[0]);
     if (urlPath === "/") urlPath = "/index.html";
-    const filePath = path.join(ROOT, urlPath);
-    if (!filePath.startsWith(ROOT)) {
-      res.writeHead(403);
-      return res.end("Forbidden");
+
+    // Pretty URLs (e.g. /updates/some-slug/ or /updates/some-slug): fall back to
+    // <path>/index.html for extensionless requests, so real per-article folders work.
+    const candidates = [urlPath];
+    if (!path.extname(urlPath)) {
+      candidates.push(path.join(urlPath, "index.html"));
     }
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
+
+    const tryNext = (i) => {
+      if (i >= candidates.length) {
         res.writeHead(404, { "Content-Type": "text/plain" });
         return res.end("Not found");
       }
-      const ext = path.extname(filePath).toLowerCase();
-      res.writeHead(200, { "Content-Type": TYPES[ext] || "application/octet-stream" });
-      res.end(data);
-    });
+      const filePath = path.join(ROOT, candidates[i]);
+      if (!filePath.startsWith(ROOT)) {
+        res.writeHead(403);
+        return res.end("Forbidden");
+      }
+      fs.readFile(filePath, (err, data) => {
+        if (err) return tryNext(i + 1);
+        const ext = path.extname(filePath).toLowerCase();
+        res.writeHead(200, { "Content-Type": TYPES[ext] || "application/octet-stream" });
+        res.end(data);
+      });
+    };
+    tryNext(0);
   })
   .listen(PORT, () => console.log(`Sogody static site on http://localhost:${PORT}`));

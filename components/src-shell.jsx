@@ -29,10 +29,10 @@ function SrcFooter() {
           <div className="footer-block">
             <p className="title-gray"><a href="mailto:info@sogody.com">info@sogody.com</a></p>
             <div className="social-icons">
-              <a href="https://www.facebook.com/sogodycom/" target="_blank" rel="noreferrer"><img src="assets/images/social-icons/facebook.svg" alt="Facebook" /></a>
-              <a href="https://www.instagram.com/sogodycom/" target="_blank" rel="noreferrer"><img src="assets/images/social-icons/instagram.svg" alt="Instagram" /></a>
-              <a href="https://www.linkedin.com/company/sogody" target="_blank" rel="noreferrer"><img src="assets/images/social-icons/linkedin.svg" alt="LinkedIn" /></a>
-              <a href="https://bsky.app/profile/sogody.bsky.social" target="_blank" rel="noreferrer"><img src="assets/images/social-icons/bluesky.svg" alt="Bluesky" /></a>
+              <a href="https://www.facebook.com/sogodycom/" target="_blank" rel="noreferrer"><img src="/assets/images/social-icons/facebook.svg" alt="Facebook" /></a>
+              <a href="https://www.instagram.com/sogodycom/" target="_blank" rel="noreferrer"><img src="/assets/images/social-icons/instagram.svg" alt="Instagram" /></a>
+              <a href="https://www.linkedin.com/company/sogody" target="_blank" rel="noreferrer"><img src="/assets/images/social-icons/linkedin.svg" alt="LinkedIn" /></a>
+              <a href="https://bsky.app/profile/sogody.bsky.social" target="_blank" rel="noreferrer"><img src="/assets/images/social-icons/bluesky.svg" alt="Bluesky" /></a>
             </div>
           </div>
         </div>

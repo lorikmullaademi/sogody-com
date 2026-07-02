@@ -1,0 +1,194 @@
+/* ============================================================
+   MINIMAL EDITORIAL ARTICLE — Sogody Updates
+   Typography-first, single-column reading experience. Creative
+   touches: drop cap, oversized pull-quote, image breakout.
+   Scoped under .up-article. Deliberately more minimal than the
+   case-study template — mostly white, one accent (green).
+   ============================================================ */
+
+.up-article {
+  --ua-ink: #1d1d1f;
+  --ua-body: #33333a;
+  --ua-muted: #8a8a92;
+  --ua-green: #67be83;
+  --ua-line: #ececec;
+  --ua-col: 680px;
+  font-family: "HelveticaNeueLT Pro 45 Lt", Arial, sans-serif;
+  color: var(--ua-body);
+  padding: 0 24px;
+}
+
+/* centered reading column */
+.up-article .ua-col { max-width: var(--ua-col); margin: 0 auto; }
+
+/* ---------- masthead ---------- */
+.up-article .ua-head { padding: 96px 0 0; }
+.up-article .ua-back {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 14px;
+  color: var(--ua-muted); margin-bottom: 44px; transition: color .3s ease;
+}
+.up-article .ua-back:hover { color: var(--ua-ink); }
+.up-article .ua-back svg { transition: transform .3s ease; }
+.up-article .ua-back:hover svg { transform: translateX(-3px); }
+
+.up-article .ua-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+.up-article .ua-tag {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 12px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--ua-green);
+}
+.up-article .ua-tag + .ua-tag::before { content: "·"; margin-right: 10px; color: var(--ua-muted); }
+
+.up-article h1.ua-title {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 56px); line-height: 1.08; letter-spacing: -0.015em;
+  color: var(--ua-ink); margin: 0 0 36px; text-wrap: balance;
+}
+
+/* byline */
+.up-article .ua-byline {
+  display: flex; align-items: center; gap: 14px;
+  padding: 22px 0; border-top: 1px solid var(--ua-line); border-bottom: 1px solid var(--ua-line);
+}
+.up-article .ua-avatar {
+  flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--ua-ink); color: #fff; display: flex; align-items: center; justify-content: center;
+  font-family: "Cabinet Grotesk", sans-serif; font-size: 18px;
+}
+.up-article .ua-by-name {
+  font-family: "HelveticaNeueLT Pro 65 Medium", "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  font-size: 15px; color: var(--ua-ink); margin: 0;
+}
+.up-article .ua-by-meta { font-size: 13px; color: var(--ua-muted); margin: 3px 0 0; }
+.up-article .ua-by-meta span + span::before { content: "·"; margin: 0 7px; }
+
+/* ---------- body ---------- */
+.up-article .ua-body { padding: 56px 0 0; }
+
+.up-article .ua-body p {
+  font-size: 19px; line-height: 1.75; color: var(--ua-body); margin: 0 0 28px;
+  letter-spacing: -0.003em;
+}
+.up-article .ua-body p:last-child { margin-bottom: 0; }
+
+/* lead paragraph + drop cap (creative editorial touch) */
+.up-article .ua-lead { font-size: 21px; line-height: 1.7; color: var(--ua-ink); }
+.up-article .ua-lead::first-letter {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  float: left; font-size: 88px; line-height: 0.78; padding: 8px 14px 0 0;
+  color: var(--ua-green);
+}
+
+.up-article h2.ua-h2 {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  font-size: clamp(24px, 2.8vw, 32px); line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--ua-ink); margin: 52px 0 22px; text-wrap: balance;
+}
+
+/* oversized pull-quote */
+.up-article .ua-quote {
+  margin: 48px 0; padding: 0 0 0 4px; position: relative; border: none;
+}
+.up-article .ua-quote p {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  font-size: clamp(26px, 3.4vw, 38px); line-height: 1.22; letter-spacing: -0.015em;
+  color: var(--ua-ink); margin: 0; text-wrap: balance;
+}
+.up-article .ua-quote p::before {
+  content: "“"; color: var(--ua-green); font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 1.05em; line-height: 0; vertical-align: -0.32em; margin-right: 4px;
+}
+.up-article .ua-quote cite {
+  display: block; margin-top: 20px; font-style: normal;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 14px;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--ua-muted);
+}
+.up-article .ua-quote cite::before { content: "— "; }
+
+/* list */
+.up-article .ua-list { list-style: none; padding: 0; margin: 0 0 28px; }
+.up-article .ua-list li {
+  font-size: 19px; line-height: 1.7; color: var(--ua-body);
+  padding: 0 0 0 26px; margin: 0 0 20px; position: relative;
+}
+.up-article .ua-list li::before {
+  content: ""; position: absolute; left: 0; top: 13px;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--ua-green);
+}
+.up-article .ua-list li strong {
+  font-family: "HelveticaNeueLT Pro 65 Medium", "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
+  color: var(--ua-ink); font-weight: 500; margin-right: 4px;
+}
+
+/* image breakout — wider than the reading column */
+.up-article .ua-figure { margin: 52px 0; }
+.up-article .ua-figure img {
+  width: 100%; display: block; border-radius: 16px; background: #f2f1f6;
+}
+.up-article .ua-figcaption {
+  font-size: 13px; color: var(--ua-muted); margin: 14px 2px 0; line-height: 1.5;
+}
+
+/* ---------- footer of article ---------- */
+.up-article .ua-foot {
+  margin: 72px 0 0; padding: 32px 0; border-top: 1px solid var(--ua-line);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+}
+.up-article .ua-foot .share-links { gap: 14px; }
+.up-article .ua-foot .share-icons { gap: 12px; }
+.up-article .ua-foot .share-icons a, .up-article .ua-foot .share-copy {
+  width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--ua-line);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .3s ease, color .3s ease, background .3s ease;
+}
+.up-article .ua-foot .share-icons a:hover, .up-article .ua-foot .share-copy:hover {
+  border-color: var(--ua-green); background: rgba(103,190,131,.08); transform: none;
+}
+.up-article .ua-foot .share-copy.copied { border-color: var(--ua-green); background: rgba(103,190,131,.08); }
+.up-article .ua-foot .share-icons img { width: 18px; }
+
+/* next update — visual card */
+.up-article .ua-next {
+  display: block; max-width: var(--ua-col); margin: 0 auto;
+  padding: 40px 0 110px; text-decoration: none;
+}
+.up-article .ua-next-k {
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 12px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--ua-muted); margin: 0 0 16px;
+}
+.up-article .ua-next-card {
+  border: 1px solid var(--ua-line); border-radius: 18px; overflow: hidden;
+  transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+}
+.up-article .ua-next:hover .ua-next-card {
+  box-shadow: 0 16px 40px rgba(0,0,0,.10); transform: translateY(-4px); border-color: transparent;
+}
+.up-article .ua-next-img {
+  width: 100%; height: 280px; background-size: cover; background-position: center; background-color: #f2f1f6;
+}
+.up-article .ua-next-body { padding: 28px 30px 30px; }
+.up-article .ua-next-title {
+  font-family: "Cabinet Grotesk", sans-serif; font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 30px); line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--ua-ink); margin: 0 0 12px; transition: color .3s ease; text-wrap: balance;
+}
+.up-article .ua-next:hover .ua-next-title { color: var(--ua-green); }
+.up-article .ua-next-desc { font-size: 16px; line-height: 1.6; color: var(--ua-muted); margin: 0 0 20px; max-width: 52ch; }
+.up-article .ua-next-cta {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif; font-size: 15px; color: var(--ua-green);
+}
+.up-article .ua-next-arrow { display: inline-flex; transition: transform .3s ease; }
+.up-article .ua-next:hover .ua-next-arrow { transform: translateX(6px); }
+
+/* breakout image on wide screens */
+@media (min-width: 900px) {
+  .up-article .ua-figure { width: 860px; max-width: 860px; margin-left: calc((860px - var(--ua-col)) / -2); margin-right: calc((860px - var(--ua-col)) / -2); }
+  .up-article .ua-figure { margin-top: 52px; margin-bottom: 52px; }
+}
+@media (max-width: 600px) {
+  .up-article .ua-head { padding-top: 72px; }
+  .up-article .ua-body p, .up-article .ua-list li { font-size: 18px; }
+  .up-article .ua-lead { font-size: 19px; }
+  .up-article .ua-lead::first-letter { font-size: 68px; }
+}

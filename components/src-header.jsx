@@ -121,7 +121,7 @@ function SrcHeader({ active = "" }) {
         <div className={`header-container ${!isMobile && isAtTop ? "pt-active" : "pt-inactive"} container`}>
           <div className={`logo-hamburger-div ${menuShow ? "logo-hamburger-div-opened" : "logo-hamburger-div-closed"}`}>
             <a className="navbar-brand" href="index.html">
-              <img width="130.77" height="40" src="assets/images/logo_sogody.png" alt="Sogody logo" />
+              <img width="130.77" height="40" src="/assets/images/logo_sogody.png" alt="Sogody logo" />
             </a>
             <div className="mobile-menu-box">
               <button aria-controls="responsive-navbar-nav" type="button" aria-label="Toggle navigation" className={`p-0 m-0 navbar-toggler ${menuShow ? "" : "collapsed"}`} onClick={() => setMenuShow(!menuShow)}>

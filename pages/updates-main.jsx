@@ -34,7 +34,7 @@ function UpdatesBanner({ title, subtitle, bgImage, buttonText = "Schedule an Aud
 }
 
 /* ---- CaseStudiesLoad, type="updates" (1:1 src/components/CaseStudiesLoad.js) ---- */
-function UpdatesGrid({ updates, linkPrefix = "update.html" }) {
+function UpdatesGrid({ updates, linkPrefix = "/updates" }) {
   const [hovered, setHovered] = useStateU({});
   const [selected, setSelected] = useStateU("all");
   const [visible, setVisible] = useStateU(8);
@@ -64,7 +64,7 @@ function UpdatesGrid({ updates, linkPrefix = "update.html" }) {
       <div className="row justify-content-start">
         {rows.map((item, index) => (
           <div key={item.slug} className="col-12 col-md-4 col-lg-3 cs-column update-cs-column">
-            <a href={`${linkPrefix}?slug=${item.slug}`} className="d-block">
+            <a href={`${linkPrefix}/${item.slug}/`} className="d-block">
               <div
                 className={`${item.slug} active-cs-link card`}
                 onMouseEnter={() => setHovered((p) => ({ ...p, [index]: true }))}
@@ -124,7 +124,7 @@ function UpdatesApp() {
         />
         <div className="updates2 margin-bottom">
           <div className="container-mainbanner">
-            <UpdatesGrid updates={U_LIST} linkPrefix="update.html" />
+            <UpdatesGrid updates={U_LIST} linkPrefix="/updates" />
           </div>
           <UpdatesBookMeet />
         </div>

@@ -215,7 +215,7 @@ function SdPlatforms({ platforms }) {
 
 /* ---- ProjectDetails (1:1 components/ProjectDetails.js) ---- */
 function SdProjectDetails({ pd }) {
-  const LINKEDIN = "assets/images/social-icons/linkedin-black.svg";
+  const LINKEDIN = "/assets/images/social-icons/linkedin-black.svg";
   return (
     <div className="project-details d-flex flex-column align-items-center scroll-show mt-5 mb-3 py-3">
       <div className="row w-100">

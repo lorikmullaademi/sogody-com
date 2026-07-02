@@ -11,7 +11,7 @@ function Accordion({ title, children, defaultOpen }) {
     <div className={`job-accordion ${open ? "open" : ""}`}>
       <button className="acc-header" onClick={() => setOpen(!open)}>
         <span>{title}</span>
-        <span className="faq-icon"><img src="assets/icons/close.svg" alt="" /></span>
+        <span className="faq-icon"><img src="/assets/icons/close.svg" alt="" /></span>
       </button>
       <div className="acc-body-wrap"><div className="acc-body">{children}</div></div>
     </div>
@@ -41,7 +41,7 @@ function ApplyForm({ position }) {
       <textarea name="about" rows="3" placeholder="Describe Yourself"></textarea>
       <input name="portfoliolinks" placeholder="Link to Your Portfolio" />
       <label className="upload-btn">
-        <img src="assets/icons/arrow-up-right.svg" alt="" /> Upload CV
+        <img src="/assets/icons/arrow-up-right.svg" alt="" /> Upload CV
         <input type="file" name="cv" accept="application/pdf,application/msword" style={{ display: "none" }} />
       </label>
       <button type="submit" className="contact-us-link apply-btn"><span className="c-us">{status}</span></button>

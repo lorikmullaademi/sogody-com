@@ -9,7 +9,7 @@ const { CASE_STUDIES: W_CS, CLIENT_LOGOS: W_LOGOS, IMG: W_IMG, CATEGORIES: W_CAT
 const { useState: useStateW, useEffect: useEffectW } = React;
 
 window.SOGODY_ACTIVE_NAV = "work";
-const W_WHITE_ARROW = "assets/svgs/white-arrow.svg";
+const W_WHITE_ARROW = "/assets/svgs/white-arrow.svg";
 
 /* ---- BannerWork (1:1 src/components/BannerWork.js) ---- */
 function WorkBanner({ title, subtitle, bgImage, buttonText = "Schedule an Audit Call" }) {

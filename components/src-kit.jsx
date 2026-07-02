@@ -5,10 +5,10 @@
 
 const { useState: useStateK, useEffect: useEffectK } = React;
 
-const SVG_GREEN_ARROW = "assets/svgs/Arrow.svg";
-const SVG_BLACK_ARROW = "assets/svgs/black-arrow.svg";
-const SVG_WHITE_ARROW = "assets/svgs/white-arrow.svg";
-const SVG_DOWN_ARROW = "assets/svgs/down-arrow.svg";
+const SVG_GREEN_ARROW = "/assets/svgs/Arrow.svg";
+const SVG_BLACK_ARROW = "/assets/svgs/black-arrow.svg";
+const SVG_WHITE_ARROW = "/assets/svgs/white-arrow.svg";
+const SVG_DOWN_ARROW = "/assets/svgs/down-arrow.svg";
 
 /* Gatsby route → static file mapping (visual no-op; keeps navigation working) */
 function mapPath(to) {
@@ -17,7 +17,7 @@ function mapPath(to) {
   if (to === "/" ) return "index.html";
   if ((m = to.match(/^\/services\/([^/]+)\/?$/))) return "service.html?slug=" + m[1];
   if ((m = to.match(/^\/work\/([^/]+)\/?$/))) return "case-study.html?slug=" + m[1];
-  if ((m = to.match(/^\/updates\/([^/]+)\/?$/))) return "update.html?slug=" + m[1];
+  if ((m = to.match(/^\/updates\/([^/]+)\/?$/))) return "/updates/" + m[1] + "/";
   if ((m = to.match(/^\/careers\/([^/]+)\/?$/))) return "career.html?slug=" + m[1];
   if ((m = to.match(/^\/([\w-]+)\/?$/))) return m[1] + ".html";
   return to;
@@ -217,7 +217,7 @@ function KoalendarSidebar() {
         <div className="koalendar-sidebar-header">
           <p>Contact</p>
           <button className="koalendar-close-btn" onClick={closeKoalendarSidebar}>
-            <img src="assets/images/close-button.svg" alt="Close Koalendar" />
+            <img src="/assets/images/close-button.svg" alt="Close Koalendar" />
           </button>
         </div>
         <div className="koalendar-sidebar-content">

@@ -34,19 +34,19 @@ function ShareButtons({ shareText = "Share this job posting" }) {
         <div className="row text-center share-networks-row">
           <div className="col-md-2 col-lg-2 d-flex justify-content-center">
             <a className="share-network" href={`mailto:?subject=${encodeURIComponent("Jobs at Sogody")}&body=${enc}`}>
-              <img src="assets/images/networks/email.svg" alt="Email" />
+              <img src="/assets/images/networks/email.svg" alt="Email" />
               <span className="subtitle p-0 green">Email</span>
             </a>
           </div>
           <div className="col-md-2 col-lg-2 d-flex justify-content-center">
             <a className="share-network" href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc}`} target="_blank" rel="noreferrer">
-              <img src="assets/images/networks/linkedin.svg" alt="LinkedIn" />
+              <img src="/assets/images/networks/linkedin.svg" alt="LinkedIn" />
               <span className="subtitle p-0 green">Share</span>
             </a>
           </div>
           <div className="col-md-2 col-lg-2 d-flex justify-content-center">
             <div className="share-network" onClick={copy} style={{ cursor: "pointer" }}>
-              <img className="share-link-img" src="assets/images/networks/share.svg" alt="Share link" />
+              <img className="share-link-img" src="/assets/images/networks/share.svg" alt="Share link" />
               <span className="subtitle p-0 green">{copied ? "Link copied" : "Share link"}</span>
             </div>
           </div>
@@ -96,7 +96,7 @@ function CareersApp() {
                                     {cr.location}{!cr.hideDate && cr.date && <span> - dl: {fmtDate(cr.date)}</span>}
                                   </p>
                                 </div>
-                                <img src="assets/svgs/Arrow.svg" alt="arrow" className="rotating-arrow-icon" />
+                                <img src="/assets/svgs/Arrow.svg" alt="arrow" className="rotating-arrow-icon" />
                               </div>
                             </div>
                           </div>

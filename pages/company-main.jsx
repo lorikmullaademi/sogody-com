@@ -14,7 +14,7 @@ const S = (f) => "https://cdn.sanity.io/images/3hfxs7a8/production/" + f;
 const CO_VIDEO = "https://files.sogody.co.uk/2025-07-21T11-20-44.200Z-Optimized_Sogody.mp4";
 const CO_YOUTUBE = "https://www.youtube.com/watch?v=YDI2BWHLsNQ";
 /* CEO photo. When Sanity is removed, save this asset to assets/images/ceo-lorik.webp
-   and set CO_CEO_IMG = "assets/images/ceo-lorik.webp". */
+   and set CO_CEO_IMG = "/assets/images/ceo-lorik.webp". */
 const CO_CEO_IMG = "https://cdn.sanity.io/images/3hfxs7a8/production/533c401f6ba32987e61aaff1b01e5c40589c48f4-1164x1544.webp";
 
 /* ---- Projects timeline content (sorted by year asc, mirrors carouselCard) ---- */
@@ -76,8 +76,8 @@ const CO_TST = [
   { name: "Casimir Rob", position: "Founder", company: "Every", image: S("52f3b8ed38e988ff68762d763e9d8e1adff3e901-122x126.webp"), text: "Very reliable partner\u2014responsive, structured, and a pleasure to work with. We truly enjoy collaborating with the Sogody team. Great things ahead! The quality of work is superb, and it\u2019s clear that experts are behind it." },
 ];
 
-const SVG_GREY = "assets/svgs/sogody-grey.svg";
-const SVG_GREEN = "assets/svgs/sogody-green.svg";
+const SVG_GREY = "/assets/svgs/sogody-grey.svg";
+const SVG_GREEN = "/assets/svgs/sogody-green.svg";
 
 /* ---- BannerCompany (1:1) ---- */
 function CoBanner() {
