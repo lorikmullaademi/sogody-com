@@ -153,11 +153,11 @@ const SERVICE_DETAIL = {
 
 /* ---------------- Nav ---------------- */
 const NAV = [
-  { key: "what we do", label: "What we do", to: "services.html", dropdown: true },
-  { key: "work", label: "Work", to: "work.html" },
-  { key: "updates", label: "Updates", to: "updates.html" },
-  { key: "careers", label: "Careers", to: "careers.html" },
-  { key: "company", label: "Company", to: "company.html" },
+  { key: "what we do", label: "What we do", to: "/services/", dropdown: true },
+  { key: "work", label: "Work", to: "/work/" },
+  { key: "updates", label: "Updates", to: "/updates/" },
+  { key: "careers", label: "Careers", to: "/careers/" },
+  { key: "company", label: "Company", to: "/company/" },
 ];
 
 /* ---------------- Client logos (live Sanity CDN) ---------------- */

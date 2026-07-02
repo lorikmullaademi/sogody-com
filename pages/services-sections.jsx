@@ -81,7 +81,7 @@ function SvServicesBanner() {
         <h2 className="text-black text-left mt-4 line-height-40">
           Empowering Growth with Tailored <span className="green-gradient">Digital Solutions</span>
         </h2>
-        <SvKoalendar showButton={true} className="contact-us-link button-padding" buttonText="Set up a meeting" href="/contact"></SvKoalendar>
+        <SvKoalendar showButton={true} className="contact-us-link button-padding" buttonText="Set up a meeting" href="/contact/"></SvKoalendar>
       </div>
     );
   }
@@ -106,7 +106,7 @@ function SvServicesBanner() {
             {servicesList.map((service, index) => (
               <a
                 key={index}
-                href={`service.html?slug=${service.href}`}
+                href={`/services/${service.href}/`}
                 className="service-item text-white py-1 px-2"
                 style={{
                   cursor: "pointer",
@@ -185,7 +185,7 @@ function SvServiceCategoryCard({ category }) {
     return () => clearInterval(interval);
   }, [category.techSlider]);
 
-  const goTo = () => { window.location.href = `service.html?slug=${category.slug}`; };
+  const goTo = () => { window.location.href = `/services/${category.slug}/`; };
   const activeTech = category.techSlider[activeTechIndex];
 
   return (

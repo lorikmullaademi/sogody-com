@@ -14,7 +14,7 @@ function ServicesDropdown({ showDropdown, services }) {
         <div aria-labelledby="collasible-nav-dropdown" className="dropdown-menu show">
           <div className="d-flex flex-row">
             <div className="d-flex flex-column dropdown-left-side dropdown-inner-styling">
-              <a href="services.html">
+              <a href="/services/">
                 <p className="header-service-title mb-2">
                   All Solutions
                   <span className="mini-arrow-container less-padding mr-2" style={{ display: "inline-block" }}>
@@ -71,8 +71,32 @@ function SrcHeader({ active = "" }) {
   const [sliderWidth, setSliderWidth] = useStateH(0);
   const [menuShow, setMenuShow] = useStateH(false);
   const [showDropdown, setShowDropdown] = useStateH(false);
+  const [showServices, setShowServices] = useStateH(false); /* mobile "what we do" drill-in */
   const [isMobile, setIsMobile] = useStateH(false);
   const [isAtTop, setIsAtTop] = useStateH(true);
+
+  /* Lock the page behind the floating mobile menu so the dimmed backdrop doesn't
+     scroll. Mirrors src/components/Header.js. */
+  const setBodyLock = (lock) => {
+    if (lock) {
+      const y = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${y}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.dataset.scrollY = String(y);
+    } else {
+      const y = document.body.dataset.scrollY || "0";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      window.scrollTo(0, parseInt(y, 10));
+    }
+  };
+  const openMenu = () => { setMenuShow(true); if (isMobile) setBodyLock(true); };
+  const closeMenu = () => { setMenuShow(false); setShowServices(false); if (isMobile) setBodyLock(false); };
+  const toggleMenu = () => { if (menuShow) closeMenu(); else openMenu(); };
 
   useEffectH(() => {
     const mq = window.matchMedia("(max-width: 1023px)");
@@ -116,15 +140,19 @@ function SrcHeader({ active = "" }) {
   const handleMouseLeave = () => setHoverPosition({ left: null, width: null });
 
   return (
+    <React.Fragment>
+    {isMobile && menuShow && (
+      <div className="mobile-nav-overlay scrollable-nav" onClick={closeMenu} />
+    )}
     <div className="header-wrapper fixed-top">
       <nav className={`test navbar navbar-expand-lg navbar-light ${!isMobile ? "bg-light" : ""} fixed-top`} onMouseLeave={() => { if (!isMobile) setShowDropdown(false); }}>
         <div className={`header-container ${!isMobile && isAtTop ? "pt-active" : "pt-inactive"} container`}>
           <div className={`logo-hamburger-div ${menuShow ? "logo-hamburger-div-opened" : "logo-hamburger-div-closed"}`}>
-            <a className="navbar-brand" href="index.html">
+            <a className="navbar-brand" href="/">
               <img width="130.77" height="40" src="/assets/images/logo_sogody.png" alt="Sogody logo" />
             </a>
             <div className="mobile-menu-box">
-              <button aria-controls="responsive-navbar-nav" type="button" aria-label="Toggle navigation" className={`p-0 m-0 navbar-toggler ${menuShow ? "" : "collapsed"}`} onClick={() => setMenuShow(!menuShow)}>
+              <button aria-controls="responsive-navbar-nav" type="button" aria-label="Toggle navigation" className={`p-0 m-0 navbar-toggler ${menuShow ? "" : "collapsed"}`} onClick={toggleMenu}>
                 <span className="navbar-toggler-icon"></span>
               </button>
             </div>
@@ -140,45 +168,74 @@ function SrcHeader({ active = "" }) {
                     transition: "left 0.3s ease, width 0.3s ease",
                   }}></div>
                   <div className="navbar-nav">
-                    {NAV_LINKS.map((link, index) => (
-                      <div
-                        key={link}
-                        ref={(el) => (itemRefs.current[index] = el)}
-                        onMouseMove={() => handleMouseMove(index)}
-                        onMouseLeave={handleMouseLeave}
-                        onMouseEnter={() => { if (!isMobile && index === 0) setShowDropdown(true); }}
-                        className={`nav-item-services nav-item${index === 0 && isMobile && showDropdown ? " mobile-services-open" : ""}`}
-                      >
-                        <a
-                          className={`nav-link nav-link-black ${active === link && index !== 0 ? "active" : ""}`}
-                          href={index === 0 ? "services.html" : hMap(`/${link}/`)}
-                          onClick={index === 0 && isMobile ? (e) => { e.preventDefault(); setShowDropdown((v) => !v); } : undefined}
-                          aria-expanded={index === 0 ? showDropdown : undefined}
+                    {NAV_LINKS.map((link, index) => {
+                      const isWhatWeDo = index === 0;
+                      /* On mobile, tapping "What we do" drills into the services
+                         sub-view: the other links hide and this item becomes "Go Back". */
+                      const drilled = isMobile && showServices;
+                      const itemClass = drilled && !isWhatWeDo
+                        ? "hidden-nav-link nav-item"
+                        : `nav-item-services nav-item${drilled && isWhatWeDo ? " mobile-goback" : ""}`;
+                      return (
+                        <div
+                          key={link}
+                          ref={(el) => (itemRefs.current[index] = el)}
+                          onMouseMove={() => handleMouseMove(index)}
+                          onMouseLeave={handleMouseLeave}
+                          onMouseEnter={() => { if (!isMobile && isWhatWeDo) setShowDropdown(true); }}
+                          className={itemClass}
                         >
-                          <span className="d-flex align-items-center">
-                            {index === 0 ? "What we do" : link.charAt(0).toUpperCase() + link.slice(1)}
-                          </span>
-                          {index === 0 && (
-                            <div className="mini-arrow-container">
-                              <span className="mini-arrow"><img src={H_ARROW} alt="Arrow Icon" /></span>
-                            </div>
-                          )}
-                        </a>
-                        {index === 0 && isMobile && showDropdown && (
-                          <div className="mobile-services-list">
-                            {services.map((service) => (
-                              <a
-                                key={service.slug}
-                                className={`mobile-service-link ${service.slug}`}
-                                href={hMap(`/services/${service.slug}/`)}
-                              >
-                                {service.title}
-                              </a>
-                            ))}
+                          <a
+                            className={`nav-link nav-link-black ${active === link && !isWhatWeDo ? "active" : ""}`}
+                            href={isWhatWeDo && isMobile ? "#" : isWhatWeDo ? "/services/" : hMap(`/${link}/`)}
+                            aria-expanded={isWhatWeDo ? (isMobile ? showServices : showDropdown) : undefined}
+                            onClick={(e) => {
+                              if (isWhatWeDo && isMobile) { e.preventDefault(); setShowServices((v) => !v); }
+                              else if (isMobile) { closeMenu(); }
+                            }}
+                          >
+                            <span className="d-flex align-items-center">
+                              {isWhatWeDo ? (drilled ? "Go Back" : "What we do") : link.charAt(0).toUpperCase() + link.slice(1)}
+                            </span>
+                            {isWhatWeDo && (
+                              <div className="mini-arrow-container">
+                                <span className={`mini-arrow ${isMobile && !showServices ? "navbar-arrow-rotation" : ""} ${drilled ? "rotated" : ""}`}>
+                                  <img src={H_ARROW} alt="Arrow Icon" />
+                                </span>
+                              </div>
+                            )}
+                          </a>
+                        </div>
+                      );
+                    })}
+
+                    {isMobile && showServices && (
+                      <div className="services-nav-items w-100 d-flex flex-column">
+                        {services.map((service) => (
+                          <div key={service.slug} className="service-item-nav nav-item">
+                            <a
+                              href={hMap(`/services/${service.slug}/`)}
+                              className="service-nav-link d-flex w-100 align-items-center"
+                              onClick={() => closeMenu()}
+                            >
+                              <img src={service.img} alt={service.title} className="service-nav-image" />
+                              <p className="nav-link nav-link-black my-0 pr-0">{service.title}</p>
+                              <div className="mini-arrow-container">
+                                <span className="mini-arrow navbar-arrow-rotation"><img src={H_ARROW} alt="Arrow Icon" /></span>
+                              </div>
+                            </a>
                           </div>
-                        )}
+                        ))}
+                        <a href="/services/" className="mobile-all-solutions" onClick={() => closeMenu()}>
+                          <p className="nav-link nav-link-black mb-0">
+                            All Solutions
+                            <span className="mini-arrow-container">
+                              <span className="mini-arrow navbar-arrow-rotation"><img src={H_ARROW} alt="Arrow Icon" /></span>
+                            </span>
+                          </p>
+                        </a>
                       </div>
-                    ))}
+                    )}
                   </div>
                 </div>
                 {isMobile && (
@@ -196,6 +253,7 @@ function SrcHeader({ active = "" }) {
         </div>
       </nav>
     </div>
+    </React.Fragment>
   );
 }
 

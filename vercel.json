@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/work/:slug/", "destination": "/case-study.html" },
+    { "source": "/work/:slug", "destination": "/case-study.html" },
+    { "source": "/services/:slug/", "destination": "/service.html" },
+    { "source": "/services/:slug", "destination": "/service.html" },
+    { "source": "/careers/:slug/", "destination": "/career.html" },
+    { "source": "/careers/:slug", "destination": "/career.html" }
+  ]
+}

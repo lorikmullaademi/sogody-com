@@ -225,23 +225,47 @@ function CoCeo() {
 /* ---- CompanyStaff (1:1, horizontal scroll) ---- */
 function CoStaff() {
   const ref = useRefCo(null);
+  const drag = useRefCo({ active: false, startX: 0, startLeft: 0 });
   const [prog, setProg] = useStateCo(0);
+  const [dragging, setDragging] = useStateCo(false);
   const scroll = (dir) => { const el = ref.current; if (!el) return; const card = el.querySelector(".employee-card"); const step = card ? (card.getBoundingClientRect().width + 20) : 240; el.scrollBy({ left: dir * step, behavior: "smooth" }); };
   const onScroll = () => { const el = ref.current; if (!el) return; const max = el.scrollWidth - el.clientWidth; setProg(max > 0 ? el.scrollLeft / max : 0); };
+  /* grab-and-pan the staff photos to scroll horizontally (mouse/trackpad drag);
+     touch keeps native swipe scrolling */
+  const onPointerDown = (e) => {
+    const el = ref.current; if (!el) return;
+    if (e.pointerType && e.pointerType !== "mouse") return;
+    drag.current = { active: true, startX: e.clientX, startLeft: el.scrollLeft };
+    setDragging(true);
+    el.style.scrollSnapType = "none"; /* free-pan immediately; snap re-enables on release */
+    if (el.setPointerCapture) { try { el.setPointerCapture(e.pointerId); } catch (_) {} }
+  };
+  const onPointerMove = (e) => {
+    const el = ref.current; if (!el || !drag.current.active) return;
+    el.scrollLeft = drag.current.startLeft - (e.clientX - drag.current.startX);
+  };
+  const endDrag = () => { const el = ref.current; if (!drag.current.active) return; drag.current.active = false; setDragging(false); if (el) el.style.scrollSnapType = ""; };
   return (
     <div className="sogody-staff">
-      <div className="d-flex">
-        <h2 className="scroll-show mb-5"><span className="staff-line">The Faces</span><span className="staff-line">of Sogody</span></h2>
-        <div className="swiper-nav-container">
-          <button className="swiper-button-prev" onClick={() => scroll(-1)}></button>
-          <button className="swiper-button-next" onClick={() => scroll(1)}></button>
-        </div>
+      <h2 className="scroll-show"><span className="staff-line">The Faces</span><span className="staff-line">of Sogody</span></h2>
+      <div className="swiper-nav-container">
+        <button className="swiper-button-prev" onClick={() => scroll(-1)} aria-label="Previous"></button>
+        <button className="swiper-button-next" onClick={() => scroll(1)} aria-label="Next"></button>
       </div>
-      <div className="co-staff-track" ref={ref} onScroll={onScroll}>
+      <div
+        className={`co-staff-track${dragging ? " dragging" : ""}`}
+        ref={ref}
+        onScroll={onScroll}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onPointerLeave={endDrag}
+      >
         {CO_STAFF.map((s, i) => (
           <div className="card employee-card" key={i}>
             <div className="card-body">
-              <img className="employee-img" src={S(s.i)} alt="Staff img" />
+              <img className="employee-img" src={S(s.i)} alt="Staff img" draggable={false} />
               <div className="card-text">
                 <p className="name">{s.n}</p>
                 {s.t && <p className="title">{s.t}</p>}

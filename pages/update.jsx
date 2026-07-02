@@ -14,7 +14,7 @@ function EditorialArticle({ up, next }) {
   return (
     <div className="up-article">
       <div className="ua-col ua-head">
-        <a className="ua-back" href="updates.html">
+        <a className="ua-back" href="/updates/">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
           All updates
         </a>

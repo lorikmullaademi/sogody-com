@@ -11,12 +11,12 @@ function SrcFooter() {
       <div className="footer-container">
         <div className="footer-top">
           <div className="footer-block">
-            <p className="title-white bolder-font"><a href="contact.html">General Enquiries</a></p>
-            <p className="title-white bolder-font"><a href="careers.html">Careers</a></p>
+            <p className="title-white bolder-font"><a href="/contact/">General Enquiries</a></p>
+            <p className="title-white bolder-font"><a href="/careers/">Careers</a></p>
           </div>
           <div className="footer-block">
-            <p className="title-gray"><a href="privacy.html">Privacy</a></p>
-            <p className="title-gray"><a href="terms.html">Terms</a></p>
+            <p className="title-gray"><a href="/privacy/">Privacy</a></p>
+            <p className="title-gray"><a href="/terms/">Terms</a></p>
           </div>
           <div className="footer-block">
             <p className="title-gray">+383 49 460 555</p>

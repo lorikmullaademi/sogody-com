@@ -61,7 +61,7 @@ function ModernCaseStudy({ cs, next }) {
   return (
     <div className="cs-modern">
       <div className="cs-wrap cs-crumb">
-        <a href="work.html"><CSChevL />Work / Case studies</a>
+        <a href="/work/"><CSChevL />Work / Case studies</a>
       </div>
 
       {/* hero */}
@@ -199,7 +199,7 @@ function ModernCaseStudy({ cs, next }) {
         <section className="cs-band cs-band--pad-sm cs-nextband">
           <div className="cs-wrap">
             <p className="cs-eyebrow">Keep exploring</p>
-            <a className="cs-nextcard" href={`case-study.html?slug=${next.slug}`}>
+            <a className="cs-nextcard" href={`/work/${next.slug}/`}>
               <div className="cs-nextcard-img" style={{ backgroundImage: `url(${next.img})` }}></div>
               <div className="cs-nextcard-body">
                 <p className="cs-nextcard-k">Next project</p>
@@ -249,7 +249,7 @@ function ClassicCaseStudy({ cs, next }) {
             {next ? (
               <div className="next-update-card">
                 <img className="next-img" src={next.img} alt={next.title} />
-                <CSExplore to={`case-study.html?slug=${next.slug}`} text="Next Project" />
+                <CSExplore to={`/work/${next.slug}/`} text="Next Project" />
               </div>
             ) : null}
           </div>

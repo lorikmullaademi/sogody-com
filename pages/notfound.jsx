@@ -14,8 +14,8 @@ function NotFoundApp() {
           <img className="logo-404" src={NF_IMG.notFound} alt="404" />
           <p className="bordered-title">It seems the page you’re looking for has been optimized out of existence</p>
           <div className="nf-buttons">
-            <a className="contact-us-link button-padding" href="index.html"><span className="c-us">Go to Homepage</span></a>
-            <a className="contact-us-link button-padding secondary-contact-us" href="contact.html"><span className="c-us">Contact Us</span></a>
+            <a className="contact-us-link button-padding" href="/"><span className="c-us">Go to Homepage</span></a>
+            <a className="contact-us-link button-padding secondary-contact-us" href="/contact/"><span className="c-us">Contact Us</span></a>
           </div>
         </div>
       </main>

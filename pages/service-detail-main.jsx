@@ -307,7 +307,8 @@ function SdBookMeet() {
 /* ---- Page composition ---- */
 function ServiceDetailApp() {
   const params = new URLSearchParams(window.location.search);
-  const slug = window.SD_SLUG || params.get("slug") || "technology-engineering";
+  const pathMatch = window.location.pathname.match(/^\/services\/([^\/]+)\/?$/);
+  const slug = window.SD_SLUG || params.get("slug") || (pathMatch && decodeURIComponent(pathMatch[1])) || "technology-engineering";
   const sd = SD_ALL[slug] || SD_ALL["technology-engineering"];
   document.title = sd.metaTitle;
 

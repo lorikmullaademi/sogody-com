@@ -34,7 +34,7 @@ function HomeCaseStudies() {
           <div className="our-cs-title"><h2>Explore Our Work</h2></div>
           <div className="our-cs-content">
             <p className="our-cs-description">Browse the type of work Sogody repeatedly does for brands and large multi-national enterprises, organizations and governments.</p>
-            <a href="work.html" className="explore-link green-hover" onMouseEnter={() => setHoveredIndex(0)} onMouseLeave={() => setHoveredIndex(null)}>
+            <a href="/work/" className="explore-link green-hover" onMouseEnter={() => setHoveredIndex(0)} onMouseLeave={() => setHoveredIndex(null)}>
               <span className="text-padding underlined">Explore Our Work</span>
               <span className="arrow-icon arrow-span-styling">
                 <img src={hoveredIndex === 0 ? P_GREEN : P_BLACK} alt="Arrow Icon" />
@@ -48,7 +48,7 @@ function HomeCaseStudies() {
           <div className="swiper-wrapper">
             {slides.map((cs, index) => (
               <div className="swiper-slide case-study-slide" key={cs.slug}>
-                <a href={`case-study.html?slug=${cs.slug}`} className="case-study-card-link"
+                <a href={`/work/${cs.slug}/`} className="case-study-card-link"
                   onMouseEnter={() => setHoveredIndex(index + 1)} onMouseLeave={() => setHoveredIndex(null)}>
                   <div className="case-study-card-item">
                     <div className="case-study-card-image">

@@ -10,16 +10,17 @@ const SVG_BLACK_ARROW = "/assets/svgs/black-arrow.svg";
 const SVG_WHITE_ARROW = "/assets/svgs/white-arrow.svg";
 const SVG_DOWN_ARROW = "/assets/svgs/down-arrow.svg";
 
-/* Gatsby route → static file mapping (visual no-op; keeps navigation working) */
+/* Gatsby route normalizer — canonical root-absolute URLs with trailing slash
+   (e.g. /work/, /work/<slug>/). Root-absolute so links resolve correctly from
+   nested pages like /updates/<slug>/; vercel.json rewrites map the detail
+   routes onto their .html templates. */
 function mapPath(to) {
   if (!to || to === "#") return "#";
+  if (/^(https?:|mailto:|tel:|#)/.test(to)) return to;
   let m;
-  if (to === "/" ) return "index.html";
-  if ((m = to.match(/^\/services\/([^/]+)\/?$/))) return "service.html?slug=" + m[1];
-  if ((m = to.match(/^\/work\/([^/]+)\/?$/))) return "case-study.html?slug=" + m[1];
-  if ((m = to.match(/^\/updates\/([^/]+)\/?$/))) return "/updates/" + m[1] + "/";
-  if ((m = to.match(/^\/careers\/([^/]+)\/?$/))) return "career.html?slug=" + m[1];
-  if ((m = to.match(/^\/([\w-]+)\/?$/))) return m[1] + ".html";
+  if (to === "/") return "/";
+  if ((m = to.match(/^\/(services|work|updates|careers)\/([^/?#]+)\/?$/))) return `/${m[1]}/${m[2]}/`;
+  if ((m = to.match(/^\/([\w-]+)\/?$/))) return `/${m[1]}/`;
   return to;
 }
 

@@ -23,7 +23,7 @@ function MainBanner() {
           <InitKoalendar className="contact-us-link padding mob-width hover-state button-padding" showButton={true}>
             Schedule a Strategy Call
           </InitKoalendar>
-          <ExploreLink to="/work" text="Explore Our Work" />
+          <ExploreLink to="/work/" text="Explore Our Work" />
         </div>
       </div>
       <div className="container-mainbanner banner-carousel-div">
@@ -66,7 +66,7 @@ function HomeServices() {
           <div className="services-desktop-cards">
             {SERVICES.slice(0, 3).map((service) => (
               <div className="service-col" key={service.slug} onMouseEnter={() => setHoveredService(service.slug)} onMouseLeave={() => setHoveredService(null)}>
-                <a href={`service.html?slug=${service.slug}`}>
+                <a href={`/services/${service.slug}/`}>
                   <div className={`service-box ${service.slug} jumbotron`}>
                     <div className="service-content">
                       <div className="service-img">

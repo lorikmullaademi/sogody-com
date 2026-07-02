@@ -30,17 +30,30 @@ http
     let urlPath = decodeURIComponent(req.url.split("?")[0]);
     if (urlPath === "/") urlPath = "/index.html";
 
-    // Pretty URLs (e.g. /updates/some-slug/ or /updates/some-slug): fall back to
-    // <path>/index.html for extensionless requests, so real per-article folders work.
+    // Mirror the production vercel.json URL structure:
+    //  - cleanUrls: /work and /work/ serve work.html
+    //  - real folders: /updates/<slug>/ serves updates/<slug>/index.html
+    //  - rewrites: /work/<slug> → case-study.html, /services/<slug> → service.html,
+    //    /careers/<slug> → career.html (templates read the slug from the path)
     const candidates = [urlPath];
     if (!path.extname(urlPath)) {
+      const bare = urlPath.replace(/\/+$/, "");
+      if (bare) candidates.push(bare + ".html");
       candidates.push(path.join(urlPath, "index.html"));
+      const m = urlPath.match(/^\/(work|services|careers)\/[^/]+\/?$/);
+      if (m) {
+        const template = { work: "/case-study.html", services: "/service.html", careers: "/career.html" }[m[1]];
+        candidates.push(template);
+      }
     }
 
     const tryNext = (i) => {
       if (i >= candidates.length) {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        return res.end("Not found");
+        fs.readFile(path.join(ROOT, "404.html"), (err, data) => {
+          res.writeHead(404, { "Content-Type": err ? "text/plain" : "text/html; charset=utf-8" });
+          res.end(err ? "Not found" : data);
+        });
+        return;
       }
       const filePath = path.join(ROOT, candidates[i]);
       if (!filePath.startsWith(ROOT)) {

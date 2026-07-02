@@ -34,7 +34,7 @@ function WorkBanner({ title, subtitle, bgImage, buttonText = "Schedule an Audit 
 }
 
 /* ---- CaseStudiesLoad (1:1 src/components/CaseStudiesLoad.js, desktop grid) ---- */
-function WorkCaseStudies({ caseStudies, linkPrefix = "case-study.html" }) {
+function WorkCaseStudies({ caseStudies, linkPrefix = "/work" }) {
   const [hovered, setHovered] = useStateW({});
   const [selected, setSelected] = useStateW("all");
   const [visible, setVisible] = useStateW(8);
@@ -64,7 +64,7 @@ function WorkCaseStudies({ caseStudies, linkPrefix = "case-study.html" }) {
       <div className="row justify-content-start">
         {rows.map((item, index) => (
           <div key={item.slug} className="col-12 col-md-4 col-lg-3 cs-column load-column-height">
-            <a href={`${linkPrefix}?slug=${item.slug}`} className="d-block h-100">
+            <a href={`${linkPrefix}/${item.slug}/`} className="d-block h-100">
               <div
                 className={`${item.slug} active-cs-link h-100 card`}
                 onMouseEnter={() => setHovered((p) => ({ ...p, [index]: true }))}
@@ -137,7 +137,7 @@ function WorkApp() {
           bgImage={W_IMG.workBanner}
         />
         <div className="container-mainbanner updates2">
-          <WorkCaseStudies caseStudies={W_CS} linkPrefix="case-study.html" />
+          <WorkCaseStudies caseStudies={W_CS} linkPrefix="/work" />
         </div>
         <WorkBookMeet />
       </div>

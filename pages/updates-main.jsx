@@ -12,7 +12,7 @@ const { useState: useStateU, useEffect: useEffectU } = React;
 window.SOGODY_ACTIVE_NAV = "updates";
 
 /* ---- BannerWork (1:1 src/components/BannerWork.js) ---- */
-function UpdatesBanner({ title, subtitle, bgImage, buttonText = "Schedule an Audit Call" }) {
+function UpdatesBanner({ title, subtitle, bgImage, buttonText = "Meet with Us" }) {
   return (
     <div className="container-mainbanner">
       <div

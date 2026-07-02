@@ -286,6 +286,12 @@
 .contact-us-link {
   font-size: 16px !important;
 }
+/* Keep pill CTAs (e.g. "Schedule an Audit Call") on a single line on mobile by
+   preventing wrap and nudging the font down a touch. */
+.contact-us-link.button-padding {
+  font-size: 15px !important;
+  white-space: nowrap;
+}
 }
 
 /* ===== components/buttoncomponent.scss ===== */
@@ -978,7 +984,7 @@ body {
   font-weight: 400;
   display: flex;
   flex-direction: column;
-  line-height: 1;
+  line-height: 1.15;
   margin-bottom: 20px;
   padding: 0;
 }
@@ -1922,6 +1928,12 @@ body {
   margin-top: 160px;
 }
 }
+@media (max-width: 767px) {
+.contact-page {
+  margin-top: 84px;
+  padding-top: 24px;
+}
+}
 .contact-page .title-wrapper .carousel-title {
   margin-bottom: 20px;
 }
@@ -2025,28 +2037,89 @@ body {
 }
 }
 
-/* ── Mobile "What we do" expandable services list (SrcHeader) ───────────── */
+/* ── Mobile "What we do" drill-in (SrcHeader) ──────────────────────────── */
 .header-wrapper .nav-item-services .mini-arrow-container {
   transition: transform 0.25s ease;
 }
-.header-wrapper .nav-item-services.mobile-services-open .mini-arrow-container {
-  transform: rotate(180deg);
-}
-.header-wrapper .mobile-services-list {
-  display: flex;
-  flex-direction: column;
-  padding: 2px 0 10px 16px;
-  margin-top: 2px;
-}
-.header-wrapper .mobile-services-list .mobile-service-link {
-  font-family: "HelveticaNeueLT Pro 55 Roman", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.3;
-  color: #6a6a6a;
-  padding: 9px 0;
-  text-decoration: none;
-}
-.header-wrapper .mobile-services-list .mobile-service-link:hover,
-.header-wrapper .mobile-services-list .mobile-service-link:focus {
-  color: #2b2b2b;
+
+/* Mobile open menu — dimmed page + floating white panels.
+   The page behind stays visible under a translucent scrim (.mobile-nav-overlay,
+   rendered by SrcHeader), and the header pill + the menu list each float as their
+   own rounded white card — matching the production Sogody mobile menu. */
+@media (max-width: 1023px) {
+  .header-wrapper .mobile-nav-overlay {
+    background: rgba(16, 16, 30, 0.45);
+  }
+  /* Header pill stays a rounded white card when open (no full-bleed takeover). */
+  .header-wrapper .logo-hamburger-div.logo-hamburger-div-opened {
+    background: #ffffff !important;
+  }
+  /* Menu list = floating rounded white card below the pill, sized to its content. */
+  .header-wrapper .navbar-collapse.show {
+    height: auto !important;
+    max-height: calc(100dvh - 96px);
+    overflow-y: auto;
+    background: #ffffff;
+    margin: 8px 16px 0;
+    border-radius: 16px;
+    padding: 10px 12px 16px;
+    box-shadow: 0 18px 40px rgba(16, 16, 30, 0.12);
+  }
+  .header-wrapper .navbar-collapse.show .mobile-nav-content,
+  .header-wrapper .navbar-collapse.show .drop-main {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Larger, easier tap target for the services caret; negative margins keep layout. */
+  .header-wrapper .nav-item-services .mini-arrow-container {
+    padding: 6px 8px;
+    margin: -6px -8px -6px 2px;
+  }
+
+  /* Right-pointing chevron for the drill-in affordances (base asset points down). */
+  .header-wrapper .mini-arrow.navbar-arrow-rotation img { transform: rotate(-90deg) !important; }
+  .header-wrapper .mini-arrow.rotated img { transform: rotate(-90deg) !important; width: 9px !important; }
+
+  /* ── "What we do" drill-in ─────────────────────────────────────────────── */
+  .header-wrapper .hidden-nav-link { display: none !important; }
+
+  /* "Go Back" row — borderless green header at the top of the services view. */
+  .header-wrapper .nav-item.mobile-goback {
+    border: none !important;
+    padding: 8px 8px 4px !important;
+  }
+  .header-wrapper .nav-item.mobile-goback .nav-link,
+  .header-wrapper .nav-item.mobile-goback .nav-link .mini-arrow img { color: #67be83 !important; }
+
+  .header-wrapper .services-nav-items { gap: 8px; margin-top: 4px; }
+
+  /* Service cards — thumbnail + title + chevron inside the standard nav-item box. */
+  .header-wrapper .service-item-nav.nav-item { padding: 8px !important; }
+  .header-wrapper .service-nav-link { text-decoration: none; gap: 12px; }
+  .header-wrapper .service-nav-link .service-nav-image {
+    width: 48px !important;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 10px !important;
+    flex: 0 0 auto;
+  }
+  .header-wrapper .service-nav-link p {
+    flex: 1 1 auto;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #2b2b2b;
+  }
+  .header-wrapper .service-nav-link .mini-arrow-container { margin-left: auto; flex: 0 0 auto; }
+
+  /* "All Solutions" — borderless closing row. */
+  .header-wrapper .mobile-all-solutions { text-decoration: none; display: block; margin-top: 4px; }
+  .header-wrapper .mobile-all-solutions .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 8px 4px;
+    color: #2b2b2b;
+  }
 }

@@ -7,13 +7,16 @@ const { useState: usePK, useEffect: useEffectPK } = React;
 const { ExploreLink: PKExplore, CircularButton: PKCircle, ContactButton: PKBtn, ClientsCarousel: PKCarousel } = window.SogodyKit;
 const { BOOKING_URL: PK_BOOKING, CLIENT_LOGOS: PK_LOGOS } = window.SogodyData;
 
-/* slug param helper for templates — prefers a slug baked into the page
-   (window.SD_UPDATE_SLUG, set by /updates/<slug>/index.html) over the legacy
-   ?slug= query string, so real per-article URLs work without a query param. */
+/* slug helper for templates — prefers a slug baked into the page
+   (window.SD_UPDATE_SLUG, set by /updates/<slug>/index.html), then the legacy
+   ?slug= query string, then the pretty path (/work/<slug>/, /careers/<slug>/,
+   /services/<slug>/ — served by vercel.json rewrites onto the templates). */
 function getSlug() {
   if (typeof window !== "undefined" && window.SD_UPDATE_SLUG) return window.SD_UPDATE_SLUG;
   const p = new URLSearchParams(window.location.search);
-  return p.get("slug") || "";
+  if (p.get("slug")) return p.get("slug");
+  const m = window.location.pathname.match(/^\/(?:work|updates|careers|services)\/([^/]+)\/?$/);
+  return m ? decodeURIComponent(m[1]) : "";
 }
 
 /* ---------- BannerWork: full-bleed hero used by Work & Updates ---------- */

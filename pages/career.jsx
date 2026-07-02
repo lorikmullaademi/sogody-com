@@ -52,14 +52,15 @@ function ApplyForm({ position }) {
 
 function CareerApp() {
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug") || (CR_JOBS[0] && CR_JOBS[0].slug);
+  const pathMatch = window.location.pathname.match(/^\/careers\/([^\/]+)\/?$/);
+  const slug = params.get("slug") || (pathMatch && decodeURIComponent(pathMatch[1])) || (CR_JOBS[0] && CR_JOBS[0].slug);
   const job = CR_JOBS.find((j) => j.slug === slug) || CR_JOBS[0];
 
   if (!job) {
     return (
       <div className="layout-container">
         <CRHeader active="careers" /><CRModal />
-        <main><div className="careers-positions"><h2 className="title">Position not found</h2><a className="green" href="careers.html">Back to careers</a></div></main>
+        <main><div className="careers-positions"><h2 className="title">Position not found</h2><a className="green" href="/careers/">Back to careers</a></div></main>
         <CRFooter />
       </div>
     );

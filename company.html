@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About us / Who we are | Company | Sogody</title>
 <meta name="description" content="Sogody is a digital engineering company focused on building high-performing platforms for global brands.">
-<link rel="icon" href="assets/logos/icon-green.png">
-<link rel="stylesheet" href="assets/bootstrap.min.css">
-<link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="styles/main-compiled.css">
-<link rel="stylesheet" href="styles/components-compiled.css">
+<link rel="icon" href="/assets/logos/icon-green.png">
+<link rel="stylesheet" href="/assets/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/styles/main-compiled.css">
+<link rel="stylesheet" href="/styles/components-compiled.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
@@ -55,38 +55,62 @@
 /* nav arrows above the card, right-aligned */
 .projects .swiper-nav-container { display: flex; align-items: flex-end; width: 100%; justify-content: flex-end; gap: 0; margin: 58px 0 -28px; position: relative; z-index: 2; }
 .projects .carousel-container .carousel-card { margin-top: 3px; }
-.projects .swiper-button-prev, .projects .swiper-button-next { position: static; width: 36px; height: 36px; min-height: 36px; padding: 0 !important; margin: 0; transform: none !important; border-radius: 0 !important; background-color: transparent; background-repeat: no-repeat; background-position: center; background-size: 34px 34px; border: none; cursor: pointer; }
-.projects .swiper-button-prev::before, .projects .swiper-button-next::before, .projects .swiper-button-prev::after, .projects .swiper-button-next::after { content: none !important; display: none !important; }
-.projects .swiper-button-next { margin-left: 8px; }
-.projects .swiper-button-prev { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='15%2018%209%2012%2015%206'/%3E%3C/svg%3E") !important; }
-.projects .swiper-button-next { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='9%2018%2015%2012%209%206'/%3E%3C/svg%3E") !important; }
-.projects .swiper-button-prev { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='15%2018%209%2012%2015%206'/%3E%3C/svg%3E"); }
-.projects .swiper-button-next { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='9%2018%2015%2012%209%206'/%3E%3C/svg%3E"); }
+/* Chevron arrows — shared by the Projects ("through the years") and Faces of Sogody
+   carousels so the two are 100% identical. Circular at all times (transparent at
+   rest) so the hover fill never flashes a square corner. */
+.projects .swiper-button-prev, .projects .swiper-button-next,
+.sogody-staff .swiper-button-prev, .sogody-staff .swiper-button-next {
+  position: static; width: 36px; height: 36px; min-height: 36px; padding: 0 !important; margin: 0;
+  transform: none !important; border-radius: 50% !important; border: none;
+  background-color: transparent; background-repeat: no-repeat; background-position: center; background-size: 34px 34px;
+  cursor: pointer; transition: background-color 0.25s ease, background-size 0.2s ease, transform 0.2s ease;
+}
+.projects .swiper-button-prev::before, .projects .swiper-button-next::before,
+.projects .swiper-button-prev::after, .projects .swiper-button-next::after,
+.sogody-staff .swiper-button-prev::before, .sogody-staff .swiper-button-next::before,
+.sogody-staff .swiper-button-prev::after, .sogody-staff .swiper-button-next::after { content: none !important; display: none !important; }
+.projects .swiper-button-next, .sogody-staff .swiper-button-next { margin-left: 8px; }
+.projects .swiper-button-prev, .sogody-staff .swiper-button-prev { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='15%2018%209%2012%2015%206'/%3E%3C/svg%3E") !important; }
+.projects .swiper-button-next, .sogody-staff .swiper-button-next { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2367be83'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='9%2018%2015%2012%209%206'/%3E%3C/svg%3E") !important; }
+/* Hover: green disc + white chevron (stays a circle throughout — no square flash) */
+.projects .swiper-button-prev:hover, .projects .swiper-button-next:hover,
+.sogody-staff .swiper-button-prev:hover, .sogody-staff .swiper-button-next:hover {
+  background-color: #67be83 !important; background-size: 20px 20px !important; transform: scale(1.08) !important;
+}
+.projects .swiper-button-prev:hover, .sogody-staff .swiper-button-prev:hover { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='15%2018%209%2012%2015%206'/%3E%3C/svg%3E") !important; }
+.projects .swiper-button-next:hover, .sogody-staff .swiper-button-next:hover { background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpolyline%20points='9%2018%2015%2012%209%206'/%3E%3C/svg%3E") !important; }
+.projects .swiper-button-prev:active, .projects .swiper-button-next:active,
+.sogody-staff .swiper-button-prev:active, .sogody-staff .swiper-button-next:active { transform: scale(0.94) !important; }
 @media (max-width: 767px) {
   .projects .carousel-container .carousel-card { padding: 28px; }
   .projects .carousel-card .carousel-img { width: 100% !important; max-width: 100% !important; }
 }
 
 
-/* Staff — horizontal scroll row of employee cards */
-.co-staff-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 8px; }
+/* Staff — horizontal scroll row of employee cards (grab-and-drag to slide) */
+.co-staff-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 8px; cursor: grab; touch-action: pan-x; }
+.co-staff-track.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.co-staff-track img { -webkit-user-drag: none; user-select: none; }
 .co-staff-track::-webkit-scrollbar { display: none; }
 .co-staff-track .employee-card { flex: 0 0 calc((100% - 80px) / 5); scroll-snap-align: start; }
 .co-staff-track .employee-card .employee-img { border-radius: 20px; filter: grayscale(100%); object-fit: cover; aspect-ratio: 3 / 4; }
-.sogody-staff .swiper-nav-container { margin-left: auto; display: flex; gap: 12px; }
 .sogody-staff h2 .staff-line { display: block; }
 .sogody-staff h2 { display: block; }
+.sogody-staff > h2.scroll-show { margin-bottom: 20px; }
+/* Chevron arrows — top-right, directly above the staff photos (mirrors Projects) */
+.sogody-staff .swiper-nav-container { display: flex; justify-content: flex-end; width: 100%; gap: 0; margin: 0 0 5px; position: relative; top: 0; z-index: 2; }
 /* Book-a-meeting CTA — keep button on one line, aligned right */
 .cta-meet .cta-meet-content-column:last-child { justify-content: flex-end; }
 .cta-meet .cta-meet-content .contact-us-link { white-space: nowrap; }
-/* Slider/progress line under the staff cards */
-.co-staff-progress { position: relative; height: 2px; margin: 12px auto 0; width: 55%; background: #e8e8e8; border-radius: 2px; overflow: hidden; }
-.co-staff-progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 100%; background: #67be83; border-radius: 2px; transform-origin: left center; transition: transform 0.2s ease; }
+/* Progress indicator — centered under the staff cards (reflects scroll; not draggable) */
+.co-staff-progress { position: relative; height: 4px; margin: 24px auto 0; width: 55%; background: #e8e8e8; border-radius: 4px; overflow: hidden; }
+.co-staff-progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 100%; background: #67be83; border-radius: 4px; transform-origin: left center; transition: transform 0.2s ease; pointer-events: none; }
 
 /* Testimonials — 2-up horizontal scroll */
 .co-tst-track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .co-tst-track::-webkit-scrollbar { display: none; }
-.co-tst-track .carousel-card { flex: 0 0 calc((100% - 14px) / 2); scroll-snap-align: start; }
+.co-tst-track .carousel-card { flex: 0 0 calc((100% - 14px) / 2); scroll-snap-align: start; justify-content: center; }
+.co-tst-track .carousel-card .card-content { width: 100%; align-items: center; }
 @media (max-width: 767px) {
   .co-gallery-track .slide-container { flex: 0 0 90%; }
   .co-gallery-track .content-box { height: 300px; }
@@ -100,10 +124,10 @@
 </head>
 <body>
   <div id="root"></div>
-  <script type="text/babel" src="components/data.jsx"></script>
-  <script type="text/babel" src="components/src-kit.jsx"></script>
-  <script type="text/babel" src="components/src-header.jsx"></script>
-  <script type="text/babel" src="components/src-shell.jsx"></script>
-  <script type="text/babel" src="pages/company-main.jsx"></script>
+  <script type="text/babel" src="/components/data.jsx"></script>
+  <script type="text/babel" src="/components/src-kit.jsx"></script>
+  <script type="text/babel" src="/components/src-header.jsx"></script>
+  <script type="text/babel" src="/components/src-shell.jsx"></script>
+  <script type="text/babel" src="/pages/company-main.jsx"></script>
 </body>
 </html>
